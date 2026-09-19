@@ -1,0 +1,13 @@
+conflicts:
+  - conflict_id: gearbox_401_layout_vs_gearbox_common
+    claim: "GEARBOX arbitration 0x191 packing may differ across Accord DBC years"
+    sources:
+      - title: "honda_accord_2018 generated DBC"
+        url: "https://github.com/commaai/opendbc"
+        claim: "Accord 2018 DBC family includes GEARBOX messages"
+      - title: "_gearbox_common.dbc"
+        url: "https://github.com/commaai/opendbc/blob/master/opendbc/dbc/generator/honda/_gearbox_common.dbc"
+        claim: "Alternate CVT/AUTO gearbox layouts"
+    status: REQUIRES_REVIEW
+    resolution: none
+    notes: "Confirm GEARBOX vs GEARBOX_CVT/AUTO against Accord year DBC before encoding."

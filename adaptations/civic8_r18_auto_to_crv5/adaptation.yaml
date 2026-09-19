@@ -1,0 +1,48 @@
+adaptation_id: civic8_r18_auto_to_crv5
+source_vehicle: honda.civic.gen8.us.r18.auto
+source_platform: honda.civic.gen8.us
+target_cluster: honda.crv.gen5.cluster.digital
+target_platform: honda.crv.gen5.us
+mode: DOCUMENTATION_ONLY
+# NO duplicated CAN defs — reference protocol packages only.
+signals:
+  - signal: powertrain.engine_rpm
+    source_status: UNKNOWN
+    target_status: DOCUMENTED
+    translation: BLOCKED_SOURCE
+    readiness: BLOCKED_SOURCE
+    notes: Source Civic8 RPM encoding UNKNOWN; target vehicle-bus layout DOCUMENTED via opendbc (not PHYSICALLY_VERIFIED cluster RX).
+
+  - signal: vehicle.speed
+    source_status: UNKNOWN
+    target_status: DOCUMENTED
+    translation: BLOCKED_SOURCE
+    readiness: BLOCKED_SOURCE
+    notes: Source speed encoding UNKNOWN.
+
+  - signal: transmission.gear
+    source_status: UNKNOWN
+    target_status: DOCUMENTED
+    translation: blocked
+    readiness: REQUIRES_CAN_CAPTURE
+    notes: Source gear UNKNOWN; target GEARBOX ID DOCUMENTED but packing may vary.
+
+  - signal: fuel.level
+    source_status: UNKNOWN
+    target_status: UNKNOWN
+    translation: blocked
+    readiness: REQUIRES_CAN_CAPTURE
+
+  - signal: vehicle.ignition_state
+    source_status: UNKNOWN
+    target_status: UNKNOWN
+    translation: blocked
+    readiness: REQUIRES_BENCH_TEST
+
+physical_compatibility: NOT_VALIDATED
+electrical_compatibility: NOT_VALIDATED
+protocol_compatibility: PARTIAL
+status: PARTIAL
+blockers:
+  - Civic8 source encodings UNKNOWN (no invented byte layouts).
+  - Target cluster RX requirements not PHYSICALLY_VERIFIED.

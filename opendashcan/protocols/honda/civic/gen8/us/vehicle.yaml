@@ -1,0 +1,28 @@
+platform_id: honda.civic.gen8.us
+manufacturer: honda
+model: civic
+generation: 8
+platform: FA/FG
+years:
+  start: 2006
+  end: 2011
+markets: [US, CA, EU, JP]
+engines: [R18, K20Z3, R16]
+transmissions: [manual, automatic]
+protocols: [CAN]
+roles: [source]
+aliases:
+  - honda_civic_8th_gen
+  - honda-civic8
+  - honda:civic:8
+  - honda:civic:8:r18:auto
+  - honda.civic.gen8.us.r18.auto
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - Reference adaptation source is US-market Civic with R18 + automatic (variant honda.civic.gen8.us.r18.auto).
+  - F-CAN / B-CAN bitrates documented from Honda service literature.
+  - AiM Civic_US and Racelogic 2005-2011 document OBD channel names only (no encodings).
+  - Speculative Autosport Labs arbitration IDs are COMMUNITY_REPORTED without encodings.
+  - No verified byte layouts for RPM/speed/fuel/gear on Civic 8 in this repository.

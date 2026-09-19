@@ -1,0 +1,22 @@
+# Civic10 integrity — vehicle-bus algorithm documented; cluster acceptance UNKNOWN
+algorithms:
+  - id: honda_nibble_v1
+    scope: vehicle_bus_2016_plus_opendbc
+    confidence: DOCUMENTED
+    cluster_acceptance: UNKNOWN
+    evidence:
+      source: commaai/opendbc opendbc/safety/modes/honda.h
+      notes: 4-bit nibble in low nibble of final payload byte
+  - id: honda_2bit_v1
+    scope: vehicle_bus_counter
+    confidence: DOCUMENTED
+    cluster_acceptance: UNKNOWN
+test_vectors:
+  # Only documented examples — do not invent universal checksums
+  - arbitration_id: "0x158"
+    description: Algorithm identity from opendbc honda_compute_checksum — not a captured cluster frame
+    provenance: opendbc_safety_honda
+    cluster_verified: false
+warning: >
+  No universal invented checksum. Cluster may require additional integrity —
+  UNKNOWN until bench.

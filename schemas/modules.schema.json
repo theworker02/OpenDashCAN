@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/modules.schema.json",
+  "title": "OpenDashCAN Module Definitions",
+  "type": "object",
+  "required": ["modules"],
+  "additionalProperties": true,
+  "properties": {
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["module_id"],
+        "additionalProperties": true,
+        "properties": {
+          "module_id": { "type": "string" },
+          "display_name": { "type": "string" },
+          "bus": { "type": ["string", "null"] },
+          "role": { "type": ["string", "null"] },
+          "confidence": { "type": "string" },
+          "evidence": { "type": "array" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+signals:
+  - signal: powertrain.engine_rpm
+    message:
+      arbitration_id: "0x158"
+      bus: vehicle_can
+      name: ENGINE_DATA
+      dlc: 8
+    encoding:
+      start_bit: 23
+      length: 16
+      byte_order: motorola
+      signed: false
+      scale: 1
+      offset: 0
+      unit: rpm
+    transport:
+      period_ms: UNKNOWN
+    integrity:
+      counter:
+        type: honda_2bit_v1
+      checksum:
+        type: honda_nibble_v1
+    source_module: pcm
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_crv5]
+    physical_validation: false
+    notes: Vehicle-bus layout from opendbc. Cluster display need INFERRED — not bench-verified.
+
+  - signal: vehicle.speed
+    message:
+      arbitration_id: "0x309"
+      bus: vehicle_can
+      name: CAR_SPEED
+      dlc: 8
+    encoding:
+      start_bit: 7
+      length: 16
+      byte_order: motorola
+      signed: false
+      scale: 0.01
+      offset: 0
+      unit: kph
+    transport:
+      period_ms: UNKNOWN
+    integrity:
+      counter:
+        type: honda_2bit_v1
+      checksum:
+        type: honda_nibble_v1
+    source_module: pcm
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_crv5]
+    physical_validation: false
+    notes: Also XMISSION_SPEED on ENGINE_DATA 0x158. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - signal: transmission.gear
+    message:
+      arbitration_id: "0x191"
+      bus: vehicle_can
+      name: GEARBOX
+      dlc: 8
+    encoding:
+      start_bit: UNKNOWN
+      length: UNKNOWN
+      byte_order: motorola
+      signed: false
+      scale: UNKNOWN
+      offset: UNKNOWN
+      unit: null
+    transport:
+      period_ms: UNKNOWN
+    source_module: pcm
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_crv5]
+    physical_validation: false
+    notes: Message ID DOCUMENTED in opendbc; field packing varies by DBC year — partial.
+
+  - signal: fuel.level
+    message:
+      arbitration_id: UNKNOWN
+      bus: UNKNOWN
+    encoding:
+      unit: percent
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: powertrain.coolant_temperature
+    message:
+      arbitration_id: UNKNOWN
+      bus: vehicle_can
+    encoding:
+      unit: C
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: vehicle.ignition_state
+    message:
+      arbitration_id: UNKNOWN
+      bus: UNKNOWN
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+    notes: Cluster startup / ignition sequencing UNKNOWN pending bench captures.

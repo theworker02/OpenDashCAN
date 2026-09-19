@@ -1,0 +1,15 @@
+name: Documentation
+description: Docs fix or improvement
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page / path
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change?
+    validations:
+      required: true

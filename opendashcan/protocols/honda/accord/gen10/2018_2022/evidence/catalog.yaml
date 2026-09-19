@@ -1,0 +1,13 @@
+evidence:
+  - evidence_id: ev_opendbc_accord10
+    source_type: OPEN_SOURCE_CODE
+    source_url: "https://github.com/commaai/opendbc"
+    title: "commaai/opendbc Honda Accord DBC (MIT)"
+    claim: "Accord DBCs in opendbc document ENGINE_DATA 0x158 and related powertrain messages."
+    confidence: DOCUMENTED
+    license: MIT
+    vehicle: honda.accord.gen10.us
+    bus: vehicle_can
+    notes: >
+      Vehicle-bus message IDs/layouts from opendbc. Emitting these frames does NOT
+      claim physical donor-cluster compatibility. Cluster bring-up remains UNKNOWN.

@@ -1,0 +1,3 @@
+# No arbitration IDs promoted for Civic gen7.
+# OBD access is ISO 9141-2 / K-line; no public gen7 Honda F-CAN DBC in this repo.
+messages: []

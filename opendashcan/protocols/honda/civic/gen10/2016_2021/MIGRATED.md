@@ -1,0 +1,1 @@
+# Migrated\n\nCanonical package is now civic/gen10/us (platform honda.civic.gen10.us).\nThis year-range folder is kept for history; loader prefers us/ when both exist.\n

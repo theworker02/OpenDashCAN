@@ -1,0 +1,23 @@
+platform_id: honda.fit.gen3.us
+manufacturer: honda
+model: fit
+generation: 3
+platform: GK
+years:
+  start: 2015
+  end: 2020
+markets: []
+engines: []
+transmissions: []
+protocols:
+- CAN
+roles:
+- source
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+- RESEARCH_REQUIRED stub. CAN IDs and encodings intentionally UNKNOWN.
+- Do not invent message layouts. Populate only with cited evidence.
+- opendbc vehicle-bus layouts imported as VEHICLE_PROTOCOL_DOCUMENTED from honda_fit_ex_2018_can_generated.dbc.
+  Cluster RX NOT PHYSICALLY_VERIFIED.

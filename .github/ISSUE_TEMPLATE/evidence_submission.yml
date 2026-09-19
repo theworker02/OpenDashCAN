@@ -1,0 +1,178 @@
+name: Verified evidence submission
+description: Submit verified CAN / cluster evidence (not guesses). Prefer this over inventing IDs or encodings.
+title: "[evidence] "
+labels: ["evidence-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep OpenDashCAN honest. **Do not invent** arbitration IDs, bit layouts, scales, checksums, or pinouts.
+
+        Read [docs/submitting-evidence.md](https://github.com/theworker02/OpenDashCAN/blob/main/docs/submitting-evidence.md) and [docs/evidence-policy.md](https://github.com/theworker02/OpenDashCAN/blob/main/docs/evidence-policy.md) before filing.
+
+        - DBC / vehicle-bus documentation ≠ cluster RX confirmation.
+        - Leave encoding fields blank when unknown — unknown stays unknown.
+        - For raw capture file links only, you may also use the [Capture submission](https://github.com/theworker02/OpenDashCAN/issues/new?template=capture_submission.yml) form.
+
+  - type: dropdown
+    id: submission_type
+    attributes:
+      label: Submission type
+      description: What kind of claim are you reporting?
+      options:
+        - vehicle protocol (DBC / public vehicle-bus documentation)
+        - cluster RX (cluster observed to consume / react to message)
+        - timing (period, timeout, jitter on the wire)
+        - integrity (checksum / counter / rolling code confirmed)
+        - startup (ignition / wake / gateway sequence)
+        - capture (log + manifest; link files separately)
+        - other
+    validations:
+      required: true
+
+  - type: input
+    id: vehicle
+    attributes:
+      label: Vehicle / year / trim / market
+      description: Be specific (e.g. 2018 Honda Civic Sport Hatch USDM, or 2009 Civic EX sedan FA5 US).
+      placeholder: 2018 Civic Sport Hatch — US
+    validations:
+      required: true
+
+  - type: input
+    id: cluster_part
+    attributes:
+      label: Cluster part number (if known)
+      description: OEM part number, sticker photo link, or "unknown".
+      placeholder: unknown
+
+  - type: dropdown
+    id: bus
+    attributes:
+      label: Bus
+      options:
+        - F-CAN
+        - B-CAN
+        - OBD
+        - other / unknown
+    validations:
+      required: true
+
+  - type: input
+    id: bus_detail
+    attributes:
+      label: Bus detail (bitrate / connector / other name)
+      description: Optional. e.g. 500 kbps, OBD-II pin 6/14, or custom bus name.
+      placeholder: 500 kbps
+
+  - type: textarea
+    id: arbitration_ids
+    attributes:
+      label: Arbitration ID(s)
+      description: Hex preferred (e.g. 0x158). List one per line if several. Only IDs you actually observed or can cite.
+      placeholder: |
+        0x158
+        0x17C
+    validations:
+      required: true
+
+  - type: textarea
+    id: message_signals
+    attributes:
+      label: Message name / signal names
+      description: As used in DBC, opendbc, or your notes. Leave signal names blank if unknown.
+      placeholder: |
+        ENGINE_DATA / ENGINE_RPM
+        POWERTRAIN_DATA / PEDAL_GAS
+
+  - type: textarea
+    id: encoding
+    attributes:
+      label: Encoding (optional — leave blank if unknown)
+      description: |
+        Start bit, length, endianness, scale, offset, units. Leave blank if unknown — do not guess.
+      placeholder: |
+        signal: ENGINE_RPM
+        start_bit: …
+        length: …
+        endianness: little / motorola
+        scale: …
+        offset: …
+        units: rpm
+
+  - type: dropdown
+    id: knowledge_level
+    attributes:
+      label: Knowledge level claimed
+      description: |
+        Map to OpenDashCAN DonorKnowledge. Maintainers will not auto-promote your claim.
+        VEHICLE_PROTOCOL_DOCUMENTED — public vehicle-bus / DBC layout; not proof the cluster RX's it.
+        CLUSTER_RELEVANT_SIGNAL_DOCUMENTED — vehicle-bus signal that clusters often need; still not RX-confirmed.
+        CLUSTER_RX_CONFIRMED — evidence the donor cluster consumes / displays this message.
+        CLUSTER_TIMING_CONFIRMED — period / timeout verified on the wire or bench.
+        CLUSTER_CHECKSUM_CONFIRMED — checksum / counter algorithm verified for cluster acceptance.
+        CLUSTER_STARTUP_CONFIRMED — wake / ignition / gateway sequence verified.
+        CLUSTER_ENVIRONMENT_COMPLETE — full cluster environment documented (rare; high bar).
+        BENCH_VERIFIED — bench or in-vehicle confirmation with cited capture/photos.
+        COMMUNITY_RESEARCH — forum / swap notes; useful leads, not confirmation.
+        UNKNOWN — you observed something but cannot classify it yet.
+      options:
+        - VEHICLE_PROTOCOL_DOCUMENTED
+        - CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+        - CLUSTER_RX_CONFIRMED
+        - CLUSTER_TIMING_CONFIRMED
+        - CLUSTER_CHECKSUM_CONFIRMED
+        - CLUSTER_STARTUP_CONFIRMED
+        - CLUSTER_ENVIRONMENT_COMPLETE
+        - BENCH_VERIFIED
+        - COMMUNITY_RESEARCH
+        - UNKNOWN
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence URLs / capture description
+      description: |
+        Links to captures, photos, public PRs, forum posts with date, or gist. Describe setup (tool, listen-only?, bus tap point). For captures see captures/README.md and schemas/capture_manifest.schema.json.
+      placeholder: |
+        - Capture URL / gist:
+        - Tool / interface:
+        - Tap point:
+        - Notes:
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: license
+    attributes:
+      label: License confirmation
+      description: You must be able to share what you submit. No proprietary OEM dumps or leaked service manuals.
+      options:
+        - label: I have the right to share this information (and any linked files) under terms compatible with this project (typically MIT for text/YAML; state license for captures).
+          required: true
+        - label: This submission does not include proprietary OEM dumps, leaked service manuals, or copyrighted material I am not allowed to redistribute.
+          required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Evidence checklist
+      options:
+        - label: I am not inventing IDs, scales, checksums, pinouts, or encodings.
+          required: true
+        - label: Arbitration IDs were verified by capture, public DBC citation, or documented bench observation (stated in Evidence above).
+          required: true
+        - label: I distinguish physical / bench observation from documentation-only (DBC ≠ CLUSTER_RX_CONFIRMED).
+          required: true
+        - label: Encoding fields left blank where unknown (unknown stays unknown).
+          required: true
+        - label: I read docs/submitting-evidence.md and docs/evidence-policy.md.
+          required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional notes
+      description: Optional caveats, related issues/PRs, or what you want maintainers to do next.

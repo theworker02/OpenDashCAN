@@ -1,0 +1,83 @@
+evidence:
+  - evidence_id: ev_civic7_obd_iso9141
+    source_type: COMMUNITY_RESEARCH
+    source_url: "https://www.civicforums.com/forums/183-6th-generation-civic-1996-2000/343107-obd-ii-protocol-99-civic.html"
+    title: Community confirmation of Honda Civic OBD ISO 9141 (adjacent era; pattern)
+    claim: >
+      Enthusiast reports for late-1990s / early-2000s US Civics identify OBD-II
+      as ISO 9141-2 (5-baud init, ~10.4 kbaud K-line). Used as supporting context
+      for gen7 emissions access — not a CAN encoding source.
+    confidence: COMMUNITY_REPORTED
+    license: unknown_community
+    vehicle: honda.civic.gen7.us
+    bus: obd_kline
+    notes: Adjacent-generation forum confirmation; gen7 pinout evidence below is stronger.
+
+  - evidence_id: ev_civic7_pinout_catalog
+    source_type: COMMERCIAL_DATASHEET
+    source_url: "https://pinoutguide.com/CarElectronics/honda_obd_2_pinout.shtml"
+    title: Honda OBD-II pinout catalog (PinoutGuide)
+    claim: >
+      Catalog lists Honda Civic model years through mid-2000s under ISO 9141-2 /
+      ISO 14230-4 (K-line on pin 7). CAN (J2284 pins 6/14) appears for later
+      Civic entries (~2006+). Treat as DOCUMENTED pin/protocol labeling, not
+      message encodings.
+    confidence: DOCUMENTED
+    license: proprietary_third_party_not_redistributed
+    vehicle: honda.civic.gen7.us
+    bus: obd_kline
+
+  - evidence_id: ev_civic7_community_precan
+    source_type: COMMUNITY_RESEARCH
+    source_url: "https://honda-tech.com/forums/honda-civic-2001-2005-78/honda-civic-2002-strange-obdii-pinout-3366115/"
+    title: Honda-Tech 7th-gen Civic OBD pinout / K-line discussion
+    claim: >
+      Community discussion for 2001–2005 Civic: generic OBD readers use K-line;
+      some posts describe MICU as a proprietary gateway path HDS can use beyond
+      generic emissions PIDs. Explicitly states generation largely pre-dates
+      OBD-CAN for emissions. No arbitration IDs or byte layouts provided.
+    confidence: COMMUNITY_REPORTED
+    license: unknown_community
+    vehicle: honda.civic.gen7.us
+    bus: obd_kline
+
+  - evidence_id: ev_civic7_negative_obd_can
+    source_type: RESEARCH_NOTE
+    source_url: null
+    title: Negative finding — no public Civic gen7 OBD-CAN / OpenDBC encodings
+    claim: >
+      OpenDashCAN has no vendored OpenDBC for Civic 2001–2005. AiM Civic CAN
+      stock-ECU PDFs in the donor catalog start at 2006–2011. No DOCUMENTED
+      gen7 F-CAN/B-CAN arbitration IDs or bit packing are asserted in this repo.
+    confidence: DOCUMENTED
+    license: project_research_note
+    vehicle: honda.civic.gen7.us
+    notes: Explicit negative finding. Absence of evidence is recorded, not filled with invention.
+
+  - evidence_id: ev_civic7_aim_absent
+    source_type: COMMERCIAL_DATASHEET
+    source_url: "https://support.aimshop.com/downloads/stockEcu/car/honda/Honda_Civic_2006-2011_100_eng.pdf"
+    title: AiM Infotech Honda Civic 2006–2011 (earliest Civic CAN sheet cited)
+    claim: >
+      AiM documents OBD-II CAN pins 6/14 for Civic 2006–2011. No AiM Civic CAN
+      datasheet for 2001–2005 is cited in this package — supports the gen7/gen8
+      diagnostic-bus transition narrative.
+    confidence: DOCUMENTED
+    license: proprietary_aim_not_redistributed
+    vehicle: honda.civic.gen7.us
+    notes: Cited as boundary evidence (what AiM covers), not as gen7 encodings.
+
+  - evidence_id: ev_civic7_racelogic_overlap_caveat
+    source_type: COMMERCIAL_DATASHEET
+    source_url: "https://www.racelogic.co.uk/_downloads/vbox/Vehicles/Other/Docs/Honda-Civic%202005-2011.pdf"
+    title: Racelogic Honda Civic 2005–2011 CAN PDF (year-overlap caveat)
+    claim: >
+      Racelogic documents OBD-II CAN at 500 kbps (pins 6/14) for a "Civic
+      2005–2011" product entry with channel names only. MY2005 overlaps the
+      end of gen7 calendars in some markets; this is NOT promoted as proof that
+      all US 2001–2004 gen7 vehicles expose OBD-CAN. Encodings UNKNOWN.
+    confidence: DOCUMENTED
+    license: proprietary_racelogic_not_redistributed
+    vehicle: honda.civic.gen7.us
+    bus: f_can
+    notes: Channel-name-only commercial source; year-range overlap requires per-VIN caution.

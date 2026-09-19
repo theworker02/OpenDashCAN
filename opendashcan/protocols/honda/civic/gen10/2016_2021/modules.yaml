@@ -1,0 +1,14 @@
+modules:
+  - module_id: pcm
+    display_name: Powertrain Control Module
+    bus: vehicle_can
+    role: powertrain
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+  - module_id: cluster
+    display_name: Instrument Cluster
+    bus: vehicle_can
+    role: cluster
+    confidence: INFERRED
+    evidence: [ev_opendbc_civic10]
+    notes: Cluster assumed RX of vehicle-bus PCM traffic — NOT PHYSICALLY_VERIFIED for donor swap.

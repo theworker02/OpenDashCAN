@@ -1,0 +1,18 @@
+{
+  "synthetic": true,
+  "warning": "SYNTHETIC fixture — NOT real vehicle traffic; payloads are opaque test bytes",
+  "frames": [
+    {
+      "timestamp": 0.0,
+      "arbitration_id": "0x194",
+      "data": "0000000000000000",
+      "meta": { "SYNTHETIC": "true" }
+    },
+    {
+      "timestamp": 0.1,
+      "arbitration_id": "0x494",
+      "data": "0011223344556677",
+      "meta": { "SYNTHETIC": "true" }
+    }
+  ]
+}

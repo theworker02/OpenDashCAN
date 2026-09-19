@@ -1,0 +1,69 @@
+evidence:
+  - evidence_id: ev_civic8_fcan_bitrate
+    source_type: OEM_DOCUMENTATION
+    source_url: null
+    title: Honda Civic 8th-gen service / wiring literature (F-CAN)
+    claim: F-CAN high-speed network operates at 500 kbps on 8th-gen Civic.
+    confidence: DOCUMENTED
+    license: proprietary_oem_docs_not_redistributed
+    vehicle: honda.civic.gen8.us
+    bus: f_can
+
+  - evidence_id: ev_civic8_bcan_bitrate
+    source_type: OEM_DOCUMENTATION
+    source_url: null
+    title: Honda Civic 8th-gen service literature (B-CAN)
+    claim: B-CAN body network operates at approximately 33.33 kbps.
+    confidence: DOCUMENTED
+    license: proprietary_oem_docs_not_redistributed
+    vehicle: honda.civic.gen8.us
+    bus: b_can
+
+  - evidence_id: ev_civic8_gauge_gateway
+    source_type: OEM_DOCUMENTATION
+    source_url: null
+    title: Honda service manuals — instrument cluster as F-CAN/B-CAN gateway
+    claim: Gauge/cluster participates as gateway between F-CAN and B-CAN.
+    confidence: DOCUMENTED
+    license: proprietary_oem_docs_not_redistributed
+    vehicle: honda.civic.gen8.us
+
+  - evidence_id: ev_civic8_autosport_ids
+    source_type: COMMUNITY_RESEARCH
+    source_url: null
+    title: Autosport Labs / community forum speculation for 8th-gen Civic CAN IDs
+    claim: Arbitration IDs 0x194 / 0x494 / 0x694 reported without verified byte layouts.
+    confidence: COMMUNITY_REPORTED
+    license: unknown_community
+    vehicle: honda.civic.gen8.us
+    notes: Tracked as COMMUNITY_REPORTED messages only — encodings remain UNKNOWN.
+
+  - evidence_id: ev_civic8_aim
+    source_type: COMMERCIAL_DATASHEET
+    source_url: "https://support.aimshop.com/downloads/stockEcu/car/honda/Honda_CivicUSA_2006-2011_104_eng.pdf"
+    title: AiM InfoTech Honda Civic US 2006-2011 (Civic_US protocol) release 1.04
+    claim: >
+      OBD-II CAN on pins 6/14 exposes named channels (RPM, SpeedVeh, wheel speeds,
+      WaterTemp, IntakeAirTemp, MAP, brake-related channels). Does NOT publish
+      arbitration IDs or byte layouts.
+    confidence: DOCUMENTED
+    license: proprietary_aim_not_redistributed
+    vehicle: honda.civic.gen8.us
+    bus: f_can
+    notes: >
+      Channel-name availability only. Encodings UNKNOWN. AiM Race Studio template
+      "Honda / Civic_US". Not all listed channels validated for every variant.
+
+  - evidence_id: ev_civic8_racelogic
+    source_type: COMMERCIAL_DATASHEET
+    source_url: "https://www.racelogic.co.uk/_downloads/vbox/Vehicles/Other/Docs/Honda-Civic%202005-2011.pdf"
+    title: Racelogic Vehicle CAN Database — Honda Civic 2005-2011
+    claim: >
+      OBD-II CAN at 500 kbps (pins 6/14). Public channel names include Indicated
+      Vehicle Speed, Wheel Speed 1/2/3, Yaw Rate. No arbitration IDs or bit packing
+      published in the PDF datasheet.
+    confidence: DOCUMENTED
+    license: proprietary_racelogic_not_redistributed
+    vehicle: honda.civic.gen8.us
+    bus: f_can
+    notes: Channel names only. .REF binary not reverse-engineered into this repo.

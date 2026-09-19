@@ -1,0 +1,15 @@
+buses:
+  - id: vehicle_can
+    manufacturer_name: UNKNOWN
+    protocol: CAN
+    bitrate: UNKNOWN
+    identifier_width: 11
+    can_fd: false
+    gateway_to: []
+    known_modules: [pcm, cluster]
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_crv5]
+    notes: >
+      Vehicle powertrain CAN as reflected in commaai/opendbc DBCs.
+      Exact OEM bus marketing name / bitrate for this platform not asserted here
+      without service-manual citation. Message IDs DOCUMENTED via opendbc.

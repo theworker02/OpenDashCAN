@@ -1,0 +1,22 @@
+platform_id: honda.crv.gen5.us
+manufacturer: honda
+model: crv
+generation: 5
+platform: RW
+years:
+  start: 2017
+  end: 2022
+markets: [US]
+engines: []
+transmissions: []
+protocols: [CAN]
+roles:
+  - target
+aliases:
+
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - opendbc CR-V DBCs document ENGINE_DATA family messages.
+  - Cluster RX for donor swap NOT PHYSICALLY_VERIFIED.

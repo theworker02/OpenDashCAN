@@ -1,0 +1,21 @@
+cluster_id: honda.crv.gen5.cluster.digital
+platform_id: honda.crv.gen5.us
+manufacturer: honda
+vehicle: crv
+generation: 5
+years:
+  start: 2017
+  end: 2022
+part_numbers: []
+display_type: digital
+CAN_buses: [vehicle_can]
+CAN_FD: false
+physical_fit: {}
+compatibility_status: UNKNOWN
+security_dependencies: []
+immobilizer_dependencies: []
+gateway_dependencies: []
+ADAS_dependencies: []
+evidence: [ev_opendbc_crv5]
+notes:
+  - CR-V 5 digital cluster — documentation-only.

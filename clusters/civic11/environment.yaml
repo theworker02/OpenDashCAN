@@ -1,0 +1,12 @@
+cluster_id: honda.civic.gen11.cluster.digital
+key: civic11
+platform_id: honda.civic.gen11.us
+years: { start: 2022, end: null }
+display_type: digital
+market: US
+primary_bus: vehicle_can
+knowledge_ceiling: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+warning: >
+  Isolated from Civic10. Do not inherit CivicX 0x158/0x17C LIKELY claims —
+  those are Civic10 COMMUNITY_RESEARCH only. Gen11 uses honda_civic_ex_2022 DBC.
+label: DOCUMENTATION_ONLY

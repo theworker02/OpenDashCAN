@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/vehicle.schema.json",
+  "title": "OpenDashCAN Vehicle / Platform Manifest",
+  "type": "object",
+  "required": ["platform_id", "manufacturer", "model", "generation"],
+  "additionalProperties": true,
+  "properties": {
+    "platform_id": {
+      "type": "string",
+      "description": "Canonical dotted id, e.g. honda.civic.gen8.us"
+    },
+    "manufacturer": { "type": "string" },
+    "model": { "type": "string" },
+    "generation": { "type": ["integer", "string"] },
+    "platform": { "type": "string" },
+    "years": {
+      "type": "object",
+      "properties": {
+        "start": { "type": ["integer", "null"] },
+        "end": { "type": ["integer", "null"] }
+      }
+    },
+    "markets": { "type": "array", "items": { "type": "string" } },
+    "engines": { "type": "array", "items": { "type": "string" } },
+    "transmissions": { "type": "array", "items": { "type": "string" } },
+    "protocols": { "type": "array", "items": { "type": "string" } },
+    "roles": { "type": "array", "items": { "type": "string" } },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "status": { "type": "object" },
+    "notes": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "array", "items": { "type": "string" } }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+evidence:
+  - evidence_id: ev_opendbc_crv6_canfd_mapping
+    source_type: OPEN_SOURCE_CODE
+    source_url: "https://github.com/commaai/opendbc/blob/master/opendbc/car/honda/values.py"
+    title: opendbc HONDA_CRV_6G → honda_common_canfd_generated
+    claim: >
+      OpenDBC documents CR-V / Hybrid 2023–26 under HondaBoschCANFDPlatformConfig
+      with PT DBC honda_common_canfd_generated. Mapping only — layouts not imported.
+    confidence: DOCUMENTED
+    license: MIT
+    vehicle: honda.crv.gen6.us
+    bus: pt_canfd

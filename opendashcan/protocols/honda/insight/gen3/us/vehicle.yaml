@@ -1,0 +1,27 @@
+platform_id: honda.insight.gen3.us
+manufacturer: honda
+model: insight
+generation: 3
+platform: ZE
+years:
+  start: 2019
+  end: 2022
+markets:
+- US
+engines: []
+transmissions: []
+protocols:
+- CAN
+roles:
+- source
+- target
+aliases:
+- honda_insight_3rd_gen
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+- opendbc honda_insight_ex_2019_can_generated.dbc imported as VEHICLE_PROTOCOL_DOCUMENTED.
+- Cluster RX for donor swap NOT PHYSICALLY_VERIFIED.
+- opendbc vehicle-bus layouts imported as VEHICLE_PROTOCOL_DOCUMENTED from honda_insight_ex_2019_can_generated.dbc.
+  Cluster RX NOT PHYSICALLY_VERIFIED.

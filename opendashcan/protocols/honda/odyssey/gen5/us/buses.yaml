@@ -1,0 +1,13 @@
+buses:
+  - id: vehicle_can
+    manufacturer_name: F-CAN
+    protocol: CAN
+    bitrate: UNKNOWN
+    identifier_width: 11
+    can_fd: false
+    gateway_to: []
+    known_modules: [pcm, cluster]
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    notes: >
+      Vehicle powertrain CAN as reflected in commaai/opendbc honda_odyssey_exl_2018 DBC.

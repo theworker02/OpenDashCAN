@@ -1,0 +1,101 @@
+# Donor sources catalog
+
+# Machine-readable companion to DONOR_PROTOCOL_REPORT.md
+# All entries are research provenance — not automatic CLUSTER_RX promotion.
+
+opendbc:
+  repo: https://github.com/commaai/opendbc
+  license: MIT
+  pinned_commit: 4ab347baefb7473771ada0723c969c50d0c28d01
+  local_path: dbc/opendbc/
+  notice: dbc/opendbc/NOTICE
+  license_file: dbc/opendbc/LICENSE
+  fetch_method: selective_raw_download
+  knowledge_level_default: VEHICLE_PROTOCOL_DOCUMENTED
+  files:
+    - honda_civic_touring_2016_can_generated.dbc
+    - honda_civic_hatchback_ex_2017_can_generated.dbc
+    - honda_civic_ex_2022_can_generated.dbc
+    - honda_accord_2018_can_generated.dbc
+    - honda_crv_ex_2017_can_generated.dbc
+    - honda_crv_ex_2017_body_generated.dbc
+    - honda_crv_touring_2016_can_generated.dbc
+    - honda_crv_executive_2016_can_generated.dbc
+    - honda_fit_ex_2018_can_generated.dbc
+    - honda_fit_hybrid_2018_can_generated.dbc
+    - honda_insight_ex_2019_can_generated.dbc
+    - honda_odyssey_exl_2018_generated.dbc
+    - honda_clarity_hybrid_2018_can_generated.dbc
+    - acura_ilx_2016_can_generated.dbc
+    - acura_rdx_2018_can_generated.dbc
+    - acura_rdx_2020_can_generated.dbc
+
+openpilot_honda:
+  # Architecture lives in opendbc/car/honda after the opendbc/openpilot merge
+  values_py: https://github.com/commaai/opendbc/blob/master/opendbc/car/honda/values.py
+  families:
+    nidec:
+      config_class: HondaNidecPlatformConfig
+      examples: [HONDA_CIVIC, HONDA_FIT, HONDA_ODYSSEY, HONDA_CRV, ACURA_ILX, HONDA_RIDGELINE]
+      fw_pt_bus_hint: 0
+    bosch:
+      config_class: HondaBoschPlatformConfig
+      examples: [HONDA_ACCORD, HONDA_CIVIC_BOSCH, HONDA_CIVIC_2022, HONDA_INSIGHT, HONDA_CRV_5G]
+      fw_pt_bus_hint: 1
+    bosch_canfd:
+      config_class: HondaBoschCANFDPlatformConfig
+      examples: [HONDA_ACCORD_11G, HONDA_CRV_6G, HONDA_PILOT_4G]
+  notes:
+    - DBC selection is per car fingerprint; do not assume all Civic10 share one network.
+    - combinationMeter UDS addr 0x18da60f1 is fingerprinting metadata, not a cluster RX map.
+
+civicx_cluster_swap:
+  title: "2020 Civic Si Cluster Swap"
+  url: https://www.civicx.com/forum/threads/2020-civic-si-cluster-swap.71566/
+  source_type: COMMUNITY_RESEARCH
+  confidence: COMMUNITY_REPORTED
+  knowledge_levels_allowed: [UNKNOWN]  # do not auto CLUSTER_RX_CONFIRMED
+  related_thread_decoding_can:
+    url: https://www.civicx.com/forum/threads/decoding-the-can-bus.94513/
+    notes: Points community to commaai/opendbc; not independent signal discovery.
+
+honda_civic_b_can:
+  repo: https://github.com/vanillagorillaa/Honda-Civic-B-CAN
+  title: Honda Civic B-CAN BCM tap / panda gateway
+  vehicles_claimed: ["2016 Honda Civic", "2017 Honda CR-V"]
+  focus: B-CAN (~150 kbps) forward to F-CAN for panda/openpilot visibility
+  cross_ref_opendbc: body/lighting may live off PT DBC; CR-V body DBC is BSM-only in vendored file
+  knowledge_level: COMMUNITY_RESEARCH
+  license: check upstream README
+
+honda_can_library:
+  repo: https://github.com/Ldalvik/HondaCAN
+  title: HondaCAN ESP32 / Macchina A0 library
+  vehicles_claimed: ["2016 Honda Accord LX"]
+  notes: Profile approach inspired by opendbc VIN/ECU fingerprinting; not a DBC substitute
+  knowledge_level: COMMUNITY_RESEARCH
+
+absent_from_public_dbc:
+  - fuel.level
+  - powertrain.coolant_temperature
+  - safety.srs_warning
+  - safety.check_engine
+  - brakes.abs_warning
+
+platform_packages_updated:
+  - honda.civic.gen7.us   # ISO9141/K-line research + negative CAN findings
+  - honda.civic.gen8.us   # strengthened discoverability / index
+  - honda.civic.gen10.us  # pre-existing + DBC index
+  - honda.civic.gen11.us  # latest Civic; vendored honda_civic_ex_2022
+  - honda.accord.gen10.us
+  - honda.accord.gen11.us # CAN-FD RESEARCH_REQUIRED stub (honda_common_canfd mapping)
+  - honda.crv.gen5.us
+  - honda.crv.gen6.us     # CAN-FD RESEARCH_REQUIRED stub
+  - honda.pilot.gen4.us   # CAN-FD RESEARCH_REQUIRED stub
+  - honda.fit.gen3.us     # populated from fit EX 2018 DBC
+  - honda.insight.gen3.us # created
+  - honda.odyssey.gen5.us # populated from odyssey EX-L 2018 DBC
+
+not_yet_vendored_opendbc:
+  - honda_common_canfd_generated.dbc  # Accord11 / CR-V6 / Pilot4 / related CAN-FD
+  - honda_bosch_radarless_generated.dbc  # Civic radarless / HR-V 2023+ / Prelude 2026 (upstream)

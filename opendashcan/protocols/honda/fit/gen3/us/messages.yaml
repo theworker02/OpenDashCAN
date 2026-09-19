@@ -1,0 +1,197 @@
+messages:
+  - arbitration_id: "0x158"
+    name: ENGINE_DATA
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+    integrity:
+      checksum: { type: honda_nibble_v1 }
+      counter: { type: honda_2bit_v1 }
+
+  - arbitration_id: "0x17c"
+    name: POWERTRAIN_DATA
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+    integrity:
+      checksum: { type: honda_nibble_v1 }
+      counter: { type: honda_2bit_v1 }
+
+  - arbitration_id: "0x1a4"
+    name: VSA_STATUS
+    bus: vehicle_can
+    dlc: 8
+    sender: vsa
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x1d0"
+    name: WHEEL_SPEEDS
+    bus: vehicle_can
+    dlc: 8
+    sender: vsa
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x305"
+    name: SEATBELT_STATUS
+    bus: vehicle_can
+    dlc: 7
+    sender: body
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x309"
+    name: CAR_SPEED
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+    integrity:
+      checksum: { type: honda_nibble_v1 }
+      counter: { type: honda_2bit_v1 }
+
+  - arbitration_id: "0x324"
+    name: CRUISE
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x374"
+    name: STALK_STATUS
+    bus: vehicle_can
+    dlc: 8
+    sender: UNKNOWN
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x37b"
+    name: STALK_STATUS_2
+    bus: vehicle_can
+    dlc: 8
+    sender: UNKNOWN
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x405"
+    name: DOORS_STATUS
+    bus: vehicle_can
+    dlc: 8
+    sender: body
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x156"
+    name: STEERING_SENSORS
+    bus: vehicle_can
+    dlc: 6
+    sender: eps
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x191"
+    name: GEARBOX
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+    integrity:
+      checksum: { type: honda_nibble_v1 }
+      counter: { type: honda_2bit_v1 }
+
+  - arbitration_id: "0x294"
+    name: SCM_FEEDBACK
+    bus: vehicle_can
+    dlc: 8
+    sender: scm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    notes: >
+      opendbc honda_fit_ex_2018_can_generated.dbc (4ab347baefb7…). Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED.
+    integrity:
+      checksum: { type: honda_nibble_v1 }
+      counter: { type: honda_2bit_v1 }

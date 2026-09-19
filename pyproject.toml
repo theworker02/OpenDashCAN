@@ -1,0 +1,113 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opendashcan"
+version = "0.1.0"
+description = "OpenDashCAN Desktop — installable PC program for listen-only OBD/CAN sniff, decode, and Honda cluster research (CLI + Qt; not a website; not an ECU flash tool)."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+  { name = "OpenDashCAN contributors" }
+]
+keywords = [
+  "can",
+  "obd",
+  "automotive",
+  "instrument-cluster",
+  "honda",
+  "civic",
+  "listen-only",
+  "python-can",
+  "reverse-engineering",
+  "qt",
+  "pyside6",
+  "desktop",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: System :: Hardware",
+  "Environment :: X11 Applications :: Qt",
+  "Typing :: Typed",
+]
+dependencies = [
+  "PyYAML>=6.0",
+  "jsonschema>=4.20",
+]
+
+[project.optional-dependencies]
+gui = [
+  "PySide6>=6.5",
+]
+hw = [
+  "python-can>=4.3",
+]
+# Full desktop program: Qt GUI + live CAN backends
+desktop = [
+  "PySide6>=6.5",
+  "python-can>=4.3",
+]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.6",
+  "mypy>=1.11",
+  "types-PyYAML>=6.0",
+]
+
+[project.scripts]
+opendashcan = "opendashcan.cli:main"
+opendashcan-gui = "opendashcan.gui.app:main"
+opendashcan-listen = "opendashcan.cli:main_listen"
+
+[project.urls]
+Homepage = "https://github.com/theworker02/OpenDashCAN"
+Documentation = "https://github.com/theworker02/OpenDashCAN/tree/main/docs"
+Issues = "https://github.com/theworker02/OpenDashCAN/issues"
+Repository = "https://github.com/theworker02/OpenDashCAN"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["opendashcan*"]
+
+[tool.setuptools.package-data]
+opendashcan = [
+  "py.typed",
+  "protocols/**/*.yaml",
+  "gui/**/*.qss",
+  "gui/**/*.svg",
+  "gui/**/*.png",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = [
+  "tools/_bootstrap_phase3_yaml.py",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+mypy_path = "."
+packages = ["opendashcan"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["error"]

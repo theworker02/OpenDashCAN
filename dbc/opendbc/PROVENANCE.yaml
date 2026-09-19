@@ -1,0 +1,21 @@
+﻿commit_sha: "4ab347baefb7473771ada0723c969c50d0c28d01"
+repo: https://github.com/commaai/opendbc
+license: MIT
+fetched_utc: "2026-09-19T14:35:09.6954707-04:00"
+files:
+  - acura_ilx_2016_can_generated.dbc
+  - acura_rdx_2018_can_generated.dbc
+  - acura_rdx_2020_can_generated.dbc
+  - honda_accord_2018_can_generated.dbc
+  - honda_civic_ex_2022_can_generated.dbc
+  - honda_civic_hatchback_ex_2017_can_generated.dbc
+  - honda_civic_touring_2016_can_generated.dbc
+  - honda_clarity_hybrid_2018_can_generated.dbc
+  - honda_crv_executive_2016_can_generated.dbc
+  - honda_crv_ex_2017_body_generated.dbc
+  - honda_crv_ex_2017_can_generated.dbc
+  - honda_crv_touring_2016_can_generated.dbc
+  - honda_fit_ex_2018_can_generated.dbc
+  - honda_fit_hybrid_2018_can_generated.dbc
+  - honda_insight_ex_2019_can_generated.dbc
+  - honda_odyssey_exl_2018_generated.dbc

@@ -1,0 +1,19 @@
+platform_id: honda.element.gen1.us
+manufacturer: honda
+model: element
+generation: 1
+platform: YH
+years:
+  start: 2003
+  end: 2011
+markets: []
+engines: []
+transmissions: []
+protocols: [CAN]
+roles: [source]
+status:
+  research: RESEARCH_REQUIRED
+  physical_validation: incomplete
+notes:
+  - RESEARCH_REQUIRED stub. CAN IDs and encodings intentionally UNKNOWN.
+  - Do not invent message layouts. Populate only with cited evidence.

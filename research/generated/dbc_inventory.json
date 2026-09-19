@@ -1,0 +1,358 @@
+{
+  "warning": "Auto-generated from public opendbc Honda/Acura DBCs. VEHICLE_PROTOCOL_DOCUMENTED only \u2014 not CLUSTER_RX_CONFIRMED.",
+  "dbc_count": 16,
+  "message_count": 578,
+  "signal_count": 4357,
+  "vehicles": [
+    {
+      "file": "honda_civic_touring_2016_can_generated.dbc",
+      "vehicle_id": "honda.civic.gen10.us.touring_2016",
+      "bus": "vehicle_can",
+      "messages": 37,
+      "signals": 261,
+      "taxonomy_mapped": 22,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 6,
+        "UNKNOWN": 11,
+        "POWERTRAIN_ONLY": 7,
+        "CLUSTER_LIKELY_RX": 2,
+        "DISPLAY_RELEVANT": 9,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_civic_hatchback_ex_2017_can_generated.dbc",
+      "vehicle_id": "honda.civic.gen10.us.hatch_ex_2017",
+      "bus": "vehicle_can",
+      "messages": 45,
+      "signals": 361,
+      "taxonomy_mapped": 22,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "POWERTRAIN_ONLY": 7,
+        "CLUSTER_LIKELY_RX": 2,
+        "DISPLAY_RELEVANT": 9,
+        "UNKNOWN": 15,
+        "ADAS_ONLY": 10,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_civic_ex_2022_can_generated.dbc",
+      "vehicle_id": "honda.civic.gen11.us.ex_2022",
+      "bus": "vehicle_can",
+      "messages": 49,
+      "signals": 378,
+      "taxonomy_mapped": 22,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 10,
+        "UNKNOWN": 17,
+        "POWERTRAIN_ONLY": 8,
+        "DISPLAY_RELEVANT": 12,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_accord_2018_can_generated.dbc",
+      "vehicle_id": "honda.accord.gen10.us.2018",
+      "bus": "vehicle_can",
+      "messages": 48,
+      "signals": 371,
+      "taxonomy_mapped": 22,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "POWERTRAIN_ONLY": 7,
+        "DISPLAY_RELEVANT": 13,
+        "UNKNOWN": 16,
+        "ADAS_ONLY": 10,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_crv_ex_2017_can_generated.dbc",
+      "vehicle_id": "honda.crv.gen5.us.ex_2017",
+      "bus": "vehicle_can",
+      "messages": 45,
+      "signals": 361,
+      "taxonomy_mapped": 22,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "POWERTRAIN_ONLY": 6,
+        "DISPLAY_RELEVANT": 12,
+        "UNKNOWN": 16,
+        "ADAS_ONLY": 9,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_crv_ex_2017_body_generated.dbc",
+      "vehicle_id": "honda.crv.gen5.us.ex_2017_body",
+      "bus": "body_can",
+      "messages": 2,
+      "signals": 4,
+      "taxonomy_mapped": 0,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_crv_touring_2016_can_generated.dbc",
+      "vehicle_id": "honda.crv.gen5.us.touring_2016",
+      "bus": "vehicle_can",
+      "messages": 31,
+      "signals": 227,
+      "taxonomy_mapped": 21,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 5,
+        "UNKNOWN": 8,
+        "POWERTRAIN_ONLY": 7,
+        "DISPLAY_RELEVANT": 9,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_fit_ex_2018_can_generated.dbc",
+      "vehicle_id": "honda.fit.gen3.us.ex_2018",
+      "bus": "vehicle_can",
+      "messages": 32,
+      "signals": 235,
+      "taxonomy_mapped": 21,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 5,
+        "UNKNOWN": 9,
+        "POWERTRAIN_ONLY": 7,
+        "DISPLAY_RELEVANT": 9,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_fit_hybrid_2018_can_generated.dbc",
+      "vehicle_id": "honda.fit.gen3.us.hybrid_2018",
+      "bus": "vehicle_can",
+      "messages": 34,
+      "signals": 248,
+      "taxonomy_mapped": 21,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 6,
+        "UNKNOWN": 10,
+        "POWERTRAIN_ONLY": 7,
+        "DISPLAY_RELEVANT": 9,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_insight_ex_2019_can_generated.dbc",
+      "vehicle_id": "honda.insight.gen3.us.ex_2019",
+      "bus": "vehicle_can",
+      "messages": 43,
+      "signals": 351,
+      "taxonomy_mapped": 22,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "POWERTRAIN_ONLY": 6,
+        "DISPLAY_RELEVANT": 11,
+        "UNKNOWN": 15,
+        "ADAS_ONLY": 9,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_odyssey_exl_2018_generated.dbc",
+      "vehicle_id": "honda.odyssey.gen5.us.exl_2018",
+      "bus": "vehicle_can",
+      "messages": 35,
+      "signals": 252,
+      "taxonomy_mapped": 22,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 6,
+        "UNKNOWN": 9,
+        "POWERTRAIN_ONLY": 7,
+        "DISPLAY_RELEVANT": 11,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_clarity_hybrid_2018_can_generated.dbc",
+      "vehicle_id": "honda.clarity.gen1.us.hybrid_2018",
+      "bus": "vehicle_can",
+      "messages": 39,
+      "signals": 276,
+      "taxonomy_mapped": 22,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 6,
+        "UNKNOWN": 13,
+        "POWERTRAIN_ONLY": 7,
+        "DISPLAY_RELEVANT": 11,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "acura_ilx_2016_can_generated.dbc",
+      "vehicle_id": "acura.ilx.gen1.us.2016",
+      "bus": "vehicle_can",
+      "messages": 31,
+      "signals": 225,
+      "taxonomy_mapped": 21,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 5,
+        "UNKNOWN": 8,
+        "POWERTRAIN_ONLY": 7,
+        "DISPLAY_RELEVANT": 9,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "acura_rdx_2018_can_generated.dbc",
+      "vehicle_id": "acura.rdx.gen2.us.2018",
+      "bus": "vehicle_can",
+      "messages": 31,
+      "signals": 227,
+      "taxonomy_mapped": 21,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 5,
+        "UNKNOWN": 8,
+        "POWERTRAIN_ONLY": 7,
+        "DISPLAY_RELEVANT": 9,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "acura_rdx_2020_can_generated.dbc",
+      "vehicle_id": "acura.rdx.gen3.us.2020",
+      "bus": "vehicle_can",
+      "messages": 45,
+      "signals": 353,
+      "taxonomy_mapped": 22,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "POWERTRAIN_ONLY": 6,
+        "DISPLAY_RELEVANT": 12,
+        "UNKNOWN": 16,
+        "ADAS_ONLY": 9,
+        "BODY_RELEVANT": 2
+      }
+    },
+    {
+      "file": "honda_crv_executive_2016_can_generated.dbc",
+      "vehicle_id": "honda.crv.gen5.eu.executive_2016",
+      "bus": "vehicle_can",
+      "messages": 31,
+      "signals": 227,
+      "taxonomy_mapped": 21,
+      "absent_from_public_dbc": [
+        "brakes.abs_warning",
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.check_engine",
+        "safety.srs_warning"
+      ],
+      "cluster_candidate_counts": {
+        "ADAS_ONLY": 5,
+        "UNKNOWN": 8,
+        "POWERTRAIN_ONLY": 7,
+        "DISPLAY_RELEVANT": 9,
+        "BODY_RELEVANT": 2
+      }
+    }
+  ]
+}

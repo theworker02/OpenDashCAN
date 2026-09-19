@@ -1,0 +1,14 @@
+cluster_id: honda.crv.gen5.cluster.digital
+key: crv5
+platform_id: honda.crv.gen5.us
+years: { start: 2017, end: null }
+display_type: digital
+market: US
+primary_bus: vehicle_can
+secondary_buses:
+  - body_can  # CR-V EX 2017 body DBC exists — body ≠ proven cluster gauge bus
+knowledge_ceiling: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+warning: >
+  Isolated CR-V5 environment. Body DBC (BSM etc.) is not cluster RX evidence.
+  Do not share CivicX LIKELY claims.
+label: DOCUMENTATION_ONLY

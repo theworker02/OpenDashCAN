@@ -1,0 +1,21 @@
+item,qty,mpn_or_example,notes,est_usd
+Raspberry Pi Zero 2 W,1,Raspberry Pi Zero 2 W,Host SBC,20
+microSD 32GB A2,1,SanDisk Extreme,OS + logs,8
+MCP2515 SOIC-18,1,MCP2515-I/SO,CAN controller,2.5
+Crystal 16.000 MHz,1,ABM3B-16.000MHZ,Load caps per xtal datasheet,0.5
+Load capacitors,2,22pF C0G 0805,Tune to crystal,0.2
+SN65HVD230,1,SN65HVD230D,3.3V CAN transceiver,1.5
+ESD CAN diode,1,PESD1CAN,CANH/CANL,0.4
+Term resistor 120R,1,120R 0805,Jumper selectable OFF for OBD,0.05
+DC-DC buck 5V 3A,1,OKI-78SR-5/1.5-W36-C or MP1584 module,Automotive VIN,6
+Schottky reverse protect,1,SS34,VIN series,0.3
+TVS 24V,1,SMBJ24A,VIN surge,0.4
+Fuse holder + 2A fuse,1,Mini blade,VIN,1
+OBD-II male connector,1,J1962 male,Cable assembly,4
+OBD pigtail cable 1m,1,custom,Pins 4/5/6/14/16 only,5
+40-pin female header,1,2x20 2.54mm,Pi HAT,0.5
+PCB 2-layer HAT,1,JLCPCB,Qty panel later,5
+Enclosure ABS,1,90x60x30,Print or buy,4
+Status LEDs + resistors,2,0805,PWR + ACT,0.3
+Misc passives,1,kit,Decoupling 100n/10u,1
+Assembly labor prototype,1,—,Hand solder OK,15

@@ -1,0 +1,220 @@
+# Civic10 display-function requirements — eight axes resolved by gaps engine
+# Do NOT promote LIKELY → CONFIRMED without evidence.
+requirements:
+  - signal: powertrain.engine_rpm
+    priority: REQUIRED
+    message: ENGINE_DATA
+    arbitration_id: "0x158"
+    producer: pcm
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: CLUSTER_LIKELY_RX
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: honda_2bit_v1
+    demonstrated: COMMUNITY_RESEARCH
+    evidence: [ev_opendbc_civic10, EV-CX-001]
+    notes: >
+      Vehicle-bus ENGINE_RPM DOCUMENTED in opendbc. CivicX reports RPM after adapter —
+      COMMUNITY_RESEARCH, not CLUSTER_RX_CONFIRMED / BENCH_VERIFIED.
+
+  - signal: vehicle.speed
+    priority: REQUIRED
+    message: CAR_SPEED
+    arbitration_id: "0x309"
+    producer: pcm
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: honda_2bit_v1
+    demonstrated: NONE
+    evidence: [ev_opendbc_civic10]
+    notes: Vehicle-bus DOCUMENTED; cluster RX INFERRED only.
+
+  - signal: transmission.gear
+    priority: OPTIONAL
+    message: GEARBOX
+    arbitration_id: "0x191"
+    producer: pcm
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: honda_2bit_v1
+    demonstrated: NONE
+    evidence: [ev_opendbc_civic10]
+    notes: Gear packing conflicts across DBC years — see conflicts.
+
+  - signal: vehicle.odometer
+    priority: OPTIONAL
+    message: ODOMETER
+    arbitration_id: "0x516"
+    producer: UNKNOWN
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: UNKNOWN
+    demonstrated: NONE
+    evidence: [ev_opendbc_civic10]
+
+  - signal: lighting.left_indicator
+    priority: OPTIONAL
+    message: SCM_FEEDBACK
+    arbitration_id: "0x326"
+    producer: UNKNOWN
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: honda_2bit_v1
+    demonstrated: NONE
+    evidence: [ev_opendbc_civic10]
+    notes: Touring/Hatch use 0x326 @26/27; Fit/CR-V Touring may use 0x294 — do not mix.
+
+  - signal: lighting.right_indicator
+    priority: OPTIONAL
+    message: SCM_FEEDBACK
+    arbitration_id: "0x326"
+    producer: UNKNOWN
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: honda_2bit_v1
+    demonstrated: NONE
+    evidence: [ev_opendbc_civic10]
+
+  - signal: brakes.parking_brake
+    priority: OPTIONAL
+    message: EPB_STATUS
+    arbitration_id: "0x1C2"
+    producer: epb
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: honda_2bit_v1
+    demonstrated: NONE
+    evidence: [ev_opendbc_civic10]
+    notes: Not on all trims.
+
+  - signal: stability.vsa_warning
+    priority: OPTIONAL
+    message: VSA_STATUS
+    arbitration_id: "0x1A4"
+    producer: vsa
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: honda_2bit_v1
+    demonstrated: NONE
+    evidence: [ev_opendbc_civic10]
+
+  - signal: safety.seatbelt_driver
+    priority: OPTIONAL
+    message: SEATBELT_STATUS
+    arbitration_id: "0x305"
+    producer: body
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: BODY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: honda_2bit_v1
+    demonstrated: NONE
+    evidence: [ev_opendbc_civic10]
+
+  - signal: body.driver_door
+    priority: COSMETIC
+    message: DOORS_STATUS
+    arbitration_id: "0x405"
+    producer: body
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: BODY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: honda_nibble_v1
+      counter_type: honda_2bit_v1
+    demonstrated: NONE
+    evidence: [ev_opendbc_civic10]
+
+  - signal: fuel.level
+    priority: UNKNOWN
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    producer: UNKNOWN
+    bus: UNKNOWN
+    bus_confidence: UNKNOWN
+    cluster_rx_class: UNKNOWN
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: UNKNOWN
+      counter_type: UNKNOWN
+    demonstrated: NONE
+    evidence: []
+    notes: Explicitly ABSENT from public Civic opendbc DBC — do not import Accord guesses.
+
+  - signal: powertrain.coolant_temperature
+    priority: COSMETIC
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    producer: UNKNOWN
+    bus: UNKNOWN
+    bus_confidence: UNKNOWN
+    cluster_rx_class: UNKNOWN
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: UNKNOWN
+      counter_type: UNKNOWN
+    demonstrated: NONE
+    evidence: []
+    notes: Explicitly ABSENT from public Civic opendbc DBC.
+
+  - signal: vehicle.ignition_state
+    priority: REQUIRED
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    producer: UNKNOWN
+    bus: UNKNOWN
+    bus_confidence: UNKNOWN
+    cluster_rx_class: UNKNOWN
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity:
+      checksum_type: UNKNOWN
+      counter_type: UNKNOWN
+    demonstrated: NONE
+    evidence: []
+    notes: Startup / ignition sequencing UNKNOWN — REQUIRES_BENCH_TEST.

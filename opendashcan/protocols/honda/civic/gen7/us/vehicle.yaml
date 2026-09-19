@@ -1,0 +1,27 @@
+platform_id: honda.civic.gen7.us
+manufacturer: honda
+model: civic
+generation: 7
+platform: EM2/ES/EP
+years:
+  start: 2001
+  end: 2005
+markets: [US, CA, EU, JP]
+engines: [D17, K20A3]
+transmissions: [manual, automatic, cvt]
+protocols: [ISO9141, KWP2000]
+roles: [source]
+aliases:
+  - honda:civic:7
+  - honda-civic7
+  - honda_civic_7th_gen
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - US-market 7th-gen Civic OBD-II emissions access is ISO 9141-2 / K-line (DLC pin 7), not OBD-CAN (pins 6/14).
+  - No public OpenDBC or equivalent Civic gen7 powertrain DBC in this repository.
+  - AiM Honda Civic CAN stock-ECU templates begin at 2006–2011 — no 2001–2005 Civic CAN channel sheet cited here.
+  - Racelogic Civic 2005–2011 CAN datasheet year-overlaps MY2005; do not treat as proven for all US 2001–2004 gen7 variants.
+  - Internal body multiplex / MICU gateway may exist; F-CAN/B-CAN bitrates and layouts remain UNKNOWN here.
+  - Do not invent CAN IDs, checksums, or pinouts. Explicit negative findings are intentional.

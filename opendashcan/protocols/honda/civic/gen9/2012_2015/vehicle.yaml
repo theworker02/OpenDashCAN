@@ -1,0 +1,19 @@
+platform_id: honda.civic.gen9.us
+manufacturer: honda
+model: civic
+generation: 9
+platform: FB/FG
+years:
+  start: 2012
+  end: 2015
+markets: []
+engines: []
+transmissions: []
+protocols: [CAN]
+roles: [source]
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - Research stub only. CAN IDs and encodings intentionally UNKNOWN.
+  - Do not invent message layouts. Populate only with cited evidence.

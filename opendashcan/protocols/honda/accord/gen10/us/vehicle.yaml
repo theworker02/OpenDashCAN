@@ -1,0 +1,22 @@
+platform_id: honda.accord.gen10.us
+manufacturer: honda
+model: accord
+generation: 10
+platform: CV
+years:
+  start: 2018
+  end: 2022
+markets: [US]
+engines: []
+transmissions: []
+protocols: [CAN]
+roles:
+  - target
+aliases:
+
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - opendbc has Accord DBCs documenting ENGINE_DATA family messages.
+  - Cluster RX for donor swap NOT PHYSICALLY_VERIFIED.

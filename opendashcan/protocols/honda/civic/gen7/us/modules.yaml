@@ -1,0 +1,30 @@
+modules:
+  - module_id: pcm
+    display_name: Powertrain Control Module (ECM/PCM)
+    bus: obd_kline
+    role: powertrain
+    tx_ids: []
+    confidence: DOCUMENTED
+    evidence: [ev_civic7_obd_iso9141, ev_civic7_pinout_catalog]
+    notes: >
+      Emissions OBD access via K-line DOCUMENTED. Standard Mode 01 PID bit
+      packing is SAE J1979 — not Honda proprietary CAN cluster protocol.
+      Proprietary F-CAN TX IDs UNKNOWN / not asserted.
+
+  - module_id: micu
+    display_name: Multiplex Integrated Control Unit (MICU) / body gateway
+    bus: b_can
+    role: body
+    confidence: COMMUNITY_REPORTED
+    evidence: [ev_civic7_community_precan]
+    notes: >
+      Community / HDS narratives describe MICU as a gateway beyond generic OBD.
+      Exact bus protocol and message set UNKNOWN in this repository.
+
+  - module_id: gauge
+    display_name: Instrument Cluster / Gauge
+    bus: UNKNOWN
+    role: cluster
+    confidence: UNKNOWN
+    evidence: []
+    notes: Cluster bus attachment and RX set UNKNOWN for gen7. Not a donor-cluster target.

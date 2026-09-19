@@ -1,0 +1,23 @@
+cluster_id: honda.civic.gen10.cluster.digital
+platform_id: honda.civic.gen10.us
+manufacturer: honda
+vehicle: civic
+generation: 10
+years:
+  start: 2016
+  end: 2021
+part_numbers: []
+display_type: digital
+CAN_buses: [vehicle_can]
+CAN_FD: false
+physical_fit: {}
+compatibility_status: UNKNOWN
+security_dependencies: []
+immobilizer_dependencies: []
+gateway_dependencies: []
+ADAS_dependencies: []
+evidence: [ev_opendbc_civic10]
+notes:
+  - Digital instrument cluster from 10th-gen Civic donor.
+  - Part numbers / connector pinouts UNKNOWN in this repo.
+  - Compatibility status UNKNOWN — documentation-only Phase 3.

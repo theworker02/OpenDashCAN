@@ -1,0 +1,38 @@
+modules:
+  - module_id: pcm
+    display_name: Powertrain Control Module
+    bus: vehicle_can
+    role: powertrain
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+  - module_id: vsa
+    display_name: Vehicle Stability Assist
+    bus: vehicle_can
+    role: chassis
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+  - module_id: body
+    display_name: Body Control
+    bus: vehicle_can
+    role: body
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+  - module_id: eps
+    display_name: Electric Power Steering
+    bus: vehicle_can
+    role: chassis
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+  - module_id: scm
+    display_name: Steering Control Module
+    bus: vehicle_can
+    role: body
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+  - module_id: cluster
+    display_name: Gauge Control Module
+    bus: vehicle_can
+    role: cluster
+    confidence: UNKNOWN
+    evidence: []
+    notes: Cluster RX requirements UNKNOWN without bench.

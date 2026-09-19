@@ -1,0 +1,11 @@
+﻿OpenDashCAN vendored subset of commaai/opendbc Honda/Acura DBC files.
+
+Upstream: https://github.com/commaai/opendbc
+License: MIT (see LICENSE in this directory)
+Pinned commit: 4ab347baefb7473771ada0723c969c50d0c28d01
+Fetched: 2026-09-19T14:35:09.6924736-04:00
+Method: selective raw.githubusercontent.com download (not a full clone)
+
+These files document vehicle-bus CAN message layouts used by openpilot.
+They do NOT prove that a donor instrument cluster consumes any given frame.
+OpenDashCAN maps imported DBC data to knowledge_level VEHICLE_PROTOCOL_DOCUMENTED only.

@@ -1,0 +1,44 @@
+buses:
+  - id: obd_kline
+    manufacturer_name: OBD-II K-Line (ISO 9141-2 / ISO 14230-4)
+    protocol: ISO9141
+    bitrate: 10400
+    identifier_width: UNKNOWN
+    can_fd: false
+    gateway_to: []
+    known_modules: [pcm]
+    confidence: DOCUMENTED
+    evidence: [ev_civic7_obd_iso9141, ev_civic7_pinout_catalog]
+    notes: >
+      US Civic ~2001–2005 emissions diagnostics use K-line on DLC pin 7
+      (ISO 9141-2 / KWP2000 family). Baud commonly cited as 10.4 kbaud with
+      5-baud init. This is NOT SAE J2284 OBD-CAN.
+
+  - id: f_can
+    manufacturer_name: F-CAN (if present)
+    protocol: CAN
+    bitrate: UNKNOWN
+    identifier_width: UNKNOWN
+    can_fd: false
+    gateway_to: []
+    known_modules: []
+    confidence: UNKNOWN
+    evidence: [ev_civic7_negative_obd_can, ev_civic7_community_precan]
+    notes: >
+      No verified public F-CAN bitrate or arbitration map for US gen7 in this repo.
+      OBD emissions path is K-line. Do not assume gen8 F-CAN 500 kbps applies.
+
+  - id: b_can
+    manufacturer_name: B-CAN / body multiplex
+    protocol: UNKNOWN
+    bitrate: UNKNOWN
+    identifier_width: UNKNOWN
+    can_fd: false
+    gateway_to: []
+    known_modules: []
+    confidence: UNKNOWN
+    evidence: [ev_civic7_community_precan]
+    notes: >
+      Body / MICU multiplex may exist per service wiring narratives, but protocol
+      name, bitrate, and message set remain UNKNOWN without cited OEM literature
+      in this package. Not promoted as gen8-style B-CAN @ 33.33 kbps.

@@ -1,0 +1,12 @@
+cluster_id: honda.accord.gen10.cluster.digital
+key: accord10
+platform_id: honda.accord.gen10.us
+years: { start: 2018, end: null }
+display_type: digital
+market: US
+primary_bus: vehicle_can
+knowledge_ceiling: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+warning: >
+  Isolated Accord10 environment. Never copy Accord encodings into Civic definitions.
+  HondaCAN GitHub project is vehicle library research — not cluster RX confirmation.
+label: DOCUMENTATION_ONLY

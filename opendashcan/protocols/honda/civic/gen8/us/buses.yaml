@@ -1,0 +1,23 @@
+buses:
+  - id: f_can
+    manufacturer_name: F-CAN
+    protocol: CAN
+    bitrate: 500000
+    identifier_width: 11
+    can_fd: false
+    gateway_to: [b_can]
+    known_modules: [pcm, abs_vsa, gauge]
+    confidence: DOCUMENTED
+    evidence: [ev_civic8_fcan_bitrate]
+    notes: High-speed powertrain/chassis CAN at 500 kbps per Honda service manuals.
+  - id: b_can
+    manufacturer_name: B-CAN
+    protocol: CAN
+    bitrate: 33333
+    identifier_width: 11
+    can_fd: false
+    gateway_to: [f_can]
+    known_modules: [bcm, gauge]
+    confidence: DOCUMENTED
+    evidence: [ev_civic8_bcan_bitrate]
+    notes: Body CAN ~33.33 kbps; gauge often acts as F-CAN/B-CAN gateway.

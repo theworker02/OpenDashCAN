@@ -1,0 +1,30 @@
+# Civic 10th-gen digital cluster environment (isolated — do not inherit assumptions from Accord/CR-V)
+cluster_id: honda.civic.gen10.cluster.digital
+key: civic10
+platform_id: honda.civic.gen10.us
+years: { start: 2016, end: 2021 }
+display_type: digital
+market: US
+primary_bus: vehicle_can
+bus_notes: >
+  Community reports (CivicX) mention F-CAN C behind radio on 2020–2021 —
+  COMMUNITY_RESEARCH only. Primary bus for opendbc vehicle protocol is vehicle_can / F-CAN.
+knowledge_ceiling: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+warning: >
+  DBC vehicle-bus documentation ≠ CLUSTER_RX_CONFIRMED.
+  EncodeMode production default remains NO_OUTPUT.
+profiles:
+  - id: civic10_base_2016_2021
+    years: 2016-2021
+    notes: Shared base until trim/facelift evidence requires a split
+  - id: civic10_si
+    years: 2017-2020
+    notes: Si digital cluster — ADAS/EPB differences UNKNOWN without bench
+  - id: civic10_touring
+    years: 2016-2021
+    notes: Touring DBC (honda_civic_touring_2016) is primary public reference
+  - id: civic10_hatch_ex_2017
+    years: 2017-2021
+    notes: Hatch EX 2017 DBC variant — compare lineage before assuming Touring layout
+part_numbers: []  # public part-number index incomplete — see CIVIC10_CLUSTER_DEEP_DIVE.md
+label: DOCUMENTATION_ONLY

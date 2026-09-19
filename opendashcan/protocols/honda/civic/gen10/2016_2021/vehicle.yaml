@@ -1,0 +1,25 @@
+platform_id: honda.civic.gen10.us
+manufacturer: honda
+model: civic
+generation: 10
+platform: FC/FK
+years:
+  start: 2016
+  end: 2021
+markets: [US]
+engines: []
+transmissions: []
+protocols: [CAN]
+roles:
+  - target
+  - source
+aliases:
+  - honda_civic_10th_gen
+  - honda-civic10
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - opendbc MIT vehicle-bus layouts cited for ENGINE_DATA/CAR_SPEED/GEARBOX/POWERTRAIN_DATA.
+  - Cluster RX for donor swap NOT PHYSICALLY_VERIFIED.
+  - Phase-1 encoder: opendashcan.protocols.honda.civic10

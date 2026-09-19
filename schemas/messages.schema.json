@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/messages.schema.json",
+  "title": "OpenDashCAN Message Definitions",
+  "type": "object",
+  "required": ["messages"],
+  "additionalProperties": true,
+  "properties": {
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "arbitration_id": { "type": ["string", "integer", "null"] },
+          "name": { "type": ["string", "null"] },
+          "bus": { "type": ["string", "null"] },
+          "dlc": { "type": ["integer", "string", "null"] },
+          "period_ms": { "type": ["number", "string", "null"] },
+          "confidence": { "type": "string" },
+          "evidence": { "type": "array" },
+          "notes": { "type": ["string", "null"] },
+          "integrity": { "type": "object" }
+        }
+      }
+    }
+  }
+}

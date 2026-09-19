@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/adaptation.schema.json",
+  "title": "OpenDashCAN Adaptation Profile",
+  "type": "object",
+  "required": ["adaptation_id", "source_vehicle", "target_cluster", "mode"],
+  "additionalProperties": true,
+  "properties": {
+    "adaptation_id": { "type": "string" },
+    "source_vehicle": { "type": "string" },
+    "source_platform": { "type": "string" },
+    "target_cluster": { "type": "string" },
+    "target_platform": { "type": "string" },
+    "mode": { "type": "string", "const": "DOCUMENTATION_ONLY" },
+    "signals": { "type": "array", "items": { "$ref": "translation.schema.json" } },
+    "physical_compatibility": { "type": "string" },
+    "electrical_compatibility": { "type": "string" },
+    "protocol_compatibility": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["COMPLETE", "PARTIAL", "BLOCKED"]
+    },
+    "blockers": { "type": "array", "items": { "type": "string" } }
+  }
+}

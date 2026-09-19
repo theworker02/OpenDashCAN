@@ -1,0 +1,78 @@
+signals:
+  - signal: powertrain.engine_rpm
+    message: { arbitration_id: UNKNOWN, bus: f_can, name: UNKNOWN, dlc: UNKNOWN }
+    encoding: { start_bit: UNKNOWN, length: UNKNOWN, byte_order: UNKNOWN, signed: UNKNOWN, scale: UNKNOWN, offset: UNKNOWN, unit: rpm }
+    transport: { period_ms: UNKNOWN }
+    integrity: { counter: { type: UNKNOWN }, checksum: { type: UNKNOWN } }
+    source_module: pcm
+    confidence: UNKNOWN
+    evidence: [ev_civic9_racelogic, ev_civic9_aim]
+    physical_validation: false
+    notes: >
+      Racelogic "Engine Speed" and AiM ECU_RPM channel names on OBD CAN.
+      Arbitration ID and byte layout UNKNOWN.
+
+  - signal: vehicle.speed
+    message: { arbitration_id: UNKNOWN, bus: f_can }
+    encoding: { unit: kph }
+    confidence: UNKNOWN
+    evidence: [ev_civic9_racelogic]
+    physical_validation: false
+    notes: >
+      Racelogic lists wheel speeds (FL/FR/RL/RR); indicated vehicle speed not in the
+      2011-2015 public PDF channel table. Encoding UNKNOWN.
+
+  - signal: powertrain.coolant_temperature
+    message: { arbitration_id: UNKNOWN, bus: f_can }
+    encoding: { unit: C }
+    confidence: UNKNOWN
+    evidence: [ev_civic9_aim]
+    physical_validation: false
+    notes: AiM ECU_ENG_T channel name only. Encoding UNKNOWN.
+
+  - signal: fuel.level
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: { unit: percent }
+    confidence: UNKNOWN
+    evidence: [ev_civic9_aim]
+    physical_validation: false
+    notes: >
+      AiM CivicSi_2012 template lists ECU_FUEL_LEV — channel name only; variant
+      applicability not validated. Encoding UNKNOWN.
+
+  - signal: transmission.gear
+    message: { arbitration_id: UNKNOWN, bus: f_can }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: [ev_civic9_racelogic, ev_civic9_aim]
+    physical_validation: false
+    notes: Racelogic Gear / Gear Requested and AiM ECU_GEAR — names only. Encoding UNKNOWN.
+
+  - signal: brakes.parking_brake
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: [ev_civic9_racelogic]
+    physical_validation: false
+    notes: Racelogic Handbrake channel name only. Encoding UNKNOWN.
+
+  - signal: lighting.left_indicator
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: lighting.right_indicator
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: vehicle.ignition_state
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false

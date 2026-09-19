@@ -1,0 +1,53 @@
+requirements:
+  - signal: powertrain.engine_rpm
+    priority: REQUIRED
+    message: ENGINE_DATA
+    arbitration_id: "0x158"
+    producer: pcm
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity: { checksum_type: honda_nibble_v1, counter_type: honda_2bit_v1 }
+    demonstrated: NONE
+    evidence: [ev_opendbc_accord10]
+
+  - signal: vehicle.speed
+    priority: REQUIRED
+    message: CAR_SPEED
+    arbitration_id: "0x309"
+    producer: pcm
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity: { checksum_type: honda_nibble_v1, counter_type: honda_2bit_v1 }
+    demonstrated: NONE
+    evidence: [ev_opendbc_accord10]
+
+  - signal: fuel.level
+    priority: UNKNOWN
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    producer: UNKNOWN
+    bus: UNKNOWN
+    cluster_rx_class: UNKNOWN
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity: { checksum_type: UNKNOWN, counter_type: UNKNOWN }
+    demonstrated: NONE
+    notes: ABSENT from public Accord DBC — not a Civic fuel lead.
+
+  - signal: vehicle.ignition_state
+    priority: REQUIRED
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    producer: UNKNOWN
+    bus: UNKNOWN
+    cluster_rx_class: UNKNOWN
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity: { checksum_type: UNKNOWN, counter_type: UNKNOWN }
+    demonstrated: NONE

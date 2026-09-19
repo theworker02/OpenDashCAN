@@ -1,0 +1,53 @@
+messages:
+  - arbitration_id: "0x158"
+    name: ENGINE_DATA
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+    notes: >
+      opendbc vehicle-bus ENGINE_DATA. Cluster RX for donor swap NOT PHYSICALLY_VERIFIED.
+      Contains XMISSION_SPEED and ENGINE_RPM among other fields (see signals.yaml).
+    integrity:
+      checksum:
+        type: honda_nibble_v1
+      counter:
+        type: honda_2bit_v1
+
+  - arbitration_id: "0x17C"
+    name: POWERTRAIN_DATA
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+    notes: opendbc POWERTRAIN_DATA. Cluster consumption NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x309"
+    name: CAR_SPEED
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+    notes: opendbc CAR_SPEED (kph scale 0.01). Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x191"
+    name: GEARBOX
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+    notes: >
+      opendbc GEARBOX. Exact GEAR packing can differ across DBC years —
+      treat enums carefully. Cluster RX NOT PHYSICALLY_VERIFIED.

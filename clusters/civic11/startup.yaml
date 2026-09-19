@@ -1,0 +1,7 @@
+ignition_required: UNKNOWN
+wakeup_messages: UNKNOWN
+order: UNKNOWN
+timeouts_ms: UNKNOWN
+evidence: []
+label: UNKNOWN
+notes: No gen11 cluster startup documentation in-repo.

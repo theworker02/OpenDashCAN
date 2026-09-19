@@ -1,0 +1,217 @@
+{
+  "source_file": "C:/Users/matth/OneDrive/Desktop/new stuff/OpenDashCAN/dbc/opendbc/generated/honda_crv_ex_2017_body_generated.dbc",
+  "vehicle_id": "honda.crv.gen5.us.ex_2017_body",
+  "provenance": {
+    "repo": "https://github.com/commaai/opendbc",
+    "commit_sha": "4ab347baefb7473771ada0723c969c50d0c28d01",
+    "license": "MIT",
+    "source_dbc": "honda_crv_ex_2017_body_generated.dbc",
+    "provenance_file": "C:/Users/matth/OneDrive/Desktop/new stuff/OpenDashCAN/dbc/opendbc/PROVENANCE.yaml",
+    "source": "opendbc",
+    "bus": "body_can",
+    "vehicle_id": "honda.crv.gen5.us.ex_2017_body"
+  },
+  "warning": "Imported DBC data is VEHICLE_PROTOCOL_DOCUMENTED only. It does NOT prove donor-cluster RX. Never auto-promote to CLUSTER_RX_CONFIRMED / PHYSICALLY_VERIFIED. Verify MIT license before redistributing DBC contents.",
+  "message_count": 2,
+  "signal_count": 4,
+  "messages": [
+    {
+      "id_dec": 318291879,
+      "id_hex": "0x12F8BFA7",
+      "name": "BSM_STATUS_RIGHT",
+      "dlc": 8,
+      "sender": "XXX",
+      "comment": null,
+      "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+      "role": "vehicle_protocol",
+      "confidence": "DOCUMENTED",
+      "signals": [
+        {
+          "name": "BSM_ALERT",
+          "taxonomy": null,
+          "start_bit": 4,
+          "length": 1,
+          "byte_order": "motorola",
+          "is_little_endian": false,
+          "signed": false,
+          "scale": 1.0,
+          "offset": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "unit": null,
+          "receivers": [
+            "XXX"
+          ],
+          "comment": null,
+          "enums": {},
+          "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+          "role": "vehicle_protocol",
+          "confidence": "DOCUMENTED"
+        },
+        {
+          "name": "BSM_MODE",
+          "taxonomy": null,
+          "start_bit": 6,
+          "length": 2,
+          "byte_order": "motorola",
+          "is_little_endian": false,
+          "signed": false,
+          "scale": 1.0,
+          "offset": 0.0,
+          "min": 0.0,
+          "max": 3.0,
+          "unit": null,
+          "receivers": [
+            "XXX"
+          ],
+          "comment": null,
+          "enums": {
+            "0": "off",
+            "1": "cross_traffic",
+            "2": "blind_spot"
+          },
+          "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+          "role": "vehicle_protocol",
+          "confidence": "DOCUMENTED"
+        }
+      ]
+    },
+    {
+      "id_dec": 318291615,
+      "id_hex": "0x12F8BE9F",
+      "name": "BSM_STATUS_LEFT",
+      "dlc": 8,
+      "sender": "XXX",
+      "comment": null,
+      "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+      "role": "vehicle_protocol",
+      "confidence": "DOCUMENTED",
+      "signals": [
+        {
+          "name": "BSM_ALERT",
+          "taxonomy": null,
+          "start_bit": 4,
+          "length": 1,
+          "byte_order": "motorola",
+          "is_little_endian": false,
+          "signed": false,
+          "scale": 1.0,
+          "offset": 0.0,
+          "min": 0.0,
+          "max": 1.0,
+          "unit": null,
+          "receivers": [
+            "XXX"
+          ],
+          "comment": null,
+          "enums": {},
+          "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+          "role": "vehicle_protocol",
+          "confidence": "DOCUMENTED"
+        },
+        {
+          "name": "BSM_MODE",
+          "taxonomy": null,
+          "start_bit": 6,
+          "length": 2,
+          "byte_order": "motorola",
+          "is_little_endian": false,
+          "signed": false,
+          "scale": 1.0,
+          "offset": 0.0,
+          "min": 0.0,
+          "max": 3.0,
+          "unit": null,
+          "receivers": [
+            "XXX"
+          ],
+          "comment": null,
+          "enums": {
+            "0": "off",
+            "1": "cross_traffic",
+            "2": "blind_spot"
+          },
+          "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+          "role": "vehicle_protocol",
+          "confidence": "DOCUMENTED"
+        }
+      ]
+    }
+  ],
+  "taxonomy_mapped": [],
+  "dbc_signals": [
+    {
+      "dbc_signal": "BSM_ALERT",
+      "taxonomy": null,
+      "message": "BSM_STATUS_RIGHT",
+      "arbitration_id": "0x12F8BFA7",
+      "start_bit": 4,
+      "length": 1,
+      "byte_order": "motorola",
+      "signed": false,
+      "scale": 1.0,
+      "offset": 0.0,
+      "unit": null,
+      "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+      "role": "vehicle_protocol"
+    },
+    {
+      "dbc_signal": "BSM_MODE",
+      "taxonomy": null,
+      "message": "BSM_STATUS_RIGHT",
+      "arbitration_id": "0x12F8BFA7",
+      "start_bit": 6,
+      "length": 2,
+      "byte_order": "motorola",
+      "signed": false,
+      "scale": 1.0,
+      "offset": 0.0,
+      "unit": null,
+      "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+      "role": "vehicle_protocol"
+    },
+    {
+      "dbc_signal": "BSM_ALERT",
+      "taxonomy": null,
+      "message": "BSM_STATUS_LEFT",
+      "arbitration_id": "0x12F8BE9F",
+      "start_bit": 4,
+      "length": 1,
+      "byte_order": "motorola",
+      "signed": false,
+      "scale": 1.0,
+      "offset": 0.0,
+      "unit": null,
+      "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+      "role": "vehicle_protocol"
+    },
+    {
+      "dbc_signal": "BSM_MODE",
+      "taxonomy": null,
+      "message": "BSM_STATUS_LEFT",
+      "arbitration_id": "0x12F8BE9F",
+      "start_bit": 6,
+      "length": 2,
+      "byte_order": "motorola",
+      "signed": false,
+      "scale": 1.0,
+      "offset": 0.0,
+      "unit": null,
+      "knowledge_level": "VEHICLE_PROTOCOL_DOCUMENTED",
+      "role": "vehicle_protocol"
+    }
+  ],
+  "absent_from_public_dbc": [
+    "brakes.abs_warning",
+    "fuel.level",
+    "powertrain.coolant_temperature",
+    "safety.check_engine",
+    "safety.srs_warning"
+  ],
+  "conflicts": [],
+  "notes": [
+    "All imported layouts are vehicle-bus DOCUMENTED. Cluster RX / timing / startup remain UNKNOWN unless separate evidence exists.",
+    "Not in this public DBC (do not label vaguely UNKNOWN): brakes.abs_warning, fuel.level, powertrain.coolant_temperature, safety.check_engine, safety.srs_warning",
+    "2 DBC message ID(s) not in registry for honda.crv.gen5.us (not auto-merged)."
+  ]
+}

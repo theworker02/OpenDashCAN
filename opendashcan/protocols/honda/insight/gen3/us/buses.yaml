@@ -1,0 +1,15 @@
+buses:
+  - id: vehicle_can
+    manufacturer_name: F-CAN
+    protocol: CAN
+    bitrate: UNKNOWN
+    identifier_width: 11
+    can_fd: false
+    known_modules: [pcm, cluster]
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_insight3]
+    notes: >
+      Vehicle powertrain CAN as reflected in commaai/opendbc honda_insight_ex_2019 DBC
+      (openpilot HondaBoschPlatformConfig family). Exact bitrate not asserted without
+      service-manual citation.
+

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/signals.schema.json",
+  "title": "OpenDashCAN Signal Encodings",
+  "type": "object",
+  "required": ["signals"],
+  "additionalProperties": true,
+  "properties": {
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["signal", "confidence"],
+        "additionalProperties": true,
+        "properties": {
+          "signal": {
+            "type": "string",
+            "description": "Dotted taxonomy path, e.g. powertrain.engine_rpm"
+          },
+          "confidence": { "type": "string" },
+          "message": { "type": "object" },
+          "encoding": { "type": "object" },
+          "transport": { "type": "object" },
+          "integrity": { "type": "object" },
+          "evidence": { "type": "array" },
+          "physical_validation": { "type": "boolean" },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+source_file: C:/Users/matth/OneDrive/Desktop/new stuff/OpenDashCAN/dbc/opendbc/generated/honda_crv_ex_2017_body_generated.dbc
+vehicle_id: honda.crv.gen5.us.ex_2017_body
+provenance:
+  repo: https://github.com/commaai/opendbc
+  commit_sha: 4ab347baefb7473771ada0723c969c50d0c28d01
+  license: MIT
+  source_dbc: honda_crv_ex_2017_body_generated.dbc
+  provenance_file: C:/Users/matth/OneDrive/Desktop/new stuff/OpenDashCAN/dbc/opendbc/PROVENANCE.yaml
+  source: opendbc
+  bus: body_can
+  vehicle_id: honda.crv.gen5.us.ex_2017_body
+message_count: 2
+signal_count: 4
+knowledge_level_default: VEHICLE_PROTOCOL_DOCUMENTED
+taxonomy_mapped: []
+absent_from_public_dbc:
+- brakes.abs_warning
+- fuel.level
+- powertrain.coolant_temperature
+- safety.check_engine
+- safety.srs_warning
+notes:
+- All imported layouts are vehicle-bus DOCUMENTED. Cluster RX / timing / startup remain
+  UNKNOWN unless separate evidence exists.
+- 'Not in this public DBC (do not label vaguely UNKNOWN): brakes.abs_warning, fuel.level,
+  powertrain.coolant_temperature, safety.check_engine, safety.srs_warning'
+- 2 DBC message ID(s) not in registry for honda.crv.gen5.us (not auto-merged).
+warning: Vehicle-bus documentation only — not CLUSTER_RX_CONFIRMED.

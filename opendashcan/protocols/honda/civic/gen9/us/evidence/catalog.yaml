@@ -1,0 +1,31 @@
+evidence:
+  - evidence_id: ev_civic9_racelogic
+    source_type: COMMERCIAL_DATASHEET
+    source_url: "https://www.racelogic.co.uk/_downloads/vbox/Vehicles/Other/Docs/Honda-Civic%202011-2015.pdf"
+    title: Racelogic Vehicle CAN Database — Honda Civic 2011-2015
+    claim: >
+      OBD-II CAN at 500 kbps (pins 6/14). Public channel names include Accelerator
+      Pedal Position, Brake Position, Clutch Position, Engine Speed, Gear,
+      Gear Requested, Handbrake, Steering Angle, Wheel Speed FL/FR/RL/RR.
+      No arbitration IDs or bit packing in the PDF.
+    confidence: DOCUMENTED
+    license: proprietary_racelogic_not_redistributed
+    vehicle: honda.civic.gen9.us
+    bus: f_can
+    notes: Channel names only. .REF binary not reverse-engineered into this repo.
+
+  - evidence_id: ev_civic9_aim
+    source_type: COMMERCIAL_DATASHEET
+    source_url: "https://www.aimtechnologies.com/aim-support/stockecu/Honda_Civic_2012-2015_100_eng.pdf"
+    title: AiM Infotech Honda Civic 2012-2015 (CivicSi_2012) release 1.00
+    claim: >
+      OBD-II CAN pins 6/14. Race Studio template Honda / CivicSi_2012 lists channel
+      names including ECU_RPM, ECU_ENG_T, wheel speeds, ECU_FUEL_LEV, ECU_GEAR,
+      ECU_STEER_ANG. Does NOT publish arbitration IDs or byte layouts.
+    confidence: DOCUMENTED
+    license: proprietary_aim_not_redistributed
+    vehicle: honda.civic.gen9.us
+    bus: f_can
+    notes: >
+      Si-oriented template naming; not all channels validated for every 9th-gen variant.
+      Encodings UNKNOWN.

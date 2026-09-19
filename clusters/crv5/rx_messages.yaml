@@ -1,0 +1,15 @@
+warning: CR-V5 isolated RX table.
+messages:
+  - arbitration_id: "0x158"
+    name: ENGINE_DATA
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_crv5]
+  - arbitration_id: "0x309"
+    name: CAR_SPEED
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_crv5]
+  - arbitration_id: "0x294"
+    name: SCM_FEEDBACK
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_crv5]
+    notes: Blinker ID may differ from Civic 0x326 — lineage conflict.

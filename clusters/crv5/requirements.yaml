@@ -1,0 +1,68 @@
+requirements:
+  - signal: powertrain.engine_rpm
+    priority: REQUIRED
+    message: ENGINE_DATA
+    arbitration_id: "0x158"
+    producer: pcm
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity: { checksum_type: honda_nibble_v1, counter_type: honda_2bit_v1 }
+    demonstrated: NONE
+    evidence: [ev_opendbc_crv5]
+
+  - signal: vehicle.speed
+    priority: REQUIRED
+    message: CAR_SPEED
+    arbitration_id: "0x309"
+    producer: pcm
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity: { checksum_type: honda_nibble_v1, counter_type: honda_2bit_v1 }
+    demonstrated: NONE
+    evidence: [ev_opendbc_crv5]
+
+  - signal: lighting.left_indicator
+    priority: OPTIONAL
+    message: SCM_FEEDBACK
+    arbitration_id: "0x294"
+    producer: UNKNOWN
+    bus: vehicle_can
+    bus_confidence: DOCUMENTED
+    cluster_rx_class: DISPLAY_RELEVANT
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity: { checksum_type: honda_nibble_v1, counter_type: honda_2bit_v1 }
+    demonstrated: NONE
+    evidence: [ev_opendbc_crv5]
+    notes: CR-V Touring / Fit may use 0x294 — CONFLICT with Civic 0x326. Do not copy to Civic.
+
+  - signal: fuel.level
+    priority: UNKNOWN
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    producer: UNKNOWN
+    bus: UNKNOWN
+    cluster_rx_class: UNKNOWN
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity: { checksum_type: UNKNOWN, counter_type: UNKNOWN }
+    demonstrated: NONE
+    notes: ABSENT from public DBC.
+
+  - signal: vehicle.ignition_state
+    priority: REQUIRED
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    producer: UNKNOWN
+    bus: UNKNOWN
+    cluster_rx_class: UNKNOWN
+    period_ms: UNKNOWN
+    timing_provenance: UNKNOWN
+    integrity: { checksum_type: UNKNOWN, counter_type: UNKNOWN }
+    demonstrated: NONE

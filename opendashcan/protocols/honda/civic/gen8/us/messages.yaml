@@ -1,0 +1,31 @@
+messages:
+  - arbitration_id: "0x694"
+    name: community_speculative_694
+    bus: f_can
+    dlc: UNKNOWN
+    sender: UNKNOWN
+    receivers: []
+    period_ms: UNKNOWN
+    confidence: COMMUNITY_REPORTED
+    evidence: [ev_civic8_autosport_ids]
+    notes: Speculative Autosport Labs / community ID. NO encoding. Do not decode.
+  - arbitration_id: "0x494"
+    name: community_speculative_494
+    bus: f_can
+    dlc: UNKNOWN
+    sender: UNKNOWN
+    receivers: []
+    period_ms: UNKNOWN
+    confidence: COMMUNITY_REPORTED
+    evidence: [ev_civic8_autosport_ids]
+    notes: Speculative ID only. Byte layout UNKNOWN.
+  - arbitration_id: "0x194"
+    name: community_speculative_194
+    bus: f_can
+    dlc: UNKNOWN
+    sender: UNKNOWN
+    receivers: []
+    period_ms: UNKNOWN
+    confidence: COMMUNITY_REPORTED
+    evidence: [ev_civic8_autosport_ids]
+    notes: Speculative ID only. Byte layout UNKNOWN.

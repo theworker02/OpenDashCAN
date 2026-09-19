@@ -1,0 +1,34 @@
+requirements:
+  - signal: powertrain.engine_rpm
+    message: ENGINE_DATA
+    arbitration_id: "0x158"
+    priority: REQUIRED
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_crv5]
+    notes: Vehicle-bus RPM DOCUMENTED in opendbc; cluster need INFERRED — not bench-verified.
+
+  - signal: vehicle.speed
+    message: CAR_SPEED
+    arbitration_id: "0x309"
+    priority: REQUIRED
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_crv5]
+    notes: Vehicle-bus speed DOCUMENTED; cluster RX need INFERRED.
+
+  - signal: transmission.gear
+    message: GEARBOX
+    arbitration_id: "0x191"
+    priority: OPTIONAL
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_crv5]
+
+  - signal: fuel.level
+    priority: UNKNOWN
+    confidence: UNKNOWN
+    evidence: []
+
+  - signal: vehicle.ignition_state
+    priority: REQUIRED
+    confidence: UNKNOWN
+    evidence: []
+    notes: Startup sequencing UNKNOWN — REQUIRES_BENCH_TEST.

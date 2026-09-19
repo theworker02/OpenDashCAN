@@ -1,0 +1,24 @@
+platform_id: honda.accord.gen11.us
+manufacturer: honda
+model: accord
+generation: 11
+platform: CY
+years:
+  start: 2023
+  end: 2026
+markets: [US]
+engines: []
+transmissions: []
+protocols: [CAN_FD]
+roles: [target]
+aliases:
+  - honda:accord:11
+  - honda-accord11
+status:
+  research: RESEARCH_REQUIRED
+  physical_validation: incomplete
+notes:
+  - RESEARCH_REQUIRED stub. OpenDBC maps HONDA_ACCORD_11G to honda_common_canfd_generated (CAN-FD).
+  - Generated DBC not selectively vendored into this repo yet (disk / scope).
+  - Do not invent message layouts. Classic Acccord10 opendbc remains the DOCUMENTED Accord package.
+  - CAN-FD physical layer is out of scope for classic F-CAN cluster-swap workflows.

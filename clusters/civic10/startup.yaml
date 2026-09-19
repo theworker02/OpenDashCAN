@@ -1,0 +1,14 @@
+# Civic10 cluster startup — almost entirely UNKNOWN without bench
+ignition_required: UNKNOWN
+wakeup_messages: UNKNOWN
+order: UNKNOWN
+timeouts_ms: UNKNOWN
+alive_or_heartbeat: UNKNOWN
+gateway_dependencies: UNKNOWN
+immobilizer: UNKNOWN
+adas_dependencies: UNKNOWN
+evidence: []
+notes: >
+  CivicX mentions ADS errors / Sport Mode on Si clusters — feature config,
+  not a documented startup sequence. REQUIRES_BENCH_TEST.
+label: UNKNOWN

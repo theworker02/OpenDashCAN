@@ -1,0 +1,4 @@
+# Keep directory; ignore actual trademark/binary assets
+*
+!.gitignore
+!README.md

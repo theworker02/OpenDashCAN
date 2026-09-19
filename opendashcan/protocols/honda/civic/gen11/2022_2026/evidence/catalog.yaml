@@ -1,0 +1,13 @@
+evidence:
+  - evidence_id: ev_opendbc_civic11
+    source_type: OPEN_SOURCE_CODE
+    source_url: "https://github.com/commaai/opendbc"
+    title: "commaai/opendbc honda_civic_ex_2022 (MIT)"
+    claim: "honda_civic_ex_2022 DBC documents ENGINE_DATA and related PCM messages similar to prior Civic generations."
+    confidence: DOCUMENTED
+    license: MIT
+    vehicle: honda.civic.gen11.us
+    bus: vehicle_can
+    notes: >
+      Vehicle-bus message IDs/layouts from opendbc. Emitting these frames does NOT
+      claim physical donor-cluster compatibility. Cluster bring-up remains UNKNOWN.

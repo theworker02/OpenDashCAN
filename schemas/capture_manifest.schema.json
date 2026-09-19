@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/capture_manifest.schema.json",
+  "title": "CaptureManifest",
+  "type": "object",
+  "required": ["id", "vehicle", "bus", "format", "synthetic", "license"],
+  "properties": {
+    "id": { "type": "string" },
+    "vehicle": { "type": "string" },
+    "year": { "type": ["integer", "string", "null"] },
+    "bus": { "type": "string", "description": "e.g. F-CAN, B-CAN, PT-CAN" },
+    "bitrate": { "type": ["integer", "null"] },
+    "format": {
+      "type": "string",
+      "enum": ["candump", "csv", "json", "blf", "asc", "other"]
+    },
+    "synthetic": {
+      "type": "boolean",
+      "description": "true if generated / not from a real vehicle"
+    },
+    "license": { "type": "string" },
+    "recorded_at": { "type": ["string", "null"] },
+    "tooling": { "type": ["string", "null"] },
+    "interface": { "type": ["string", "null"] },
+    "notes": { "type": "string" },
+    "pii_scrubbed": { "type": "boolean", "default": true },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path"],
+        "properties": {
+          "path": { "type": "string" },
+          "sha256": { "type": "string" },
+          "bytes": { "type": "integer" }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

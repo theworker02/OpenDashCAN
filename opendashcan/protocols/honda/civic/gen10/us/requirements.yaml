@@ -1,0 +1,57 @@
+requirements:
+  - signal: powertrain.engine_rpm
+    message: ENGINE_DATA
+    arbitration_id: "0x158"
+    priority: REQUIRED
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: >
+      Vehicle-bus RPM DOCUMENTED in opendbc. Cluster need INFERRED (clusters typically
+      display tach from PCM traffic) — NOT PHYSICALLY_VERIFIED on a donor cluster.
+
+  - signal: vehicle.speed
+    message: CAR_SPEED
+    arbitration_id: "0x309"
+    priority: REQUIRED
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: Vehicle-bus speed DOCUMENTED; cluster RX need INFERRED — not bench-verified.
+
+  - signal: transmission.gear
+    message: GEARBOX
+    arbitration_id: "0x191"
+    priority: OPTIONAL
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: Gear packing varies by DBC year — PARTIAL.
+
+  - signal: fuel.level
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    priority: UNKNOWN
+    confidence: UNKNOWN
+    evidence: []
+    notes: Fuel message for digital cluster UNKNOWN.
+
+  - signal: vehicle.ignition_state
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    priority: REQUIRED
+    confidence: UNKNOWN
+    evidence: []
+    notes: Startup / ignition sequencing UNKNOWN — REQUIRES_BENCH_TEST.
+
+  - signal: powertrain.coolant_temperature
+    message: UNKNOWN
+    arbitration_id: UNKNOWN
+    priority: COSMETIC
+    confidence: UNKNOWN
+    evidence: []
+
+  - name: heartbeat_or_alive
+    signal: UNKNOWN
+    message: UNKNOWN
+    priority: UNKNOWN
+    confidence: UNKNOWN
+    evidence: []
+    notes: Whether a dedicated heartbeat is required is UNKNOWN.

@@ -1,0 +1,21 @@
+cluster_id: honda.accord.gen10.cluster.digital
+platform_id: honda.accord.gen10.us
+manufacturer: honda
+vehicle: accord
+generation: 10
+years:
+  start: 2018
+  end: 2022
+part_numbers: []
+display_type: digital
+CAN_buses: [vehicle_can]
+CAN_FD: false
+physical_fit: {}
+compatibility_status: UNKNOWN
+security_dependencies: []
+immobilizer_dependencies: []
+gateway_dependencies: []
+ADAS_dependencies: []
+evidence: [ev_opendbc_accord10]
+notes:
+  - Accord 10 digital cluster — documentation-only; part numbers UNKNOWN.

@@ -1,0 +1,19 @@
+platform_id: honda.pilot.gen3.us
+manufacturer: honda
+model: pilot
+generation: 3
+platform: YF
+years:
+  start: 2016
+  end: 2022
+markets: []
+engines: []
+transmissions: []
+protocols: [CAN]
+roles: [source]
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - Research stub only. CAN IDs and encodings intentionally UNKNOWN.
+  - Do not invent message layouts. Populate only with cited evidence.

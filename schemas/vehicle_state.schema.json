@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/vehicle_state.schema.json",
+  "title": "VehicleState",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "engine_rpm": { "$ref": "#/$defs/signal" },
+    "vehicle_speed": { "$ref": "#/$defs/signal" },
+    "coolant_temperature": { "$ref": "#/$defs/signal" },
+    "fuel_level": { "$ref": "#/$defs/signal" },
+    "gear_position": { "$ref": "#/$defs/signal" },
+    "transmission_state": { "$ref": "#/$defs/signal" },
+    "turn_signal_left": { "$ref": "#/$defs/signal" },
+    "turn_signal_right": { "$ref": "#/$defs/signal" },
+    "hazards": { "$ref": "#/$defs/signal" },
+    "high_beam": { "$ref": "#/$defs/signal" },
+    "low_beam": { "$ref": "#/$defs/signal" },
+    "parking_brake": { "$ref": "#/$defs/signal" },
+    "warning_lamps": { "$ref": "#/$defs/signal" },
+    "door_states": { "$ref": "#/$defs/signal" },
+    "trunk_state": { "$ref": "#/$defs/signal" },
+    "ignition_state": { "$ref": "#/$defs/signal" }
+  },
+  "$defs": {
+    "signal": {
+      "type": "object",
+      "required": ["value", "confidence", "validity"],
+      "properties": {
+        "value": {},
+        "timestamp": { "type": ["number", "null"] },
+        "source": { "type": ["string", "null"] },
+        "confidence": {
+          "type": "string",
+          "enum": [
+            "VERIFIED",
+            "SUPPORTED_BY_MULTIPLE_SOURCES",
+            "COMMUNITY_REPORTED",
+            "INFERRED",
+            "UNKNOWN"
+          ]
+        },
+        "validity": {
+          "type": "string",
+          "enum": ["valid", "stale", "invalid", "unknown"]
+        },
+        "unit": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

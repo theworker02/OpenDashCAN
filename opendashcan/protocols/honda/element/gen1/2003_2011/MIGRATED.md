@@ -1,0 +1,1 @@
+# Migrated\n\nCanonical package is now element/gen1/us (platform honda.element.gen1.us).\nThis year-range folder is kept for history; loader prefers us/ when both exist.\n

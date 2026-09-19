@@ -1,0 +1,51 @@
+modules:
+  - module_id: pcm
+    display_name: Powertrain Control Module
+    bus: vehicle_can
+    role: powertrain
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+  - module_id: vsa
+    display_name: Vehicle Stability Assist
+    bus: vehicle_can
+    role: chassis
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+  - module_id: epb
+    display_name: Electronic Parking Brake
+    bus: vehicle_can
+    role: chassis
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+  - module_id: body
+    display_name: Body / BCM
+    bus: vehicle_can
+    role: body
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+  - module_id: scm
+    display_name: Steering Column Module
+    bus: vehicle_can
+    role: body
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+    notes: SCM_FEEDBACK carries blinkers in Civic 2016-2017 generated DBC.
+  - module_id: eps
+    display_name: Electric Power Steering
+    bus: vehicle_can
+    role: chassis
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+  - module_id: adas
+    display_name: ADAS / ACC HUD source
+    bus: vehicle_can
+    role: adas
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic11]
+  - module_id: cluster
+    display_name: Instrument Cluster
+    bus: vehicle_can
+    role: cluster
+    confidence: INFERRED
+    evidence: [ev_opendbc_civic11]
+    notes: Cluster assumed RX of vehicle-bus traffic — NOT PHYSICALLY_VERIFIED for donor swap.

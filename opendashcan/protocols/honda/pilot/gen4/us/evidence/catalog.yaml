@@ -1,0 +1,12 @@
+evidence:
+  - evidence_id: ev_opendbc_pilot4_canfd_mapping
+    source_type: OPEN_SOURCE_CODE
+    source_url: "https://github.com/commaai/opendbc/blob/master/opendbc/car/honda/values.py"
+    title: opendbc HONDA_PILOT_4G → honda_common_canfd_generated
+    claim: >
+      OpenDBC documents Pilot 2023–25 (and 2026 MMR) under HondaBoschCANFDPlatformConfig
+      with PT DBC honda_common_canfd_generated. Mapping only — layouts not imported.
+    confidence: DOCUMENTED
+    license: MIT
+    vehicle: honda.pilot.gen4.us
+    bus: pt_canfd

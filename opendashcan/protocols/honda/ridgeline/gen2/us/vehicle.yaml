@@ -1,0 +1,19 @@
+platform_id: honda.ridgeline.gen2.us
+manufacturer: honda
+model: ridgeline
+generation: 2
+platform: YK
+years:
+  start: 2017
+  end: 2025
+markets: []
+engines: []
+transmissions: []
+protocols: [CAN]
+roles: [source]
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - Research stub only. CAN IDs and encodings intentionally UNKNOWN.
+  - Do not invent message layouts. Populate only with cited evidence.

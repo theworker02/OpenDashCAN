@@ -1,0 +1,23 @@
+platform_id: honda.odyssey.gen5.us
+manufacturer: honda
+model: odyssey
+generation: 5
+platform: RL
+years:
+  start: 2018
+  end: 2025
+markets: []
+engines: []
+transmissions: []
+protocols:
+- CAN
+roles:
+- source
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+- Research stub only. CAN IDs and encodings intentionally UNKNOWN.
+- Do not invent message layouts. Populate only with cited evidence.
+- opendbc vehicle-bus layouts imported as VEHICLE_PROTOCOL_DOCUMENTED from honda_odyssey_exl_2018_generated.dbc.
+  Cluster RX NOT PHYSICALLY_VERIFIED.

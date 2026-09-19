@@ -1,0 +1,41 @@
+name: New vehicle
+description: Propose adding a source vehicle decoder
+title: "[vehicle] "
+labels: ["vehicle", "enhancement"]
+body:
+  - type: input
+    id: make_model
+    attributes:
+      label: Make / model / generation
+      placeholder: Honda Civic 8th gen FA/FG
+    validations:
+      required: true
+  - type: input
+    id: years
+    attributes:
+      label: Model years
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Role
+      options: [source decoder, both source and target, unknown]
+    validations:
+      required: true
+  - type: textarea
+    id: buses
+    attributes:
+      label: Known buses / bitrates
+      placeholder: F-CAN 500k, B-CAN 33.33k, ...
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence links
+      description: Do not paste proprietary manuals verbatim.
+    validations:
+      required: true
+  - type: textarea
+    id: unknowns
+    attributes:
+      label: Explicit unknowns

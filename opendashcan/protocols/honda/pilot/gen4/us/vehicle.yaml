@@ -1,0 +1,23 @@
+platform_id: honda.pilot.gen4.us
+manufacturer: honda
+model: pilot
+generation: 4
+platform: YF4
+years:
+  start: 2023
+  end: 2026
+markets: [US]
+engines: []
+transmissions: []
+protocols: [CAN_FD]
+roles: [target]
+aliases:
+  - honda:pilot:4
+  - honda-pilot4
+status:
+  research: RESEARCH_REQUIRED
+  physical_validation: incomplete
+notes:
+  - RESEARCH_REQUIRED stub. OpenDBC maps HONDA_PILOT_4G / MMR to honda_common_canfd_generated (CAN-FD).
+  - Generated DBC not selectively vendored. Pilot gen3 stub remains separate (2016–2022).
+  - Do not invent message layouts.

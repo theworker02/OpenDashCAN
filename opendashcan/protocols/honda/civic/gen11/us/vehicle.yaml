@@ -1,0 +1,27 @@
+platform_id: honda.civic.gen11.us
+manufacturer: honda
+model: civic
+generation: 11
+platform: FE/FL
+years:
+  start: 2022
+  end: 2026
+markets: [US]
+engines: []
+transmissions: []
+protocols: [CAN]
+roles:
+  - target
+aliases:
+  - honda:civic:11
+  - honda-civic11
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - Provenance: vendored opendbc honda_civic_ex_2022 DBC (MIT) — VEHICLE_PROTOCOL_DOCUMENTED.
+  - Openpilot car docs cover Civic/Hatch 2022–26 and Hybrid 2025–26 under HONDA_CIVIC_2022.
+  - Upstream DBC may shift (e.g. honda_bosch_radarless_generated); this package stays pinned to vendored EX 2022 import.
+  - ENGINE_DATA family similar to Civic 10; treat year-specific packing carefully.
+  - Cluster RX for donor swap NOT PHYSICALLY_VERIFIED.
+  - Sibling latest platforms (Accord11 / CR-V6 / Pilot4) are CAN-FD RESEARCH_REQUIRED stubs.

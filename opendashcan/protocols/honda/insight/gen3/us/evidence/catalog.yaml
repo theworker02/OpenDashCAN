@@ -1,0 +1,14 @@
+evidence:
+  - evidence_id: ev_opendbc_insight3
+    source_type: DBC
+    source_url: "https://github.com/commaai/opendbc"
+    title: "commaai/opendbc honda_insight_ex_2019_can_generated.dbc (MIT)"
+    claim: opendbc vehicle-bus layouts for insight/gen3/us
+    confidence: DOCUMENTED
+    license: MIT
+    commit_sha: "4ab347baefb7473771ada0723c969c50d0c28d01"
+    source_dbc: honda_insight_ex_2019_can_generated.dbc
+    bus: vehicle_can
+    notes: >
+      Imported as VEHICLE_PROTOCOL_DOCUMENTED only.
+      Does not confirm donor cluster RX.

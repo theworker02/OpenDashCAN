@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/buses.schema.json",
+  "title": "OpenDashCAN Bus Definitions",
+  "type": "object",
+  "required": ["buses"],
+  "additionalProperties": true,
+  "properties": {
+    "buses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "additionalProperties": true,
+        "properties": {
+          "id": { "type": "string" },
+          "manufacturer_name": { "type": ["string", "null"] },
+          "protocol": { "type": ["string", "null"] },
+          "bitrate": { "type": ["integer", "number", "string", "null"] },
+          "identifier_width": { "type": ["integer", "string", "null"] },
+          "can_fd": { "type": ["boolean", "null", "string"] },
+          "gateway_to": { "type": "array", "items": { "type": "string" } },
+          "confidence": { "type": "string" },
+          "evidence": { "type": "array" },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

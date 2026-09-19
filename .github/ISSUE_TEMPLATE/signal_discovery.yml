@@ -1,0 +1,39 @@
+name: Signal discovery
+description: Report a hypothesized or confirmed signal mapping
+title: "[signal] "
+labels: ["signal", "research"]
+body:
+  - type: input
+    id: signal_name
+    attributes:
+      label: Normalized signal name
+      placeholder: engine_rpm
+    validations:
+      required: true
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Confidence
+      options:
+        - VERIFIED
+        - SUPPORTED_BY_MULTIPLE_SOURCES
+        - COMMUNITY_REPORTED
+        - INFERRED
+        - UNKNOWN
+    validations:
+      required: true
+  - type: input
+    id: can_id
+    attributes:
+      label: CAN ID (hex) if known
+  - type: textarea
+    id: layout
+    attributes:
+      label: Byte/bit layout
+      description: Leave blank if unknown — do not invent.
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources / methodology
+    validations:
+      required: true

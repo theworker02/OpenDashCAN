@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/signal_evidence.schema.json",
+  "title": "OpenDashCAN Signal Evidence Document",
+  "type": "object",
+  "description": "Evidence YAML for a vehicle or cluster. VERIFIED entries must include sources.",
+  "required": ["signals"],
+  "additionalProperties": true,
+  "properties": {
+    "vehicle_id": { "type": "string" },
+    "cluster_id": { "type": "string" },
+    "vehicle": { "type": "string" },
+    "id": { "type": "string" },
+    "display_name": { "type": "string" },
+    "role": { "type": "string" },
+    "status": { "type": "string" },
+    "years": { "type": "string" },
+    "notes": { "type": "string" },
+    "architecture": { "type": "array" },
+    "messages": { "type": "array" },
+    "checksum": { "type": "object" },
+    "counter": { "type": "object" },
+    "related_non_verified": { "type": "array" },
+    "needed_captures": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "confidence"],
+        "additionalProperties": true,
+        "properties": {
+          "name": { "type": "string" },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "VERIFIED",
+              "SUPPORTED_BY_MULTIPLE_SOURCES",
+              "COMMUNITY_REPORTED",
+              "INFERRED",
+              "UNKNOWN"
+            ]
+          },
+          "can_id": { "type": ["string", "integer", "null"] },
+          "message": { "type": "string" },
+          "notes": { "type": "string" },
+          "maps_to": { "type": "string" },
+          "sources": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                { "type": "string" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "citation": { "type": "string" },
+                    "url": { "type": ["string", "null"] }
+                  },
+                  "additionalProperties": true
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "anyOf": [
+    { "required": ["vehicle_id"] },
+    { "required": ["cluster_id"] },
+    { "required": ["vehicle"] },
+    { "required": ["id"] }
+  ]
+}

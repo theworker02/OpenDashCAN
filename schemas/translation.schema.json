@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/translation.schema.json",
+  "title": "OpenDashCAN Signal Translation Row",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "signal": { "type": "string" },
+    "source_status": { "type": "string" },
+    "target_status": { "type": "string" },
+    "translation": {
+      "type": "string",
+      "enum": ["possible", "incomplete", "blocked"]
+    },
+    "readiness": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

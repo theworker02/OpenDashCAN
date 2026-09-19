@@ -1,0 +1,63 @@
+signals:
+  - signal: powertrain.engine_rpm
+    message: { arbitration_id: UNKNOWN, bus: f_can, name: UNKNOWN, dlc: UNKNOWN }
+    encoding: { start_bit: UNKNOWN, length: UNKNOWN, byte_order: UNKNOWN, signed: UNKNOWN, scale: UNKNOWN, offset: UNKNOWN, unit: rpm }
+    transport: { period_ms: UNKNOWN }
+    integrity: { counter: { type: UNKNOWN }, checksum: { type: UNKNOWN } }
+    source_module: pcm
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+    notes: No verified Civic 8 F-CAN RPM layout. Need captures.
+
+  - signal: vehicle.speed
+    message: { arbitration_id: UNKNOWN, bus: f_can, name: UNKNOWN, dlc: UNKNOWN }
+    encoding: { start_bit: UNKNOWN, length: UNKNOWN, byte_order: UNKNOWN, signed: UNKNOWN, scale: UNKNOWN, offset: UNKNOWN, unit: kph }
+    transport: { period_ms: UNKNOWN }
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+    notes: UNKNOWN — need source-vehicle captures correlated with GPS/speedo.
+
+  - signal: powertrain.coolant_temperature
+    message: { arbitration_id: UNKNOWN, bus: f_can }
+    encoding: { unit: C }
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: fuel.level
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: { unit: percent }
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: transmission.gear
+    message: { arbitration_id: UNKNOWN, bus: f_can }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: lighting.left_indicator
+    message: { arbitration_id: UNKNOWN, bus: b_can }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: lighting.right_indicator
+    message: { arbitration_id: UNKNOWN, bus: b_can }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: vehicle.ignition_state
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+    notes: Ignition / power modality for cluster wake UNKNOWN without bench captures.

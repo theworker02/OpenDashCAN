@@ -1,0 +1,1 @@
+# civic8_r18_auto_to_crv5\n\nDocumentation-only adaptation profile.\n\n- Source: honda.civic.gen8.us.r18.auto\n- Target: honda.crv.gen5.cluster.digital\n- Status: **PARTIAL** — framework complete; encodings incomplete.\n- Do not claim hardware compatibility.\n

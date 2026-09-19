@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/evidence_v2.schema.json",
+  "title": "OpenDashCAN Evidence Catalog V2",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "source_type", "claim"],
+        "additionalProperties": true,
+        "properties": {
+          "evidence_id": { "type": "string" },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "OEM_DOCUMENTATION",
+              "OPEN_SOURCE_CODE",
+              "DBC",
+              "CAN_CAPTURE",
+              "ACADEMIC_RESEARCH",
+              "COMMUNITY_RESEARCH",
+              "PHYSICAL_TEST",
+              "INFERENCE"
+            ]
+          },
+          "claim": { "type": "string" },
+          "confidence": { "type": "string" },
+          "source_url": { "type": ["string", "null"] },
+          "title": { "type": ["string", "null"] },
+          "license": { "type": ["string", "null"] },
+          "vehicle": { "type": ["string", "null"] },
+          "bus": { "type": ["string", "null"] },
+          "signal": { "type": ["string", "null"] },
+          "notes": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "records": { "type": "array" }
+  }
+}

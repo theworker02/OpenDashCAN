@@ -1,0 +1,28 @@
+conflicts:
+  - conflict_id: gearbox_401_layout_vs_gearbox_common
+    claim: "GEARBOX arbitration 0x191 packing may differ across CR-V DBC years"
+    sources:
+      - title: "honda_crv_touring_2016 / crv_ex_2017 DBCs"
+        url: "https://github.com/commaai/opendbc"
+        claim: "CR-V DBC family includes GEARBOX messages"
+      - title: "_gearbox_common.dbc"
+        url: "https://github.com/commaai/opendbc/blob/master/opendbc/dbc/generator/honda/_gearbox_common.dbc"
+        claim: "Alternate CVT/AUTO gearbox layouts"
+    status: REQUIRES_REVIEW
+    resolution: none
+    notes: "Confirm gearbox layout against CR-V year DBC before encoding."
+
+  - conflict_id: scm_feedback_nidec_a_vs_bosch
+    claim: "SCM_FEEDBACK blinker arbitration ID and bit positions differ by radar platform"
+    sources:
+      - title: "_nidec_scm_group_a.dbc (CR-V Touring 2016)"
+        url: "https://github.com/commaai/opendbc/blob/master/opendbc/dbc/generator/honda/_nidec_scm_group_a.dbc"
+        claim: "BO_ 660 (0x294) LEFT_BLINKER @5|1 RIGHT_BLINKER @6|1"
+      - title: "_bosch_2018.dbc / _nidec_scm_group_b.dbc"
+        url: "https://github.com/commaai/opendbc/blob/master/opendbc/dbc/generator/honda/_bosch_2018.dbc"
+        claim: "BO_ 806 (0x326) LEFT_BLINKER @26|1 RIGHT_BLINKER @27|1"
+    status: REQUIRES_REVIEW
+    resolution: none
+    notes: >
+      CR-V Touring 2016 generator imports nidec group A. Do not assume Civic
+      0x326 packing applies to all CR-V years without checking the year DBC.

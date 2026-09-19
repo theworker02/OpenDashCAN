@@ -1,0 +1,23 @@
+platform_id: honda.crv.gen6.us
+manufacturer: honda
+model: crv
+generation: 6
+platform: RS
+years:
+  start: 2023
+  end: 2026
+markets: [US]
+engines: []
+transmissions: []
+protocols: [CAN_FD]
+roles: [target]
+aliases:
+  - honda:crv:6
+  - honda-crv6
+status:
+  research: RESEARCH_REQUIRED
+  physical_validation: incomplete
+notes:
+  - RESEARCH_REQUIRED stub. OpenDBC maps HONDA_CRV_6G to honda_common_canfd_generated (CAN-FD).
+  - Generated DBC not selectively vendored here. Classic CR-V5 remains DOCUMENTED.
+  - Do not invent message layouts.

@@ -1,0 +1,19 @@
+platform_id: honda.hrv.gen2.us
+manufacturer: honda
+model: hrv
+generation: 2
+platform: RV
+years:
+  start: 2023
+  end: 2026
+markets: []
+engines: []
+transmissions: []
+protocols: [CAN]
+roles: [source]
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - Research stub only. CAN IDs and encodings intentionally UNKNOWN.
+  - Do not invent message layouts. Populate only with cited evidence.

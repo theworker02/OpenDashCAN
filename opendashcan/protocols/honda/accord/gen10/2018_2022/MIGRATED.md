@@ -1,0 +1,1 @@
+# Migrated\n\nCanonical package is now accord/gen10/us (platform honda.accord.gen10.us).\nThis year-range folder is kept for history; loader prefers us/ when both exist.\n

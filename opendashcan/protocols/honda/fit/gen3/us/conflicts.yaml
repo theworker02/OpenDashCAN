@@ -1,0 +1,28 @@
+conflicts:
+  - conflict_id: scm_feedback_nidec_a_vs_bosch
+    claim: "SCM_FEEDBACK blinker arbitration ID and bit positions differ by platform DBC"
+    sources:
+      - title: "honda_fit_ex_2018_can_generated.dbc"
+        url: "https://github.com/commaai/opendbc"
+        claim: "BO_ 660 (0x294) LEFT_BLINKER @5|1 RIGHT_BLINKER @6|1"
+      - title: "honda_civic_touring_2016 / hatch_ex_2017 generated DBC"
+        url: "https://github.com/commaai/opendbc"
+        claim: "BO_ 806 (0x326) LEFT_BLINKER @26|1 RIGHT_BLINKER @27|1"
+    status: REQUIRES_REVIEW
+    resolution: none
+    notes: >
+      Fit EX 2018 follows the nidec-group-A blinker packing (same family as CR-V Touring 2016).
+      Do not apply Civic 0x326 blinker encoding to Fit without year-DBC confirmation.
+
+  - conflict_id: gearbox_401_layout_vs_gearbox_common
+    claim: "GEARBOX arbitration 0x191 packing may differ across generator eras"
+    sources:
+      - title: "honda_fit_ex_2018_can_generated.dbc"
+        url: "https://github.com/commaai/opendbc"
+        claim: "Classic GEARBOX BO_ 401 in generated Fit DBC"
+      - title: "_gearbox_common.dbc (newer opendbc tree)"
+        url: "https://github.com/commaai/opendbc"
+        claim: "Alternate CVT/AUTO layouts"
+    status: REQUIRES_REVIEW
+    resolution: none
+    notes: Confirm gearbox layout against the exact Fit year DBC before encoding.

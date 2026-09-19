@@ -1,0 +1,15 @@
+conflicts:
+  - conflict_id: gearbox_401_layout_vs_gearbox_common
+    claim: "GEARBOX arbitration 0x191 (BO_ 401) signal packing"
+    sources:
+      - title: "honda_civic_ex_2022 / related generated DBCs"
+        url: "https://github.com/commaai/opendbc"
+        claim: "Generated Civic 2022 DBCs import honda common + gearbox modules"
+      - title: "opendbc generator _gearbox_common.dbc"
+        url: "https://github.com/commaai/opendbc/blob/master/opendbc/dbc/generator/honda/_gearbox_common.dbc"
+        claim: "BO_ 401 GEARBOX_CVT and BO_ 419 GEARBOX_AUTO with distinct layouts"
+    status: REQUIRES_REVIEW
+    resolution: none
+    notes: >
+      Gen11 (2022+) must confirm gearbox message layout from the exact generated DBC
+      before any encoder implementation. Recorded as CONFLICT, not silently merged.

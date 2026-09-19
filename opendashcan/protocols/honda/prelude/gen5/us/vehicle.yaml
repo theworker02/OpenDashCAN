@@ -1,0 +1,19 @@
+platform_id: honda.prelude.gen5.us
+manufacturer: honda
+model: prelude
+generation: 5
+platform: BB
+years:
+  start: 1997
+  end: 2001
+markets: []
+engines: []
+transmissions: []
+protocols: [CAN]
+roles: [source]
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - Research stub only. CAN IDs and encodings intentionally UNKNOWN.
+  - Do not invent message layouts. Populate only with cited evidence.

@@ -1,0 +1,61 @@
+# RX classification for Civic10 — never promote LIKELY → CONFIRMED without evidence
+warning: >
+  DBC receivers:[cluster] in protocol YAML is a documentation hint, not CLUSTER_RX_CONFIRMED.
+messages:
+  - arbitration_id: "0x158"
+    name: ENGINE_DATA
+    cluster_rx_class: CLUSTER_LIKELY_RX
+    evidence: [ev_opendbc_civic10, EV-CX-001]
+    notes: CivicX COMMUNITY_RESEARCH + vehicle protocol — not CONFIRMED
+
+  - arbitration_id: "0x17C"
+    name: POWERTRAIN_DATA
+    cluster_rx_class: CLUSTER_LIKELY_RX
+    evidence: [ev_opendbc_civic10, EV-CX-001]
+    notes: CivicX discussed alongside 0x158 — still not CONFIRMED
+
+  - arbitration_id: "0x309"
+    name: CAR_SPEED
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_civic10]
+
+  - arbitration_id: "0x191"
+    name: GEARBOX
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_civic10]
+
+  - arbitration_id: "0x1A4"
+    name: VSA_STATUS
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_civic10]
+
+  - arbitration_id: "0x1C2"
+    name: EPB_STATUS
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_civic10]
+
+  - arbitration_id: "0x305"
+    name: SEATBELT_STATUS
+    cluster_rx_class: BODY_RELEVANT
+    evidence: [ev_opendbc_civic10]
+
+  - arbitration_id: "0x405"
+    name: DOORS_STATUS
+    cluster_rx_class: BODY_RELEVANT
+    evidence: [ev_opendbc_civic10]
+
+  - arbitration_id: "0x326"
+    name: SCM_FEEDBACK
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_civic10]
+
+  - arbitration_id: "0x516"
+    name: ODOMETER
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_civic10]
+
+  - arbitration_id: "0x1D0"
+    name: WHEEL_SPEEDS
+    cluster_rx_class: POWERTRAIN_ONLY
+    evidence: [ev_opendbc_civic10]
+    notes: Useful for correlation; cluster need UNKNOWN

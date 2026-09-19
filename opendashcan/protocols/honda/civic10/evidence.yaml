@@ -1,0 +1,226 @@
+# Honda Civic 10th Gen (approx. 2016–2021) — TARGET / donor cluster evidence
+# Document opendbc vehicle-bus messages. Cluster consumption NOT bench-verified.
+
+vehicle_id: honda-civic10
+cluster_id: honda-civic10
+vehicle: honda-civic10
+display_name: "Honda Civic 10th Generation (2016–2021) donor cluster"
+role: target
+status: research
+years: "2016-2021"
+notes: >
+  Encoder may emit labeled SYNTHETIC / RESEARCH_DOCUMENTED frames from opendbc
+  vehicle-bus layouts. Cluster consumption for a donor cluster swap is NOT
+  bench-verified. Default EncodeMode is NO_OUTPUT.
+
+signals:
+  - name: honda_checksum
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    sources:
+      - id: commaai_opendbc_honda_checksum
+        citation: "commaai/opendbc honda_compute_checksum — (nibble sum) then (8-sum)&0xF"
+        url: "https://github.com/commaai/opendbc"
+    notes: "4-bit checksum low nibble; often with 2-bit counter. Apply only when evidenced."
+
+  - name: engine_rpm
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    can_id: "0x158"
+    message: ENGINE_DATA
+    sources:
+      - id: commaai_opendbc_civic10
+        citation: "opendbc Honda Civic 2016/2017 DBC — ENGINE_DATA / ENGINE_RPM"
+        url: "https://github.com/commaai/opendbc"
+    notes: "Vehicle-bus only. Cluster display path for donor swap NOT bench-verified."
+
+  - name: vehicle_speed
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    can_id: "0x309"
+    message: CAR_SPEED
+    sources:
+      - id: commaai_opendbc_civic10
+        citation: "opendbc CAR_SPEED on 0x309"
+        url: "https://github.com/commaai/opendbc"
+    notes: "Vehicle-bus only until cluster RX is captured."
+
+  - name: gear_position
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    can_id: "0x191"
+    message: GEARBOX
+    sources:
+      - id: commaai_opendbc_civic10
+        citation: "opendbc GEARBOX on 0x191 (classic GEAR_SHIFTER @5|6; CONFLICT with _gearbox_common)"
+        url: "https://github.com/commaai/opendbc"
+    notes: "Vehicle-bus only until cluster RX is captured. See conflicts.yaml."
+
+  - name: powertrain_data
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    can_id: "0x17C"
+    message: POWERTRAIN_DATA
+    sources:
+      - id: commaai_opendbc_civic10
+        citation: "opendbc POWERTRAIN_DATA on 0x17C"
+        url: "https://github.com/commaai/opendbc"
+    notes: "Vehicle-bus; cluster RX for donor swap NOT verified."
+
+  - name: turn_signal_left
+    confidence: DOCUMENTED
+    can_id: "0x326"
+    message: SCM_FEEDBACK
+    sources:
+      - id: commaai_opendbc_scm_feedback
+        citation: >
+          opendbc _nidec_scm_group_b.dbc / _bosch_2018.dbc BO_ 806 SCM_FEEDBACK
+          LEFT_BLINKER @26|1. Civic Touring 2016 (Nidec-B) and Hatchback EX 2017 (Bosch).
+        url: "https://github.com/commaai/opendbc/tree/master/opendbc/dbc/generator/honda"
+    notes: >
+      Confirmed across Bosch and Nidec-B Civic platforms at 0x326.
+      CR-V Touring 2016 Nidec-A uses different ID 0x294 — not this Civic10 packing.
+      Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - name: turn_signal_right
+    confidence: DOCUMENTED
+    can_id: "0x326"
+    message: SCM_FEEDBACK
+    sources:
+      - id: commaai_opendbc_scm_feedback
+        citation: "opendbc RIGHT_BLINKER @27|1 on SCM_FEEDBACK BO_ 806"
+        url: "https://github.com/commaai/opendbc"
+    notes: "Same provenance as turn_signal_left."
+
+  - name: doors
+    confidence: DOCUMENTED
+    can_id: "0x405"
+    message: DOORS_STATUS
+    sources:
+      - id: commaai_opendbc_civic10
+        citation: "opendbc DOORS_STATUS BO_ 1029"
+        url: "https://github.com/commaai/opendbc"
+    notes: "Door/trunk bits. Cluster RX NOT verified."
+
+  - name: epb_active
+    confidence: DOCUMENTED
+    can_id: "0x1C2"
+    message: EPB_STATUS
+    sources:
+      - id: commaai_opendbc_civic10
+        citation: "opendbc EPB_ACTIVE"
+        url: "https://github.com/commaai/opendbc"
+
+  - name: seatbelt_driver
+    confidence: DOCUMENTED
+    can_id: "0x305"
+    message: SEATBELT_STATUS
+    sources:
+      - id: commaai_opendbc_civic10
+        citation: "opendbc SEATBELT_DRIVER_LATCHED"
+        url: "https://github.com/commaai/opendbc"
+
+  - name: odometer
+    confidence: DOCUMENTED
+    can_id: "0x516"
+    message: ODOMETER
+    sources:
+      - id: commaai_opendbc_civic10
+        citation: "opendbc ODOMETER BO_ 1302"
+        url: "https://github.com/commaai/opendbc"
+
+  - name: high_beam
+    confidence: DOCUMENTED
+    can_id: "0x37B"
+    message: STALK_STATUS_2
+    sources:
+      - id: commaai_opendbc_civic10
+        citation: "opendbc HIGH_BEAMS on STALK_STATUS_2"
+        url: "https://github.com/commaai/opendbc"
+
+  - name: steering_angle
+    confidence: DOCUMENTED
+    can_id: "0x14A"
+    message: STEERING_SENSORS
+    sources:
+      - id: commaai_opendbc_steering_sensors_a
+        citation: "opendbc _steering_sensors_a.dbc STEER_ANGLE @7|16 scale -0.1"
+        url: "https://github.com/commaai/opendbc"
+    notes: "Decoded for analysis; not claimed as a cluster gauge input."
+
+  - name: coolant_temperature
+    confidence: UNKNOWN
+    notes: >
+      No SG_ COOLANT / ENGINE_TEMPERATURE packing in _honda_common or Civic
+      generator DBCs. openpilot CHFFR_METRIC references msg 804 for
+      ENGINE_TEMPERATURE without an SG_ layout — not usable as an encoding.
+      AiM/Racelogic list channel names only.
+  - name: fuel_level
+    confidence: UNKNOWN
+    notes: >
+      No SG_ FUEL_LEVEL in opendbc Honda DBCs. TRIP_FUEL_CONSUMED on CRUISE
+      0x324 is trip fuel, not tank level. AiM ECU_FUEL_LEV is a channel name only.
+  - name: ignition_state
+    confidence: UNKNOWN
+
+messages:
+  - arbitration_id: 0x158
+    name: ENGINE_DATA
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    sources:
+      - "https://github.com/commaai/opendbc (Honda Civic 2016/2017 DBC, MIT)"
+    notes: "Vehicle-bus ENGINE_RPM. Cluster consumption NOT bench-verified."
+  - arbitration_id: 0x17C
+    name: POWERTRAIN_DATA
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    sources:
+      - "https://github.com/commaai/opendbc"
+  - arbitration_id: 0x309
+    name: CAR_SPEED
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    sources:
+      - "https://github.com/commaai/opendbc"
+  - arbitration_id: 0x191
+    name: GEARBOX
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    sources:
+      - "https://github.com/commaai/opendbc"
+  - arbitration_id: 0x326
+    name: SCM_FEEDBACK
+    confidence: DOCUMENTED
+    sources:
+      - "opendbc _bosch_2018.dbc / _nidec_scm_group_b.dbc (MIT)"
+    notes: "LEFT/RIGHT_BLINKER @26/27. Civic 2016 Nidec-B + 2017 Bosch."
+  - arbitration_id: 0x405
+    name: DOORS_STATUS
+    confidence: DOCUMENTED
+    sources:
+      - "https://github.com/commaai/opendbc"
+  - arbitration_id: 0x14A
+    name: STEERING_SENSORS
+    confidence: DOCUMENTED
+    sources:
+      - "opendbc _steering_sensors_a.dbc"
+  - arbitration_id: 0x374
+    name: STALK_STATUS
+    confidence: DOCUMENTED
+    sources:
+      - "opendbc _honda_common.dbc STALK_STATUS HEADLIGHTS_ON"
+    notes: "Decoded headlights_on; HIGH_BEAM_FLASH also present — beams prefer 0x37B."
+
+related_non_verified:
+  - name: rusEFI can_dash_honda
+    confidence: UNKNOWN
+    notes: >
+      rusEFI TX dash emulator (e.g. 0x1DC tach, 0x158 speed, 0x324 temp byte) —
+      OEM-cluster drive hypothesis for unspecified platforms. Do NOT treat as
+      Civic 8/10 verified OEM decode.
+  - name: Racelogic / AiM Civic channel lists
+    confidence: COMMUNITY_REPORTED
+    notes: "Channel NAMES only; do not invent bit layouts from names."
+  - name: nidec_scm_group_a SCM_FEEDBACK 0x294
+    confidence: DOCUMENTED
+    notes: >
+      CR-V Touring 2016 uses LEFT/RIGHT_BLINKER on BO_ 660 (0x294) @5/@6 —
+      different from Civic10 0x326. Tracked for CR-V, not Civic10 encoder.
+
+needed_captures:
+  - "Bench: stock Civic 10 cluster — which IDs are required vs ignored"
+  - "Timeout / missing-message behavior"
+  - "Ignition / power sequencing for cluster wake"
+  - "Fuel gauge / coolant gauge source messages (absent from public opendbc)"

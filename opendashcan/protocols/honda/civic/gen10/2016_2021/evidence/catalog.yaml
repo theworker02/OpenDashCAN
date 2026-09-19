@@ -1,0 +1,13 @@
+evidence:
+  - evidence_id: ev_opendbc_civic10
+    source_type: OPEN_SOURCE_CODE
+    source_url: "https://github.com/commaai/opendbc"
+    title: "commaai/opendbc Honda Civic 10th-gen DBC (MIT)"
+    claim: "ENGINE_DATA 0x158, POWERTRAIN_DATA 0x17C, CAR_SPEED 0x309, GEARBOX 0x191 present in Civic 10 DBCs."
+    confidence: DOCUMENTED
+    license: MIT
+    vehicle: honda.civic.gen10.us
+    bus: vehicle_can
+    notes: >
+      Vehicle-bus message IDs/layouts from opendbc. Emitting these frames does NOT
+      claim physical donor-cluster compatibility. Cluster bring-up remains UNKNOWN.

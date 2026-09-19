@@ -1,0 +1,15 @@
+modules:
+  - module_id: pcm
+    display_name: Powertrain Control Module (ECM/PCM)
+    bus: f_can
+    role: powertrain
+    confidence: DOCUMENTED
+    evidence: [ev_civic9_aim]
+    notes: AiM connects to ECU data stream via OBD CAN; module map incomplete.
+  - module_id: gauge
+    display_name: Instrument Cluster / Gauge
+    bus: UNKNOWN
+    role: cluster
+    confidence: UNKNOWN
+    evidence: []
+    notes: Gateway / cluster bus membership UNKNOWN without service literature.

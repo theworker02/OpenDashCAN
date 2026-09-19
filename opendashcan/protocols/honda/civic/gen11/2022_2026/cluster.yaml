@@ -1,0 +1,22 @@
+cluster_id: honda.civic.gen11.cluster.digital
+platform_id: honda.civic.gen11.us
+manufacturer: honda
+vehicle: civic
+generation: 11
+years:
+  start: 2022
+  end: 2026
+part_numbers: []
+display_type: digital
+CAN_buses: [vehicle_can]
+CAN_FD: false
+physical_fit: {}
+compatibility_status: UNKNOWN
+security_dependencies: []
+immobilizer_dependencies: []
+gateway_dependencies: []
+ADAS_dependencies: []
+evidence: [ev_opendbc_civic11]
+notes:
+  - 11th-gen Civic digital cluster — documentation-only.
+  - CAN FD / ADAS dependencies UNKNOWN pending research.

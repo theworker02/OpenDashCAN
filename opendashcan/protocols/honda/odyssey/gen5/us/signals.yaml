@@ -1,0 +1,533 @@
+signals:
+  - signal: adas.acc_state
+    message:
+      arbitration_id: "0x17c"
+      bus: vehicle_can
+      name: POWERTRAIN_DATA
+    encoding:
+      start_bit: 38
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: body.driver_door
+    message:
+      arbitration_id: "0x405"
+      bus: vehicle_can
+      name: DOORS_STATUS
+    encoding:
+      start_bit: 37
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: body.passenger_door
+    message:
+      arbitration_id: "0x405"
+      bus: vehicle_can
+      name: DOORS_STATUS
+    encoding:
+      start_bit: 38
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: body.rear_left_door
+    message:
+      arbitration_id: "0x405"
+      bus: vehicle_can
+      name: DOORS_STATUS
+    encoding:
+      start_bit: 39
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: body.rear_right_door
+    message:
+      arbitration_id: "0x405"
+      bus: vehicle_can
+      name: DOORS_STATUS
+    encoding:
+      start_bit: 40
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: body.trunk
+    message:
+      arbitration_id: "0x405"
+      bus: vehicle_can
+      name: DOORS_STATUS
+    encoding:
+      start_bit: 41
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: brakes.parking_brake
+    message:
+      arbitration_id: "0x1c2"
+      bus: vehicle_can
+      name: EPB_STATUS
+    encoding:
+      start_bit: 3
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: brakes.service_brake
+    message:
+      arbitration_id: "0x17c"
+      bus: vehicle_can
+      name: POWERTRAIN_DATA
+    encoding:
+      start_bit: 53
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: chassis.steering_angle
+    message:
+      arbitration_id: "0x156"
+      bus: vehicle_can
+      name: STEERING_SENSORS
+    encoding:
+      start_bit: 7
+      length: 16
+      byte_order: motorola
+      signed: true
+      scale: -0.1
+      offset: 0.0
+      unit: deg
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: lighting.headlights_on
+    message:
+      arbitration_id: "0x374"
+      bus: vehicle_can
+      name: STALK_STATUS
+    encoding:
+      start_bit: 54
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: lighting.high_beam
+    message:
+      arbitration_id: "0x37b"
+      bus: vehicle_can
+      name: STALK_STATUS_2
+    encoding:
+      start_bit: 34
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: lighting.left_indicator
+    message:
+      arbitration_id: "0x326"
+      bus: vehicle_can
+      name: SCM_FEEDBACK
+    encoding:
+      start_bit: 26
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: lighting.low_beam
+    message:
+      arbitration_id: "0x37b"
+      bus: vehicle_can
+      name: STALK_STATUS_2
+    encoding:
+      start_bit: 35
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: lighting.right_indicator
+    message:
+      arbitration_id: "0x326"
+      bus: vehicle_can
+      name: SCM_FEEDBACK
+    encoding:
+      start_bit: 27
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: powertrain.engine_rpm
+    message:
+      arbitration_id: "0x158"
+      bus: vehicle_can
+      name: ENGINE_DATA
+    encoding:
+      start_bit: 23
+      length: 16
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: rpm
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: powertrain.throttle_position
+    message:
+      arbitration_id: "0x17c"
+      bus: vehicle_can
+      name: POWERTRAIN_DATA
+    encoding:
+      start_bit: 7
+      length: 8
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: safety.seatbelt_driver
+    message:
+      arbitration_id: "0x305"
+      bus: vehicle_can
+      name: SEATBELT_STATUS
+    encoding:
+      start_bit: 13
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: safety.seatbelt_passenger
+    message:
+      arbitration_id: "0x305"
+      bus: vehicle_can
+      name: SEATBELT_STATUS
+    encoding:
+      start_bit: 11
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: VEHICLE_PROTOCOL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: stability.vsa_warning
+    message:
+      arbitration_id: "0x1a4"
+      bus: vehicle_can
+      name: VSA_STATUS
+    encoding:
+      start_bit: 28
+      length: 1
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: transmission.gear
+    message:
+      arbitration_id: "0x1a3"
+      bus: vehicle_can
+      name: GEARBOX
+    encoding:
+      start_bit: 35
+      length: 4
+      byte_order: motorola
+      signed: false
+      scale: 1.0
+      offset: 0.0
+      unit: null
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: vehicle.odometer
+    message:
+      arbitration_id: "0x158"
+      bus: vehicle_can
+      name: ENGINE_DATA
+    encoding:
+      start_bit: 55
+      length: 8
+      byte_order: motorola
+      signed: false
+      scale: 10.0
+      offset: 0.0
+      unit: m
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: vehicle.speed
+    message:
+      arbitration_id: "0x158"
+      bus: vehicle_can
+      name: ENGINE_DATA
+    encoding:
+      start_bit: 7
+      length: 16
+      byte_order: motorola
+      signed: false
+      scale: 0.01
+      offset: 0.0
+      unit: kph
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_odyssey5]
+    knowledge_level: CLUSTER_RELEVANT_SIGNAL_DOCUMENTED
+    role: vehicle_protocol
+    physical_validation: false
+    notes: >
+      From opendbc import. VEHICLE_PROTOCOL_DOCUMENTED — cluster display path NOT PHYSICALLY_VERIFIED.
+
+  - signal: fuel.level
+    message:
+      arbitration_id: UNKNOWN
+      bus: UNKNOWN
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    knowledge_level: UNKNOWN
+    role: vehicle_protocol
+    physical_validation: false
+    notes: Not in public opendbc Honda DBC signal list (no FUEL_LEVEL / FUEL_GAUGE).
+
+  - signal: powertrain.coolant_temperature
+    message:
+      arbitration_id: UNKNOWN
+      bus: UNKNOWN
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    knowledge_level: UNKNOWN
+    role: vehicle_protocol
+    physical_validation: false
+    notes: Not in public opendbc Honda DBC signal list (do not confuse CRUISE 0x324).
+
+  - signal: safety.srs_warning
+    message:
+      arbitration_id: UNKNOWN
+      bus: UNKNOWN
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    knowledge_level: UNKNOWN
+    role: vehicle_protocol
+    physical_validation: false
+    notes: Not in public opendbc Honda DBC as a clear SRS lamp signal.
+
+  - signal: safety.check_engine
+    message:
+      arbitration_id: UNKNOWN
+      bus: UNKNOWN
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    knowledge_level: UNKNOWN
+    role: vehicle_protocol
+    physical_validation: false
+    notes: Not in public opendbc Honda DBC as MIL / check-engine lamp.
+
+  - signal: brakes.abs_warning
+    message:
+      arbitration_id: UNKNOWN
+      bus: UNKNOWN
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    knowledge_level: UNKNOWN
+    role: vehicle_protocol
+    physical_validation: false
+    notes: Not in public opendbc Honda DBC as ABS warning lamp.
+
+  - signal: vehicle.ignition_state
+    message:
+      arbitration_id: UNKNOWN
+      bus: UNKNOWN
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    knowledge_level: UNKNOWN
+    physical_validation: false
+    notes: Startup / ignition sequencing for donor cluster UNKNOWN without bench.

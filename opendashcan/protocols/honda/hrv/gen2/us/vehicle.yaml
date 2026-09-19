@@ -1,0 +1,21 @@
+platform_id: honda.hrv.gen2.us
+manufacturer: honda
+model: hrv
+generation: 2
+platform: RV
+years:
+  start: 2023
+  end: 2026
+markets: []
+engines: []
+transmissions: []
+protocols: [CAN]
+roles: [source]
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - RESEARCH_REQUIRED stub. OpenDBC maps HONDA_HRV_3G (HR-V 2023–27) to honda_bosch_radarless_generated (classic CAN Bosch radarless — not CAN-FD).
+  - That DBC is not selectively vendored in this repo; encodings intentionally UNKNOWN.
+  - Do not invent message layouts. Populate only with cited evidence.
+

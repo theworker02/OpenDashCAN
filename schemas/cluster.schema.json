@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opendashcan.local/schemas/cluster.schema.json",
+  "title": "OpenDashCAN Donor Cluster Manifest",
+  "type": "object",
+  "required": ["cluster_id"],
+  "additionalProperties": true,
+  "properties": {
+    "cluster_id": {
+      "type": "string",
+      "description": "e.g. honda.civic.gen10.cluster.digital"
+    },
+    "platform_id": { "type": "string" },
+    "manufacturer": { "type": "string" },
+    "vehicle": { "type": "string" },
+    "generation": { "type": ["integer", "string"] },
+    "years": { "type": "object" },
+    "display_type": { "type": ["string", "null"] },
+    "CAN_buses": { "type": "array", "items": { "type": "string" } },
+    "can_buses": { "type": "array", "items": { "type": "string" } },
+    "compatibility_status": { "type": "string" },
+    "evidence": { "type": "array" },
+    "notes": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "array", "items": { "type": "string" } }
+      ]
+    }
+  }
+}

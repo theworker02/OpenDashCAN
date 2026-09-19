@@ -1,0 +1,83 @@
+# Honda Civic 8th Gen (approx. 2006–2011) — SOURCE vehicle evidence
+# Policy: unknown stays UNKNOWN. No invented byte layouts.
+
+vehicle_id: honda-civic8
+display_name: "Honda Civic 8th Generation (2006–2011)"
+role: source
+status: research
+years: "2006-2011"
+notes: >
+  Milestone 0.1 decoder is a no-op. Service-manual architecture is documented;
+  speculative forum IDs are COMMUNITY_REPORTED without byte layouts.
+
+architecture:
+  - name: F-CAN
+    bitrate_kbps: 500
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    sources:
+      - "Honda service manuals / factory wiring docs (F-CAN high-speed network)"
+    notes: "High-speed powertrain / chassis CAN at 500 kbps."
+  - name: B-CAN
+    bitrate_kbps: 33.33
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    sources:
+      - "Honda service manuals (B-CAN body network)"
+    notes: "Body CAN ~33.33 kbps; gauge cluster often acts as gateway."
+  - name: gauge_gateway
+    confidence: SUPPORTED_BY_MULTIPLE_SOURCES
+    sources:
+      - "Honda service manuals describing instrument cluster as F-CAN/B-CAN gateway"
+    notes: "Exact message set for donor swap UNKNOWN."
+
+messages:
+  - arbitration_id: 0x694
+    name: speculative_community_id_694
+    confidence: COMMUNITY_REPORTED
+    sources:
+      - "Autosport Labs / community forum speculation for 8th-gen Civic"
+    notes: "Speculative ID only. NO verified byte layout."
+  - arbitration_id: 0x494
+    name: speculative_community_id_494
+    confidence: COMMUNITY_REPORTED
+    sources:
+      - "Autosport Labs / community forum speculation for 8th-gen Civic"
+    notes: "Speculative ID only. Byte layout UNKNOWN."
+  - arbitration_id: 0x194
+    name: speculative_community_id_194
+    confidence: COMMUNITY_REPORTED
+    sources:
+      - "Autosport Labs / community forum speculation for 8th-gen Civic"
+    notes: "Speculative ID only. Byte layout UNKNOWN."
+
+signals:
+  - name: engine_rpm
+    confidence: UNKNOWN
+    notes: "No verified Civic 8 F-CAN RPM layout in this repo yet. Need captures."
+  - name: vehicle_speed
+    confidence: UNKNOWN
+    notes: "UNKNOWN — need source-vehicle captures correlated with GPS/speedo."
+  - name: coolant_temperature
+    confidence: UNKNOWN
+  - name: fuel_level
+    confidence: UNKNOWN
+  - name: gear_position
+    confidence: UNKNOWN
+  - name: turn_signal_left
+    confidence: UNKNOWN
+  - name: turn_signal_right
+    confidence: UNKNOWN
+  - name: ignition_state
+    confidence: UNKNOWN
+    notes: "Ignition / power modality for cluster wake UNKNOWN without bench captures."
+  - name: speculative_watch_0x694
+    confidence: COMMUNITY_REPORTED
+    can_id: "0x694"
+    sources:
+      - "Autosport Labs / community speculation"
+    notes: "ID only — not decoded."
+
+needed_captures:
+  - "Idle / rev F-CAN log with known RPM reference"
+  - "Drive cycle with GPS speed correlation"
+  - "Door / turn / beam / brake lamp actuation logs"
+  - "Ignition key cycle (OFF/ACC/ON/START) on F-CAN and B-CAN"

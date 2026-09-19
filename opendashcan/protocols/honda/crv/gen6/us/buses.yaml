@@ -1,0 +1,10 @@
+buses:
+  - id: pt_canfd
+    manufacturer_name: Powertrain CAN-FD (opendbc Bus.pt)
+    protocol: CAN_FD
+    bitrate: UNKNOWN
+    identifier_width: UNKNOWN
+    can_fd: true
+    confidence: UNKNOWN
+    evidence: [ev_opendbc_crv6_canfd_mapping]
+    notes: Upstream honda_common_canfd_generated — layouts not imported.

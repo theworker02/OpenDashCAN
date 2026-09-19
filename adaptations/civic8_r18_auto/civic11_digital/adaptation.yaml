@@ -1,0 +1,44 @@
+adaptation_id: civic8_r18_auto__civic11_digital
+source_vehicle: honda:civic:8:r18:auto
+source_platform: honda:civic:8
+target_cluster: honda:civic:11:digital
+target_platform: honda:civic:11
+mode: DOCUMENTATION_ONLY
+signals:
+  - signal: powertrain.engine_rpm
+    source_status: UNKNOWN
+    target_status: DOCUMENTED
+    translation: BLOCKED_SOURCE
+    readiness: BLOCKED_SOURCE
+    notes: Source Civic8 RPM encoding UNKNOWN; target vehicle-bus layout DOCUMENTED via opendbc.
+
+  - signal: vehicle.speed
+    source_status: UNKNOWN
+    target_status: DOCUMENTED
+    translation: BLOCKED_SOURCE
+    readiness: BLOCKED_SOURCE
+    notes: Source speed encoding UNKNOWN.
+
+  - signal: transmission.gear
+    source_status: UNKNOWN
+    target_status: PARTIAL
+    translation: blocked
+    readiness: REQUIRES_CAN_CAPTURE
+    notes: Source gear UNKNOWN; target GEARBOX ID DOCUMENTED but packing year-dependent.
+
+  - signal: fuel.level
+    source_status: UNKNOWN
+    target_status: UNKNOWN
+    translation: blocked
+    readiness: REQUIRES_CAN_CAPTURE
+
+  - signal: vehicle.ignition_state
+    source_status: UNKNOWN
+    target_status: UNKNOWN
+    translation: blocked
+    readiness: REQUIRES_BENCH_TEST
+    notes: Cluster startup sequencing unknown on both sides without hardware.
+
+physical_compatibility: NOT_VALIDATED
+electrical_compatibility: NOT_VALIDATED
+protocol_compatibility: INCOMPLETE

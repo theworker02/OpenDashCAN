@@ -1,0 +1,14 @@
+buses:
+  - id: vehicle_can
+    manufacturer_name: F-CAN
+    protocol: CAN
+    bitrate: UNKNOWN
+    identifier_width: 11
+    can_fd: false
+    gateway_to: []
+    known_modules: [pcm, cluster]
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_fit3]
+    notes: >
+      Vehicle powertrain CAN as reflected in commaai/opendbc honda_fit_ex_2018 DBC.
+      Exact OEM bus marketing name / bitrate not asserted without service-manual citation.

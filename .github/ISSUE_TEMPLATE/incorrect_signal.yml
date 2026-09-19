@@ -1,0 +1,23 @@
+name: Incorrect signal
+description: Report a wrong ID, scale, confidence, or citation
+title: "[incorrect-signal] "
+labels: ["bug", "evidence"]
+body:
+  - type: input
+    id: signal
+    attributes:
+      label: Signal / evidence entry
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction + sources
+    validations:
+      required: true

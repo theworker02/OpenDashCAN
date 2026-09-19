@@ -1,0 +1,22 @@
+buses:
+  - id: f_can
+    manufacturer_name: F-CAN / OBD-II CAN
+    protocol: CAN
+    bitrate: 500000
+    identifier_width: 11
+    can_fd: false
+    confidence: DOCUMENTED
+    evidence: [ev_civic9_racelogic, ev_civic9_aim]
+    notes: >
+      Racelogic Civic 2011-2015 datasheet specifies OBD-II CAN at 500 kbps
+      (pins 6 high / 14 low). Full F-CAN vs B-CAN body topology still needs service literature.
+
+  - id: b_can
+    manufacturer_name: B-CAN
+    protocol: CAN
+    bitrate: UNKNOWN
+    identifier_width: UNKNOWN
+    can_fd: false
+    confidence: UNKNOWN
+    evidence: []
+    notes: Body-network bitrate UNKNOWN for gen9 pending service-manual citation.

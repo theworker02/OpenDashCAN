@@ -1,0 +1,164 @@
+{
+  "synthetic": true,
+  "notes": "SYNTHETIC VehicleState fixture — not measured from a vehicle",
+  "engine_rpm": {
+    "value": 1500.0,
+    "timestamp": 1.0,
+    "source": "SYNTHETIC",
+    "confidence": "INFERRED",
+    "validity": "valid",
+    "unit": "rpm",
+    "notes": "SYNTHETIC test value only",
+    "evidence_refs": ["tests/fixtures/synthetic_state.json"]
+  },
+  "vehicle_speed": {
+    "value": 40.0,
+    "timestamp": 1.0,
+    "source": "SYNTHETIC",
+    "confidence": "INFERRED",
+    "validity": "valid",
+    "unit": "kph",
+    "notes": "SYNTHETIC test value only",
+    "evidence_refs": ["tests/fixtures/synthetic_state.json"]
+  },
+  "coolant_temperature": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": "C",
+    "notes": null,
+    "evidence_refs": []
+  },
+  "fuel_level": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": "percent",
+    "notes": null,
+    "evidence_refs": []
+  },
+  "gear_position": {
+    "value": "D",
+    "timestamp": 1.0,
+    "source": "SYNTHETIC",
+    "confidence": "INFERRED",
+    "validity": "valid",
+    "unit": null,
+    "notes": "SYNTHETIC",
+    "evidence_refs": ["tests/fixtures/synthetic_state.json"]
+  },
+  "transmission_state": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "turn_signal_left": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "turn_signal_right": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "hazards": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "high_beam": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "low_beam": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "parking_brake": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "warning_lamps": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "door_states": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "trunk_state": {
+    "value": null,
+    "timestamp": null,
+    "source": null,
+    "confidence": "UNKNOWN",
+    "validity": "unknown",
+    "unit": null,
+    "notes": null,
+    "evidence_refs": []
+  },
+  "ignition_state": {
+    "value": "ON",
+    "timestamp": 0.5,
+    "source": "SYNTHETIC",
+    "confidence": "INFERRED",
+    "validity": "valid",
+    "unit": null,
+    "notes": "SYNTHETIC ignition for sequencer tests",
+    "evidence_refs": ["tests/fixtures/synthetic_state.json"]
+  }
+}

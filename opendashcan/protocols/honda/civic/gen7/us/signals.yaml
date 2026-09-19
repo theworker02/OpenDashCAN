@@ -1,0 +1,64 @@
+signals:
+  - signal: powertrain.engine_rpm
+    message: { arbitration_id: UNKNOWN, bus: obd_kline, name: UNKNOWN, dlc: UNKNOWN }
+    encoding: { start_bit: UNKNOWN, length: UNKNOWN, byte_order: UNKNOWN, signed: UNKNOWN, scale: UNKNOWN, offset: UNKNOWN, unit: rpm }
+    transport: { period_ms: UNKNOWN }
+    integrity: { counter: { type: UNKNOWN }, checksum: { type: UNKNOWN } }
+    source_module: pcm
+    confidence: UNKNOWN
+    evidence: [ev_civic7_obd_iso9141, ev_civic7_negative_obd_can]
+    physical_validation: false
+    notes: >
+      Generic OBD Mode 01 PID 0x0C may expose RPM on K-line tools, but that is
+      SAE J1979 diagnostic traffic — not a documented Honda F-CAN cluster encoding.
+      Proprietary CAN arbitration ID / bit packing UNKNOWN (and likely absent on OBD).
+
+  - signal: vehicle.speed
+    message: { arbitration_id: UNKNOWN, bus: obd_kline }
+    encoding: { unit: kph }
+    confidence: UNKNOWN
+    evidence: [ev_civic7_negative_obd_can]
+    physical_validation: false
+    notes: No gen7 Honda CAN speed encoding asserted. OBD PID path ≠ cluster protocol.
+
+  - signal: powertrain.coolant_temperature
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: { unit: C }
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: fuel.level
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: { unit: percent }
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: transmission.gear
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: lighting.left_indicator
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: lighting.right_indicator
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: vehicle.ignition_state
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false

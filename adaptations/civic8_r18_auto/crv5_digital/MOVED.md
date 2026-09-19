@@ -1,0 +1,1 @@
+Moved to adaptations/civic8_r18_auto_to_* top-level profiles.\n

@@ -1,0 +1,23 @@
+platform_id: honda.civic.gen11.us
+manufacturer: honda
+model: civic
+generation: 11
+platform: FE/FL
+years:
+  start: 2022
+  end: 2026
+markets: [US]
+engines: []
+transmissions: []
+protocols: [CAN]
+roles:
+  - target
+aliases:
+
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - Provenance: opendbc honda_civic_ex_2022 DBC (MIT).
+  - ENGINE_DATA family similar to Civic 10; treat year-specific packing carefully.
+  - Cluster RX for donor swap NOT PHYSICALLY_VERIFIED.

@@ -1,0 +1,24 @@
+platform_id: honda.civic.gen9.us
+manufacturer: honda
+model: civic
+generation: 9
+platform: FB/FG
+years:
+  start: 2012
+  end: 2015
+markets: [US, CA]
+engines: []
+transmissions: []
+protocols: [CAN]
+roles: [source]
+aliases:
+  - honda:civic:9
+  - honda-civic9
+status:
+  research: active
+  physical_validation: incomplete
+notes:
+  - Research package: bus params + channel-name evidence only.
+  - No verified arbitration IDs or byte layouts in this repository.
+  - Do not invent message layouts. Populate only with cited evidence.
+  - Racelogic Civic 2011-2015 and AiM CivicSi_2012 document channel names, not encodings.

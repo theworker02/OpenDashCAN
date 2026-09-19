@@ -1,0 +1,15 @@
+{
+  "id": "synthetic-demo-001",
+  "vehicle": "honda_civic_8th_gen",
+  "year": null,
+  "bus": "F-CAN",
+  "bitrate": 500000,
+  "format": "candump",
+  "synthetic": true,
+  "license": "MIT",
+  "notes": "Example manifest for SYNTHETIC captures only.",
+  "pii_scrubbed": true,
+  "files": [
+    { "path": "captures/synthetic/idle_scenario.json" }
+  ]
+}

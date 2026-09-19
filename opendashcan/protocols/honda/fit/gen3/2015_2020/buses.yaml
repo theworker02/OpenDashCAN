@@ -1,0 +1,10 @@
+buses:
+  - id: unknown_can
+    manufacturer_name: UNKNOWN
+    protocol: CAN
+    bitrate: UNKNOWN
+    identifier_width: UNKNOWN
+    can_fd: UNKNOWN
+    confidence: UNKNOWN
+    evidence: []
+    notes: Bus topology UNKNOWN pending service-manual / capture research.

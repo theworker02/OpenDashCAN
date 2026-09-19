@@ -1,0 +1,189 @@
+messages:
+  - arbitration_id: "0x158"
+    name: ENGINE_DATA
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: >
+      opendbc _honda_common / platform DBC ENGINE_DATA (BO_ 344).
+      ENGINE_RPM @23|16 scale 1; XMISSION_SPEED @7|16 scale 0.01 kph.
+      Cluster RX for donor swap NOT PHYSICALLY_VERIFIED.
+    integrity:
+      checksum: { type: honda_nibble_v1 }
+      counter: { type: honda_2bit_v1 }
+
+  - arbitration_id: "0x17C"
+    name: POWERTRAIN_DATA
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc POWERTRAIN_DATA (BO_ 380). Also carries ENGINE_RPM. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x309"
+    name: CAR_SPEED
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc CAR_SPEED (BO_ 777) CAR_SPEED@7|16 scale 0.01 kph. Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x191"
+    name: GEARBOX
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: >
+      Classic Civic 2016-2021 generated DBCs: GEARBOX BO_ 401 with GEAR_SHIFTER @5|6
+      (VAL_ P/R/N/D/S/L). Newer opendbc _gearbox_common.dbc redefines 401 as GEARBOX_CVT
+      and adds 419 GEARBOX_AUTO with different bitfields — see conflicts.yaml.
+      Confirm against the year-specific generated DBC before encoding.
+
+  - arbitration_id: "0x1A4"
+    name: VSA_STATUS
+    bus: vehicle_can
+    dlc: 8
+    sender: vsa
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc VSA_STATUS (BO_ 420). ESP_DISABLED bit present. Cluster warning mapping NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x1D0"
+    name: WHEEL_SPEEDS
+    bus: vehicle_can
+    dlc: 8
+    sender: vsa
+    receivers: []
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc WHEEL_SPEEDS (BO_ 464). Useful for correlation; cluster need UNKNOWN.
+
+  - arbitration_id: "0x1C2"
+    name: EPB_STATUS
+    bus: vehicle_can
+    dlc: 8
+    sender: epb
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc EPB_STATUS (BO_ 450). EPB_ACTIVE / EPB_STATE. Not on all trims.
+
+  - arbitration_id: "0x305"
+    name: SEATBELT_STATUS
+    bus: vehicle_can
+    dlc: 7
+    sender: body
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc SEATBELT_STATUS (BO_ 773).
+
+  - arbitration_id: "0x405"
+    name: DOORS_STATUS
+    bus: vehicle_can
+    dlc: 8
+    sender: body
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc DOORS_STATUS (BO_ 1029). Door open + trunk bits.
+
+  - arbitration_id: "0x374"
+    name: STALK_STATUS
+    bus: vehicle_can
+    dlc: 8
+    sender: UNKNOWN
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc STALK_STATUS (BO_ 884). Headlights / high-beam hold/flash.
+
+  - arbitration_id: "0x37B"
+    name: STALK_STATUS_2
+    bus: vehicle_can
+    dlc: 8
+    sender: UNKNOWN
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc STALK_STATUS_2 (BO_ 891). LOW_BEAMS / HIGH_BEAMS / PARK_LIGHTS.
+
+  - arbitration_id: "0x324"
+    name: CRUISE
+    bus: vehicle_can
+    dlc: 8
+    sender: pcm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc CRUISE (BO_ 804). HUD speeds / trip fuel consumed. Not coolant temp.
+
+  - arbitration_id: "0x516"
+    name: ODOMETER
+    bus: vehicle_can
+    dlc: 8
+    sender: UNKNOWN
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc ODOMETER (BO_ 1302).
+
+  - arbitration_id: "0x326"
+    name: SCM_FEEDBACK
+    bus: vehicle_can
+    dlc: 8
+    sender: scm
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: >
+      opendbc SCM_FEEDBACK (BO_ 806) via _nidec_scm_group_b (Civic Touring 2016) and
+      _bosch_2018 (Civic Hatchback EX 2017). LEFT_BLINKER @26|1, RIGHT_BLINKER @27|1.
+      Cluster RX NOT PHYSICALLY_VERIFIED.
+
+  - arbitration_id: "0x14A"
+    name: STEERING_SENSORS
+    bus: vehicle_can
+    dlc: 8
+    sender: eps
+    receivers: []
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc STEERING_SENSORS (BO_ 330) STEER_ANGLE @7|16 scale -0.1 deg.
+
+  - arbitration_id: "0x30C"
+    name: ACC_HUD
+    bus: vehicle_can
+    dlc: 8
+    sender: adas
+    receivers: [cluster]
+    period_ms: UNKNOWN
+    confidence: DOCUMENTED
+    evidence: [ev_opendbc_civic10]
+    notes: opendbc ACC_HUD (BO_ 780). ACC_ON @52|1. Cluster HUD icons.

@@ -1,0 +1,29 @@
+modules:
+  - module_id: pcm
+    display_name: Powertrain Control Module (ECM/PCM)
+    bus: f_can
+    role: powertrain
+    tx_ids: []
+    confidence: DOCUMENTED
+    evidence: [ev_civic8_fcan_bitrate]
+    notes: Module presence DOCUMENTED; TX arbitration IDs UNKNOWN without captures.
+  - module_id: abs_vsa
+    display_name: ABS / VSA
+    bus: f_can
+    role: chassis
+    confidence: DOCUMENTED
+    evidence: [ev_civic8_fcan_bitrate]
+    notes: Presence on F-CAN DOCUMENTED; message set UNKNOWN.
+  - module_id: bcm
+    display_name: Body Control Module
+    bus: b_can
+    role: body
+    confidence: DOCUMENTED
+    evidence: [ev_civic8_bcan_bitrate]
+  - module_id: gauge
+    display_name: Instrument Cluster / Gauge (gateway)
+    bus: f_can
+    role: cluster_gateway
+    confidence: DOCUMENTED
+    evidence: [ev_civic8_gauge_gateway]
+    notes: Cluster participates as F-CAN/B-CAN gateway — exact donor-swap message set UNKNOWN.

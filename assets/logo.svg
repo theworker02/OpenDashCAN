@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="OpenDashCAN">
+  <rect width="512" height="512" rx="112" fill="#12151c"/>
+  <!-- left CAN bus rails -->
+  <g stroke="#22d3ee" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M72 176h120"/>
+    <path d="M72 208h96"/>
+    <path d="M72 240h112"/>
+    <path d="M72 272h88"/>
+  </g>
+  <!-- CAN frame ticks -->
+  <g fill="#f59e0b">
+    <rect x="88" y="168" width="14" height="16" rx="2"/>
+    <rect x="128" y="200" width="14" height="16" rx="2"/>
+    <rect x="100" y="232" width="14" height="16" rx="2"/>
+    <rect x="140" y="264" width="14" height="16" rx="2"/>
+  </g>
+  <!-- translation bridge -->
+  <path d="M200 224h56" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M248 208l24 16-24 16" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- cluster arc -->
+  <path d="M300 300a110 110 0 0 1 176-88" fill="none" stroke="#22d3ee" stroke-width="14" stroke-linecap="round"/>
+  <path d="M318 278a86 86 0 0 1 132-66" fill="none" stroke="#334155" stroke-width="8" stroke-linecap="round"/>
+  <!-- needle -->
+  <line x1="388" y1="248" x2="448" y2="188" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="388" cy="248" r="12" fill="#e2e8f0"/>
+  <circle cx="388" cy="248" r="5" fill="#12151c"/>
+  <!-- wordmark -->
+  <text x="256" y="420" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="36" font-weight="700" fill="#e2e8f0">OpenDashCAN</text>
+</svg>

@@ -1,0 +1,1 @@
+# Migrated\n\nCanonical package is now fit/gen3/us (platform honda.fit.gen3.us).\nThis year-range folder is kept for history; loader prefers us/ when both exist.\n

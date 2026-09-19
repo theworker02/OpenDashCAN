@@ -1,0 +1,29 @@
+name: New cluster
+description: Propose adding a target instrument cluster encoder
+title: "[cluster] "
+labels: ["cluster", "enhancement"]
+body:
+  - type: input
+    id: cluster
+    attributes:
+      label: Cluster / vehicle generation
+    validations:
+      required: true
+  - type: textarea
+    id: required_messages
+    attributes:
+      label: Known required messages (with confidence)
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence sources
+    validations:
+      required: true
+  - type: checkboxes
+    id: bench
+    attributes:
+      label: Bench status
+      options:
+        - label: I can bench-test this cluster
+        - label: Capture logs available (describe license)
+        - label: No hardware — documentation only

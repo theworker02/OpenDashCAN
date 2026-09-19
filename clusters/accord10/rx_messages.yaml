@@ -1,0 +1,10 @@
+warning: Accord10 isolated — DISPLAY_RELEVANT only from DBC.
+messages:
+  - arbitration_id: "0x158"
+    name: ENGINE_DATA
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_accord10]
+  - arbitration_id: "0x309"
+    name: CAR_SPEED
+    cluster_rx_class: DISPLAY_RELEVANT
+    evidence: [ev_opendbc_accord10]

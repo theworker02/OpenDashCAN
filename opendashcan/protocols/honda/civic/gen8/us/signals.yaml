@@ -1,0 +1,72 @@
+signals:
+  - signal: powertrain.engine_rpm
+    message: { arbitration_id: UNKNOWN, bus: f_can, name: UNKNOWN, dlc: UNKNOWN }
+    encoding: { start_bit: UNKNOWN, length: UNKNOWN, byte_order: UNKNOWN, signed: UNKNOWN, scale: UNKNOWN, offset: UNKNOWN, unit: rpm }
+    transport: { period_ms: UNKNOWN }
+    integrity: { counter: { type: UNKNOWN }, checksum: { type: UNKNOWN } }
+    source_module: pcm
+    confidence: UNKNOWN
+    evidence: [ev_civic8_aim]
+    physical_validation: false
+    notes: >
+      AiM Civic_US lists RPM as an OBD CAN channel (name only). Arbitration ID and
+      byte layout UNKNOWN. Autosport speculative 0x194 must not be treated as proven.
+
+  - signal: vehicle.speed
+    message: { arbitration_id: UNKNOWN, bus: f_can, name: UNKNOWN, dlc: UNKNOWN }
+    encoding: { start_bit: UNKNOWN, length: UNKNOWN, byte_order: UNKNOWN, signed: UNKNOWN, scale: UNKNOWN, offset: UNKNOWN, unit: kph }
+    transport: { period_ms: UNKNOWN }
+    confidence: UNKNOWN
+    evidence: [ev_civic8_aim, ev_civic8_racelogic]
+    physical_validation: false
+    notes: >
+      AiM SpeedVeh + Racelogic Indicated Vehicle Speed channel names documented on
+      OBD CAN. Encoding UNKNOWN. Speculative 0x494 is COMMUNITY_REPORTED only.
+
+  - signal: powertrain.coolant_temperature
+    message: { arbitration_id: UNKNOWN, bus: f_can }
+    encoding: { unit: C }
+    confidence: UNKNOWN
+    evidence: [ev_civic8_aim]
+    physical_validation: false
+    notes: AiM WaterTemp channel name only. Encoding UNKNOWN.
+
+  - signal: fuel.level
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: { unit: percent }
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+    notes: >
+      Not listed in AiM Civic_US 1.04 public channel table. Si-template fuel channels
+      are a different protocol — do not apply to US Civic_US without evidence.
+
+  - signal: transmission.gear
+    message: { arbitration_id: UNKNOWN, bus: f_can }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+    notes: No public Civic 8 gear bitfield. Encoding UNKNOWN.
+
+  - signal: lighting.left_indicator
+    message: { arbitration_id: UNKNOWN, bus: b_can }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: lighting.right_indicator
+    message: { arbitration_id: UNKNOWN, bus: b_can }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+
+  - signal: vehicle.ignition_state
+    message: { arbitration_id: UNKNOWN, bus: UNKNOWN }
+    encoding: {}
+    confidence: UNKNOWN
+    evidence: []
+    physical_validation: false
+    notes: Ignition / power modality for cluster wake UNKNOWN without bench captures.

@@ -1,0 +1,7 @@
+algorithms:
+  - id: honda_nibble_v1
+    scope: vehicle_bus_opendbc
+    confidence: DOCUMENTED
+    cluster_acceptance: UNKNOWN
+test_vectors: []
+warning: No invented checksums. Cluster acceptance UNKNOWN.

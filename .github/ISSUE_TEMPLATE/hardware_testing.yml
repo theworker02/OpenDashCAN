@@ -1,0 +1,28 @@
+name: Hardware testing
+description: Track hardware / bench testing work
+title: "[hardware] "
+labels: ["hardware"]
+body:
+  - type: input
+    id: platform
+    attributes:
+      label: Adapter platform
+      placeholder: ESP32, STM32, socketcan, other
+  - type: textarea
+    id: setup
+    attributes:
+      label: Isolation / listen-only setup
+    validations:
+      required: true
+  - type: textarea
+    id: goals
+    attributes:
+      label: Test goals
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety
+      options:
+        - label: TX disabled unless explicitly armed
+        - label: Not testing on public roads
+        - label: Allowlist planned for any TX IDs
