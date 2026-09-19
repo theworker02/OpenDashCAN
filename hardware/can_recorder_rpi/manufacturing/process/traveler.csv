@@ -1,0 +1,13 @@
+step,field,example
+1,serial,ODC1A-20260919-0001
+2,pcb_rev,A
+3,hat_lot,JLCPCB-…
+4,sbc_serial,Pi Zero 2W serial
+5,sd_image_sha256,…
+6,jp_term,OPEN
+7,ict_pass,Y/N
+8,fct_pass,Y/N
+9,tx_interlock_pass,Y/N
+10,operator,initials
+11,date_utc,ISO-8601
+12,notes,—

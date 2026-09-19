@@ -1,0 +1,17 @@
+[Unit]
+Description=OpenDashCAN listen-only CAN recorder
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Environment=ODC_CAN_BITRATE=500000
+Environment=ODC_CAN_IFACE=can0
+Environment=ODC_CAPTURE_DIR=/home/pi/captures
+ExecStart=/usr/local/sbin/record_listen_only.sh
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <title>Exploded assembly ODC-REC-RPI-1A</title>
+  <rect width="900" height="560" fill="#f7f7f4"/>
+  <text x="24" y="36" font-family="Segoe UI,Arial,sans-serif" font-size="20">Exploded assembly  ODC-REC-RPI-1A</text>
+
+  <rect x="300" y="60" width="280" height="60" rx="6" fill="#cfd8dc" stroke="#222"/>
+  <text x="360" y="95" font-family="Segoe UI,Arial,sans-serif" font-size="14">Enclosure lid + label</text>
+
+  <rect x="300" y="150" width="280" height="50" rx="6" fill="#fff9c4" stroke="#222"/>
+  <text x="370" y="180" font-family="Segoe UI,Arial,sans-serif" font-size="14">HAT PCBA</text>
+
+  <rect x="300" y="230" width="280" height="50" rx="6" fill="#ce93d8" stroke="#222"/>
+  <text x="340" y="260" font-family="Segoe UI,Arial,sans-serif" font-size="14">Pi Zero 2 W + microSD</text>
+
+  <rect x="300" y="310" width="280" height="50" rx="6" fill="#cfd8dc" stroke="#222"/>
+  <text x="360" y="340" font-family="Segoe UI,Arial,sans-serif" font-size="14">Enclosure base</text>
+
+  <rect x="40" y="180" width="200" height="80" rx="6" fill="#ffe0b2" stroke="#222"/>
+  <text x="60" y="215" font-family="Segoe UI,Arial,sans-serif" font-size="13">OBD pigtail</text>
+  <text x="60" y="235" font-family="Segoe UI,Arial,sans-serif" font-size="12">strain relief ’ CAN/VIN</text>
+
+  <rect x="640" y="180" width="200" height="80" rx="6" fill="#a5d6a7" stroke="#222"/>
+  <text x="660" y="215" font-family="Segoe UI,Arial,sans-serif" font-size="13">M2.5 standoffs</text>
+  <text x="660" y="235" font-family="Segoe UI,Arial,sans-serif" font-size="12">4× stack</text>
+
+  <line x1="240" y1="220" x2="300" y2="175" stroke="#222" stroke-width="2"/>
+  <line x1="640" y1="220" x2="580" y2="175" stroke="#222" stroke-width="2"/>
+
+  <text x="40" y="420" font-family="Segoe UI,Arial,sans-serif" font-size="13">Order: base ’ standoffs ’ Pi ’ HAT ’ torque screws ’ cable gland ’ lid ’ serial label</text>
+  <text x="40" y="450" font-family="Segoe UI,Arial,sans-serif" font-size="13">JP_TERM left OPEN for OBD tap units. Install 2A fuse before power FCT.</text>
+  <text x="40" y="490" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#b71c1c">VERIFY exterior marking: LISTEN ONLY  NO TX</text>
+</svg>

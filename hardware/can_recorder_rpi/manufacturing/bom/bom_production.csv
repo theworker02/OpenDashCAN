@@ -1,0 +1,28 @@
+refdes,qty,description,mpn_primary,package,manufacturer,value,dnp,procure_class,notes
+U1,1,CAN controller,MCP2515-I/SO,SOIC-18,Microchip,—,0,CRITICAL,16 MHz crystal required
+Y1,1,Crystal 16.000 MHz,ABM3B-16.000MHZ-B2-T,SMD,Abracon,16.000MHz,0,CRITICAL,Match dtoverlay oscillator=
+C_Y1,2,Load capacitor,C0805C220J5GACTU,0805,Kemet,22pF,0,CRITICAL,Tune to crystal CL
+U2,1,CAN transceiver 3.3V,SN65HVD230D,SOIC-8,Texas Instruments,—,0,CRITICAL,Silent-capable family preferred
+D_ESD1,1,CAN ESD protection,PESD1CAN\,115,SOT-23,Nexperia,—,0,PREFERRED,Across CANH/CANL to GND
+R_TERM,1,Termination,RC0805FR-07120RL,0805,Yageo,120R,0,PREFERRED,In series with JP_TERM
+JP_TERM,1,2-pin jumper 2.54mm,PRPC002SAAN-RC,TH,Sullins,—,0,STANDARD,OPEN for OBD mid-bus tap
+U3,1,Buck 12V to 5V >=2.5A,OKI-78SR-5/1.5-W36-C,SIP,Murata,5V,0,PREFERRED,Or AVL module alternate
+D_REV,1,Schottky reverse protect,SS34,SMA,Generic,40V 3A,0,STANDARD,Series on VIN
+D_TVS,1,TVS on VIN,SMBJ24A,SMB,Littelfuse,24V,0,PREFERRED,Load-dump assist
+F1,1,Fuse 2A mini blade,0287002.PXCN,blade,Littelfuse,2A,0,CRITICAL,Holder H1
+H1,1,Mini blade fuse holder,3568,TH,Keystone,—,0,STANDARD,—
+J_OBD,1,OBD pigtail J1962 male,custom ASM-OBD-1M,—,Harness shop,—,0,CRITICAL,Pins 4/5/6/14/16 only
+J_PI,1,2x20 female header 2.54,PPTC202LFBN-RC,TH,Sullins,11mm stack,0,STANDARD,Pi HAT mating
+LED_PWR,1,Power LED green,LTST-C191KGKT,0805,Lite-On,—,0,STANDARD,+R_LED_PWR
+R_LED_PWR,1,LED resistor,RC0805FR-071K00L,0805,Yageo,1k,0,STANDARD,—
+LED_ACT,1,Activity LED yellow,LTST-C191YKT,0805,Lite-On,—,0,STANDARD,GPIO or MCP INT buffer
+R_LED_ACT,1,LED resistor,RC0805FR-071K00L,0805,Yageo,1k,0,STANDARD,—
+C_DEC,8,Decoupling 100nF,C0805C104K5RACTU,0805,Kemet,100nF,0,STANDARD,U1/U2/rail
+C_BULK,2,Bulk 10uF 25V,CL21A106KAYNNNE,0805,Samsung,10uF,0,STANDARD,5V and 3V3
+R_PU_RST,1,MCP2515 RESET pull-up,RC0805FR-0710KL,0805,Yageo,10k,0,STANDARD,To 3V3
+PCB1,1,HAT PCB 65x56.5mm 2L,ODC-REC-HAT-A,fab,JLCPCB/CM,—,0,CRITICAL,See cad/pcb_fab_notes.md
+MECH1,1,Enclosure,ODC-ENC-90x60x30,ABS,Print/buy,—,0,STANDARD,See cad/enclosure.scad
+SBC1,1,Raspberry Pi Zero 2 W,Raspberry Pi Zero 2 W,—,Raspberry Pi Ltd,—,0,CRITICAL,Customer or CM supply
+SD1,1,microSD 32GB A2,SDSQUA4-032G-GN6MN,—,SanDisk,—,0,PREFERRED,Pre-flash image
+LABEL1,1,Product label set,ODC-LBL-1A,—,Print,—,0,STANDARD,See labels/
+MISC1,1,Standoffs M2.5 kit,generic,—,generic,—,0,STANDARD,4 pcs + screws

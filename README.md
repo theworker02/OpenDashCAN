@@ -203,6 +203,8 @@ In the GUI: open the **Wiring** tab for the same diagrams + checklist, with link
 
 Listen-only Raspberry Pi recorder design: [`hardware/can_recorder_rpi/README.md`](hardware/can_recorder_rpi/README.md) (`candump` → copy log → `opendashcan listen --capture …` or Live tab **Play file**).
 
+**Manufacturing (repo only — not in the Desktop app):** partner note, production BOM/AVL, open CAD (schematic/PCB/harness/OpenSCAD), assembly + ICT/FCT, factory flash, labels — see [`hardware/MANUFACTURING_INDEX.md`](hardware/MANUFACTURING_INDEX.md) and [`hardware/can_recorder_rpi/manufacturing/`](hardware/can_recorder_rpi/manufacturing/).
+
 ---
 
 ## Safety
@@ -238,7 +240,7 @@ See [docs/safety.md](docs/safety.md).
 opendashcan/          # Python package (CLI, registry, decode, GUI, hw listen)
 opendashcan/gui/      # Qt desktop (Live, gaps, wiring, splash, …)
 docs/wiring/          # Harness / OBD / swap checklist
-hardware/can_recorder_rpi/  # Listen-only Pi capture design
+hardware/                 # Pi recorder + manufacturing package (not in PyPI wheel)
 assets/               # Official logo, screenshots, demo GIFs, wiring PNGs
 captures/synthetic/   # SYNTHETIC fixtures only
 research/             # Evidence reports (DOCUMENTATION_ONLY)

@@ -37,6 +37,12 @@ First public release: installable **LISTEN_ONLY** desktop program (CLI + Qt) for
 - Rounded project logo / banner (transparent corners); GUI window icon uses clipped pixmap
 - Screenshots and demo GIFs (including Honda-themed boot splash)
 
+### Manufacturing (repo only)
+
+- Partner note, production BOM/AVL, open CAD (schematic SVG, PCB notes, harness, OpenSCAD enclosure, KiCad scaffold)
+- Assembly SOP, ICT/FCT traveler, factory listen-only image notes, labels
+- Not bundled into Desktop app or PyPI wheel — see `hardware/MANUFACTURING_INDEX.md`
+
 ### Notes
 
 - Research / software phase — **no working cluster swap claimed**

@@ -1,0 +1,10 @@
+line,category,est_usd_each,qty_evt10_multiplier_note
+SBC Pi Zero 2 W,electronics,20,1
+microSD 32GB,electronics,8,1
+PCBA (HAT components+fab+labor),electronics,28,drops ~30% at qty 100
+OBD cable assembly,harness,9,1
+Enclosure+hardware,mech,6,1
+Labels+packaging,pack,2,1
+Test+flash labor,labor,12,1
+NRE amortized EVT10,nre,15,quote separately
+INDICATIVE_UNIT_EVT,total,100,±25% depending on Pi availability

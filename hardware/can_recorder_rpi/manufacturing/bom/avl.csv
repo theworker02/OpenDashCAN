@@ -1,0 +1,10 @@
+component_class,primary_mpn,alt1_mpn,alt2_mpn,notes
+CAN_CONTROLLER,MCP2515-I/SO,MCP2515-I/ST,—,SOIC preferred for hand-rework EVT
+CRYSTAL_16MHZ,ABM3B-16.000MHZ-B2-T,ATS160B-E,FA-238 16.000MA20X-C3,Must be 16.000 MHz ±30 ppm or better
+CAN_TRANSCEIVER,SN65HVD230D,SN65HVD232D,TJA1051T/3 (3.3V check),Must be 3.3V IO compatible
+CAN_ESD,PESD1CAN\,115,PESD2CAN\,115,NUP2105LT1G,—
+BUCK_5V,OKI-78SR-5/1.5-W36-C,Recom R-78E5.0-0.5,MP1584EN module (qualified),Automotive VIN 9-16V continuous
+TVS_VIN,SMBJ24A,SMBJ26A,1.5SMC24A,—
+FUSE_2A,0287002.PXCN,ATP2,mini blade 2A equivalent,—
+SBC,Raspberry Pi Zero 2 W,—,—,No CM substitute without ECO
+SD_CARD,SDSQUA4-032G-GN6MN,Samsung PRO Endurance 32GB,—,Industrial preferred for fleet

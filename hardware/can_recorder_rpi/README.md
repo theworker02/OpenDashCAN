@@ -110,15 +110,19 @@ Honda Civic OBD diagnostic CAN is typically **500 kbit/s** (matches Racelogic / 
 
 See [`bom.csv`](bom.csv). Approximate prototype cost USD ~70–110 depending on Pi stock.
 
+**Production manufacturing package** (partner note, full BOM/AVL, open CAD, assembly, ICT/FCT, flash, labels):  
+[`manufacturing/`](manufacturing/) · index [`../MANUFACTURING_INDEX.md`](../MANUFACTURING_INDEX.md) · partner letter [`../MANUFACTURING_PARTNER_NOTE.md`](../MANUFACTURING_PARTNER_NOTE.md).
+
+This package lives in the **repo only** — it is not bundled into the Desktop app or PyPI wheel.
+
 ## 6. PCB / fab notes
 
 - 2-layer FR-4, 1.6 mm, ENIG optional
 - Pi HAT outline (65×56.5 mm) with 2.54 mm stacking header
 - Keep CAN differential pair short and parallel; 120 Ω footprint near connector
 - Silkscreen: `TERM` jumper, `VIN polarity`, `LISTEN ONLY`
-- Gerber + pick-place + BOM generated from KiCad project (future `pcb/` folder)
-
-**No Gerbers in this pass** — schematic-level manufacturing design only.
+- Open CAD + KiCad scaffold: [`manufacturing/cad/`](manufacturing/cad/)
+- Production Gerbers: CM generates from scaffold + [`manufacturing/cad/pcb_fab_notes.md`](manufacturing/cad/pcb_fab_notes.md)
 
 ## 7. Software image (factory flash)
 
