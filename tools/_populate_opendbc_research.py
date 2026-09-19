@@ -41,7 +41,9 @@ messages:
     period_ms: UNKNOWN
     confidence: DOCUMENTED
     evidence: [{ev}]
-    notes: opendbc POWERTRAIN_DATA (BO_ 380). Also carries ENGINE_RPM. Cluster RX NOT PHYSICALLY_VERIFIED.
+    notes: >
+      opendbc POWERTRAIN_DATA (BO_ 380). Also carries ENGINE_RPM.
+      Cluster RX NOT PHYSICALLY_VERIFIED.
 
   - arbitration_id: "0x309"
     name: CAR_SPEED
@@ -52,7 +54,9 @@ messages:
     period_ms: UNKNOWN
     confidence: DOCUMENTED
     evidence: [{ev}]
-    notes: opendbc CAR_SPEED (BO_ 777) CAR_SPEED@7|16 scale 0.01 kph. Cluster RX NOT PHYSICALLY_VERIFIED.
+    notes: >
+      opendbc CAR_SPEED (BO_ 777) CAR_SPEED@7|16 scale 0.01 kph.
+      Cluster RX NOT PHYSICALLY_VERIFIED.
 
   - arbitration_id: "0x191"
     name: GEARBOX
@@ -78,7 +82,9 @@ messages:
     period_ms: UNKNOWN
     confidence: DOCUMENTED
     evidence: [{ev}]
-    notes: opendbc VSA_STATUS (BO_ 420). ESP_DISABLED bit present. Cluster warning mapping NOT PHYSICALLY_VERIFIED.
+    notes: >
+      opendbc VSA_STATUS (BO_ 420). ESP_DISABLED bit present.
+      Cluster warning mapping NOT PHYSICALLY_VERIFIED.
 
   - arbitration_id: "0x1D0"
     name: WHEEL_SPEEDS

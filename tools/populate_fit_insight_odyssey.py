@@ -77,7 +77,7 @@ def _messages_yaml(data: dict, ev: str) -> str:
         if msg.get("name") not in keep_names:
             continue
         lines.append(f'  - arbitration_id: "{msg["id_hex"]}"')
-        lines.append(f'    name: {msg["name"]}')
+        lines.append(f"    name: {msg['name']}")
         lines.append("    bus: vehicle_can")
         lines.append(f"    dlc: {msg['dlc']}")
         sender = SENDER_MAP.get(str(msg.get("sender") or "XXX").upper(), "UNKNOWN")
@@ -94,7 +94,13 @@ def _messages_yaml(data: dict, ev: str) -> str:
             f"    notes: >\n      opendbc {src} ({sha[:12]}…). "
             "Vehicle-bus DOCUMENTED. Cluster RX NOT PHYSICALLY_VERIFIED."
         )
-        if msg["name"] in ("ENGINE_DATA", "POWERTRAIN_DATA", "CAR_SPEED", "GEARBOX", "SCM_FEEDBACK"):
+        if msg["name"] in (
+            "ENGINE_DATA",
+            "POWERTRAIN_DATA",
+            "CAR_SPEED",
+            "GEARBOX",
+            "SCM_FEEDBACK",
+        ):
             lines.append("    integrity:")
             lines.append("      checksum: { type: honda_nibble_v1 }")
             lines.append("      counter: { type: honda_2bit_v1 }")
@@ -113,16 +119,16 @@ def _signals_yaml(data: dict, ev: str) -> str:
         lines.append("    message:")
         lines.append(f'      arbitration_id: "{m["arbitration_id"]}"')
         lines.append("      bus: vehicle_can")
-        lines.append(f'      name: {m["message"]}')
+        lines.append(f"      name: {m['message']}")
         lines.append("    encoding:")
-        lines.append(f'      start_bit: {m["start_bit"]}')
-        lines.append(f'      length: {m["length"]}')
-        lines.append(f'      byte_order: {m["byte_order"]}')
-        lines.append(f'      signed: {"true" if m.get("signed") else "false"}')
-        lines.append(f'      scale: {m["scale"]}')
-        lines.append(f'      offset: {m["offset"]}')
+        lines.append(f"      start_bit: {m['start_bit']}")
+        lines.append(f"      length: {m['length']}")
+        lines.append(f"      byte_order: {m['byte_order']}")
+        lines.append(f"      signed: {'true' if m.get('signed') else 'false'}")
+        lines.append(f"      scale: {m['scale']}")
+        lines.append(f"      offset: {m['offset']}")
         unit = m.get("unit")
-        lines.append(f'      unit: {unit if unit else "null"}')
+        lines.append(f"      unit: {unit if unit else 'null'}")
         lines.append("    confidence: DOCUMENTED")
         lines.append(f"    evidence: [{ev}]")
         lines.append(f"    knowledge_level: {kl}")
@@ -139,7 +145,7 @@ def _signals_yaml(data: dict, ev: str) -> str:
             continue
         lines.append(f"  - signal: {tax}")
         lines.append("    message:")
-        lines.append('      arbitration_id: UNKNOWN')
+        lines.append("      arbitration_id: UNKNOWN")
         lines.append("      bus: UNKNOWN")
         lines.append("    encoding: {}")
         lines.append("    confidence: UNKNOWN")
@@ -152,7 +158,7 @@ def _signals_yaml(data: dict, ev: str) -> str:
 
     lines.append("  - signal: vehicle.ignition_state")
     lines.append("    message:")
-    lines.append('      arbitration_id: UNKNOWN')
+    lines.append("      arbitration_id: UNKNOWN")
     lines.append("      bus: UNKNOWN")
     lines.append("    encoding: {}")
     lines.append("    confidence: UNKNOWN")
@@ -172,12 +178,12 @@ def _evidence_yaml(ev: str, data: dict, platform: str) -> str:
         "evidence:\n"
         f"  - evidence_id: {ev}\n"
         "    source_type: DBC\n"
-        f"    source_url: \"{prov.get('repo', 'https://github.com/commaai/opendbc')}\"\n"
-        f"    title: \"commaai/opendbc {prov.get('source_dbc', '')} (MIT)\"\n"
+        f'    source_url: "{prov.get("repo", "https://github.com/commaai/opendbc")}"\n'
+        f'    title: "commaai/opendbc {prov.get("source_dbc", "")} (MIT)"\n'
         f"    claim: opendbc vehicle-bus layouts for {platform}\n"
         "    confidence: DOCUMENTED\n"
         f"    license: {prov.get('license', 'MIT')}\n"
-        f"    commit_sha: \"{prov.get('commit_sha', '')}\"\n"
+        f'    commit_sha: "{prov.get("commit_sha", "")}"\n'
         f"    source_dbc: {prov.get('source_dbc', '')}\n"
         "    bus: vehicle_can\n"
         "    notes: >\n"
@@ -267,9 +273,7 @@ def main() -> None:
         (base / "signals.yaml").write_text(_signals_yaml(data, ev), encoding="utf-8")
         evid_dir = base / "evidence"
         evid_dir.mkdir(exist_ok=True)
-        (evid_dir / "catalog.yaml").write_text(
-            _evidence_yaml(ev, data, rel), encoding="utf-8"
-        )
+        (evid_dir / "catalog.yaml").write_text(_evidence_yaml(ev, data, rel), encoding="utf-8")
         # Update vehicle notes
         vpath = base / "vehicle.yaml"
         if vpath.exists():

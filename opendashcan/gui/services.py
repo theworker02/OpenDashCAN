@@ -17,8 +17,7 @@ DEFAULT_CLUSTER = "honda.civic.gen10.cluster.digital"
 DEFAULT_LISTEN_VEHICLE = "honda.civic.gen10.us"
 
 EVIDENCE_SUBMISSION_URL = (
-    "https://github.com/theworker02/OpenDashCAN/issues/new"
-    "?template=evidence_submission.yml"
+    "https://github.com/theworker02/OpenDashCAN/issues/new?template=evidence_submission.yml"
 )
 EVIDENCE_GUIDE_REL = "docs/submitting-evidence.md"
 
@@ -417,9 +416,7 @@ def project_mode_banner() -> str:
     )
 
 
-AFFILIATION_DISCLAIMER = (
-    "Not affiliated with, endorsed by, or sponsored by Honda Motor Co., Ltd."
-)
+AFFILIATION_DISCLAIMER = "Not affiliated with, endorsed by, or sponsored by Honda Motor Co., Ltd."
 
 TRADEMARK_NOTICE = (
     "Honda®, the Honda logo, and related marks are trademarks and/or "
@@ -544,7 +541,7 @@ def about_text() -> str:
         "No claim of cluster control or physical compatibility.\n\n"
         "Get frames onto the PC: hardware/can_recorder_rpi/\n"
         "Wiring: docs/wiring/  ·  GUI Wiring tab\n"
-        "Install: pip install -e \".[gui,hw]\"\n"
+        'Install: pip install -e ".[gui,hw]"\n'
         "Listen:  opendashcan listen --virtual\n"
         f"Evidence: {EVIDENCE_SUBMISSION_URL}"
     )

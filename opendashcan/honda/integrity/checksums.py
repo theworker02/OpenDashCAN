@@ -74,9 +74,7 @@ def apply_nibble_checksum(
     return honda_set_checksum(address, data)
 
 
-def verify_nibble_checksum(
-    address: int, data: bytes, *, platform_id: str | None = None
-) -> bool:
+def verify_nibble_checksum(address: int, data: bytes, *, platform_id: str | None = None) -> bool:
     _guard(platform_id)
     return honda_verify_checksum(address, data)
 

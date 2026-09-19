@@ -64,9 +64,7 @@ def schedule_from_package(pkg: PlatformPackage) -> SchedulePlan:
     return SchedulePlan(platform_id=pkg.platform_id, messages=msgs)
 
 
-def schedule_from_specs(
-    platform_id: str, specs: list[PeriodicFrameSpec]
-) -> SchedulePlan:
+def schedule_from_specs(platform_id: str, specs: list[PeriodicFrameSpec]) -> SchedulePlan:
     msgs = [
         ScheduledMessage(
             arbitration_id=hex(s.arbitration_id),

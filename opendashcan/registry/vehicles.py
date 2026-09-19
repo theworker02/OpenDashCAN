@@ -151,9 +151,7 @@ def get_decoder(vehicle_id: str) -> VehicleDecoder:
     raise KeyError(f"no decoder for {vehicle_id!r}")
 
 
-def get_encoder(
-    cluster_id: str, *, emit_synthetic_research: bool = False
-) -> ClusterEncoder:
+def get_encoder(cluster_id: str, *, emit_synthetic_research: bool = False) -> ClusterEncoder:
     key = _resolve_encoder_key(cluster_id)
     if key == "civic10":
         return Civic10Encoder(emit_synthetic_research=emit_synthetic_research)

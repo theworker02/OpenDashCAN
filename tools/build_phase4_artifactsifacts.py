@@ -17,8 +17,8 @@ def main() -> int:
     from opendashcan.analysis.lineage import build_lineage, write_lineage_artifacts
     from opendashcan.analysis.network_graph import write_network_graph
     from opendashcan.analysis.similarity import build_cross_platform_candidates
-    from opendashcan.cluster.gaps import build_gap_report
     from opendashcan.cluster.environment_loader import list_cluster_envs
+    from opendashcan.cluster.gaps import build_gap_report
     from opendashcan.cluster.timing import write_timing_database
     from opendashcan.honda.integrity.patterns import write_integrity_patterns
 
@@ -138,14 +138,14 @@ Record positive **and negative** results for remaining cluster gaps.
 
 | Source | Result | Cluster relevance |
 |--------|--------|-------------------|
-| commaai/opendbc Honda DBCs (vendored) | Positive — vehicle protocol | VEHICLE_PROTOCOL_DOCUMENTED |
-| CivicX 2020 Si cluster swap | Positive as COMMUNITY_RESEARCH on 0x158/0x17C | NOT CLUSTER_RX_CONFIRMED |
+| commaai/opendbc Honda DBCs (vendored) | Positive — vehicle protocol | PROTOCOL_DOCUMENTED |
+| CivicX 2020 Si cluster swap | COMMUNITY_RESEARCH on 0x158/0x17C | NOT CLUSTER_RX_CONFIRMED |
 | CivicX “Decoding the CAN BUS” | Points to opendbc | Use DBC labels, not forum |
 | Honda-Civic-B-CAN (GitHub) | Body bus tap claims | UNKNOWN for cluster gauges |
 | HondaCAN (Accord, GitHub) | Vehicle profiles | UNKNOWN cluster RX |
-| Public OEM service PDFs for fuel/coolant CAN | **Negative** — no public bit layout found in Phase 4 pass | Remain ABSENT / UNKNOWN |
-| Academic papers on Honda cluster RX | **Negative** — no citable open encoding found | UNKNOWN |
-| Public cluster part-number ↔ CAN map | **Negative / incomplete** | See CIVIC10_CLUSTER_DEEP_DIVE.md |
+| Public OEM fuel/coolant CAN PDFs | **Negative** — no public bit layout | Remain ABSENT / UNKNOWN |
+| Academic papers on Honda cluster RX | **Negative** — no citable encoding | UNKNOWN |
+| Public cluster part ↔ CAN map | **Negative / incomplete** | CIVIC10_CLUSTER_DEEP_DIVE.md |
 
 ## Gaps still open
 

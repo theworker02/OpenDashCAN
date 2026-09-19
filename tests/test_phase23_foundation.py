@@ -27,12 +27,8 @@ def test_normalize_dotted_and_legacy() -> None:
     assert normalize_platform_id("honda:civic:8") == "honda.civic.gen8.us"
     assert normalize_platform_id("honda-civic8") == "honda.civic.gen8.us"
     assert normalize_cluster_id("honda:civic:10:digital") == "honda.civic.gen10.cluster.digital"
-    aid = adapter_id(
-        "honda.civic.gen8.us.r18.auto", "honda.civic.gen10.cluster.digital"
-    )
-    assert aid == (
-        "honda.civic.gen8.us.r18.auto__to__honda.civic.gen10.cluster.digital"
-    )
+    aid = adapter_id("honda.civic.gen8.us.r18.auto", "honda.civic.gen10.cluster.digital")
+    assert aid == ("honda.civic.gen8.us.r18.auto__to__honda.civic.gen10.cluster.digital")
 
 
 def test_registry_discovers_us_packages() -> None:

@@ -39,7 +39,11 @@
               "VERIFIED",
               "SUPPORTED_BY_MULTIPLE_SOURCES",
               "COMMUNITY_REPORTED",
+              "DOCUMENTED",
+              "CAPTURE_VERIFIED",
+              "PHYSICALLY_VERIFIED",
               "INFERRED",
+              "HYPOTHESIS",
               "UNKNOWN"
             ]
           },

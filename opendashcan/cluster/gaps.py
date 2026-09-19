@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 
 from opendashcan.cluster.environment_loader import ClusterEnvPackage, load_cluster_env
 from opendashcan.core.donor_knowledge import CLUSTER_RELEVANT_TAXONOMY, DonorKnowledge
 from opendashcan.dbc import taxonomy_implementations_from_imports
-from pathlib import Path
 
 AXES = ("A", "B", "C", "D", "E", "F", "G", "H")
 
@@ -127,8 +127,13 @@ def resolve_signal_axes(
                 f"scale={donor.get('scale')} ({DonorKnowledge.VEHICLE_PROTOCOL_DOCUMENTED.value})"
             ),
         )
-    elif signal in ("fuel.level", "powertrain.coolant_temperature",
-                    "safety.srs_warning", "safety.check_engine", "brakes.abs_warning"):
+    elif signal in (
+        "fuel.level",
+        "powertrain.coolant_temperature",
+        "safety.srs_warning",
+        "safety.check_engine",
+        "brakes.abs_warning",
+    ):
         b = _axis(
             "B",
             "ABSENT",
@@ -144,7 +149,6 @@ def resolve_signal_axes(
         )
 
     # C — producer ECU
-    sender = req.get("producer") or (donor and "see_dbc_sender") or "UNKNOWN"
     if req.get("producer") and req.get("producer") != "UNKNOWN":
         c = _axis("C", "DOCUMENTED", str(req["producer"]))
     elif donor:
@@ -160,7 +164,9 @@ def resolve_signal_axes(
     # D — bus
     bus = req.get("bus") or env.environment.get("primary_bus") or "UNKNOWN"
     if bus and bus != "UNKNOWN":
-        d = _axis("D", "DOCUMENTED" if req.get("bus_confidence") != "UNKNOWN" else "INFERRED", str(bus))
+        d = _axis(
+            "D", "DOCUMENTED" if req.get("bus_confidence") != "UNKNOWN" else "INFERRED", str(bus)
+        )
     else:
         d = _axis("D", "UNKNOWN", "Bus UNKNOWN", "Confirm cluster tap bus (F-CAN vs B-CAN)")
 
@@ -206,7 +212,11 @@ def resolve_signal_axes(
         )
 
     # G — integrity
-    csum = req.get("checksum") or req.get("integrity", {}).get("checksum") if isinstance(req.get("integrity"), dict) else req.get("checksum")
+    csum = (
+        req.get("checksum") or req.get("integrity", {}).get("checksum")
+        if isinstance(req.get("integrity"), dict)
+        else req.get("checksum")
+    )
     if isinstance(req.get("integrity"), dict):
         csum = req["integrity"].get("checksum_type") or req["integrity"].get("checksum")
         ctr = req["integrity"].get("counter_type") or req["integrity"].get("counter")
@@ -235,11 +245,14 @@ def resolve_signal_axes(
             "Reproduce under controlled OpenDashCAN bench with logged frames",
         )
     else:
-        h = _axis("H", "UNKNOWN", "Not demonstrated in-repo", "Bench or vehicle test with artifacts")
+        h = _axis(
+            "H", "UNKNOWN", "Not demonstrated in-repo", "Bench or vehicle test with artifacts"
+        )
 
     axes = {"A": a, "B": b, "C": c, "D": d, "E": e, "F": f, "G": g, "H": h}
 
-    # Overall: worst of E/B/H for cluster adaptation; source A UNKNOWN → BLOCKED_SOURCE not overall fail on target
+    # Overall: worst of E/B/H for cluster adaptation;
+    # source A UNKNOWN → BLOCKED_SOURCE, not overall fail on target
     statuses = [axes[x].status for x in ("B", "E", "F", "G", "H")]
     if "ABSENT" in statuses:
         overall = "ABSENT_FROM_PUBLIC_DBC"
@@ -251,7 +264,9 @@ def resolve_signal_axes(
         overall = "UNKNOWN"
 
     if a.status == "UNKNOWN" and b.status == "DOCUMENTED":
-        notes = (notes + " | ").lstrip(" |") + "TRANSLATION=BLOCKED_SOURCE (target donor encoding documented)"
+        notes = (notes + " | ").lstrip(
+            " |"
+        ) + "TRANSLATION=BLOCKED_SOURCE (target donor encoding documented)"
 
     return SignalGapRow(
         signal=signal,
@@ -262,7 +277,9 @@ def resolve_signal_axes(
     )
 
 
-def build_gap_report(cluster_name: str, *, source_confidence_map: dict[str, str] | None = None) -> dict[str, Any]:
+def build_gap_report(
+    cluster_name: str, *, source_confidence_map: dict[str, str] | None = None
+) -> dict[str, Any]:
     env = load_cluster_env(cluster_name)
     src_map = source_confidence_map or {}
     rows: list[SignalGapRow] = []
@@ -287,15 +304,19 @@ def build_gap_report(cluster_name: str, *, source_confidence_map: dict[str, str]
         for ax, st in row.axes.items():
             axis_counts[ax][st.status] = axis_counts[ax].get(st.status, 0) + 1
 
-    taxonomy_covered = sum(
-        1 for r in rows if r.axes["B"].status == "DOCUMENTED"
-    )
+    taxonomy_covered = sum(1 for r in rows if r.axes["B"].status == "DOCUMENTED")
     taxonomy_absent = sum(1 for r in rows if r.axes["B"].status == "ABSENT")
     rx_confirmed = sum(1 for r in rows if r.axes["E"].status == "DOCUMENTED")
-    rx_likely = sum(1 for r in rows if "LIKELY" in r.axes["E"].detail or r.axes["E"].status == "COMMUNITY_RESEARCH")
+    rx_likely = sum(
+        1
+        for r in rows
+        if "LIKELY" in r.axes["E"].detail or r.axes["E"].status == "COMMUNITY_RESEARCH"
+    )
     timing_known = sum(1 for r in rows if r.axes["F"].status not in ("UNKNOWN",))
     integrity_known = sum(1 for r in rows if r.axes["G"].status not in ("UNKNOWN",))
-    demonstrated = sum(1 for r in rows if r.axes["H"].status in ("DOCUMENTED", "COMMUNITY_RESEARCH"))
+    demonstrated = sum(
+        1 for r in rows if r.axes["H"].status in ("DOCUMENTED", "COMMUNITY_RESEARCH")
+    )
 
     n = len(rows) or 1
     return {
@@ -318,9 +339,7 @@ def build_gap_report(cluster_name: str, *, source_confidence_map: dict[str, str]
             "integrity_algorithm_documented": integrity_known,
             "integrity_unknown": len(rows) - integrity_known,
             "demonstrated_any": demonstrated,
-            "demonstrated_bench": sum(
-                1 for r in rows if "BENCH" in r.axes["H"].detail.upper()
-            ),
+            "demonstrated_bench": sum(1 for r in rows if "BENCH" in r.axes["H"].detail.upper()),
             "fractions": {
                 "donor_encoding_documented": round(taxonomy_covered / n, 3),
                 "cluster_rx_confirmed": round(rx_confirmed / n, 3),
@@ -372,12 +391,8 @@ def format_gaps_text(report: dict[str, Any]) -> str:
     ]
     for row in report["rows"]:
         axes = row["axes"]
-        befgh = "/".join(
-            axes[x]["status"][:3] for x in ("B", "E", "F", "G", "H")
-        )
-        lines.append(
-            f"{row['signal']:<36} {row['priority']:<10} {row['overall']:<24} {befgh}"
-        )
+        befgh = "/".join(axes[x]["status"][:3] for x in ("B", "E", "F", "G", "H"))
+        lines.append(f"{row['signal']:<36} {row['priority']:<10} {row['overall']:<24} {befgh}")
         if row.get("notes"):
             lines.append(f"  notes: {_ascii(row['notes'][:120])}")
         for letter in ("B", "E", "F", "G", "H"):

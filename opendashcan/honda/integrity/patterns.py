@@ -45,7 +45,9 @@ def integrity_pattern_groups() -> dict[str, Any]:
             },
             {
                 "pattern_id": "honda_2bit_v1",
-                "description": "2-bit rolling counter in high nibble of final byte (opendbc convention)",
+                "description": (
+                    "2-bit rolling counter in high nibble of final byte (opendbc convention)"
+                ),
                 "confidence": "DOCUMENTED",
                 "cluster_acceptance": "UNKNOWN",
                 "test_vectors": [],

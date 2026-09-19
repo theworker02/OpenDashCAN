@@ -107,6 +107,18 @@ warn_unused_configs = true
 mypy_path = "."
 packages = ["opendashcan"]
 
+[[tool.mypy.overrides]]
+module = [
+  "PySide6.*",
+  "can",
+]
+ignore_missing_imports = true
+
+# Qt GUI typing requires PySide6 at typecheck time; CI installs only [dev].
+[[tool.mypy.overrides]]
+module = "opendashcan.gui.*"
+ignore_errors = true
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"

@@ -15,7 +15,12 @@ from opendashcan.hw.listen import (
 )
 from opendashcan.hw.session import IdRateRow, ListenSession
 from opendashcan.hw.socketcan_listen import listen_socketcan
-from opendashcan.hw.tx_guard import TX_ENV_FLAG, assert_tx_permitted, refuse_send_message, tx_env_enabled
+from opendashcan.hw.tx_guard import (
+    TX_ENV_FLAG,
+    assert_tx_permitted,
+    refuse_send_message,
+    tx_env_enabled,
+)
 
 __all__ = [
     "DEFAULT_BITRATE",

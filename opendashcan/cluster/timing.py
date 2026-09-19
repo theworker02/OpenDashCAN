@@ -45,12 +45,8 @@ def build_timing_database() -> dict[str, Any]:
     return {
         "warning": "period_ms UNKNOWN unless independently established. DBC ≠ cluster timing.",
         "entries": entries,
-        "unknown_count": sum(
-            1 for e in entries if e.get("period_ms") in (None, "UNKNOWN")
-        ),
-        "known_count": sum(
-            1 for e in entries if e.get("period_ms") not in (None, "UNKNOWN")
-        ),
+        "unknown_count": sum(1 for e in entries if e.get("period_ms") in (None, "UNKNOWN")),
+        "known_count": sum(1 for e in entries if e.get("period_ms") not in (None, "UNKNOWN")),
     }
 
 

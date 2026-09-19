@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 from opendashcan.analysis.lineage import _load_indexed_messages, compare_encodings
 from opendashcan.dbc import taxonomy_implementations_from_imports
-from pathlib import Path
 
 
 @dataclass

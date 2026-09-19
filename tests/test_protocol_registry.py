@@ -95,7 +95,4 @@ def test_civic10_opendbc_ids_documented():
 
 def test_list_clusters():
     clusters = dict(get_registry().list_clusters())
-    assert (
-        "honda:civic:10:digital" in clusters
-        or "honda.civic.gen10.cluster.digital" in clusters
-    )
+    assert "honda:civic:10:digital" in clusters or "honda.civic.gen10.cluster.digital" in clusters

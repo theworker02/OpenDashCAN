@@ -341,9 +341,7 @@ class ClusterRequirement:
         arb = _unk(data.get("arbitration_id"))
         if isinstance(arb, int):
             arb = hex(arb)
-        priority = str(
-            data.get("priority") or data.get("kind") or data.get("type") or "UNKNOWN"
-        )
+        priority = str(data.get("priority") or data.get("kind") or data.get("type") or "UNKNOWN")
         return cls(
             signal=_unk(data.get("signal")),
             priority=priority,

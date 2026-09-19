@@ -40,9 +40,7 @@ from PySide6.QtWidgets import QGraphicsOpacityEffect, QLabel, QVBoxLayout, QWidg
 from opendashcan import __version__
 
 # Affiliation + trademark / copyright notice (shown on splash + About)
-DISCLAIMER = (
-    "Not affiliated with, endorsed by, or sponsored by Honda Motor Co., Ltd."
-)
+DISCLAIMER = "Not affiliated with, endorsed by, or sponsored by Honda Motor Co., Ltd."
 
 TRADEMARK_NOTICE = (
     "Honda®, the Honda logo, and related marks are trademarks and/or "
@@ -215,9 +213,7 @@ class BootSplash(QWidget):
         parent: QWidget | None = None,
     ) -> None:
         super().__init__(parent)
-        self.setWindowFlags(
-            Qt.WindowType.FramelessWindowHint | Qt.WindowType.SplashScreen
-        )
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.SplashScreen)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, False)
         self.setFixedSize(540, 420)
         self.setStyleSheet("background-color: #050607;")
@@ -236,9 +232,7 @@ class BootSplash(QWidget):
         brand = QLabel("HONDA")
         brand.setAlignment(Qt.AlignmentFlag.AlignCenter)
         brand.setFont(QFont("Segoe UI", 28, QFont.Weight.Bold))
-        brand.setStyleSheet(
-            "color: #f5f7fa; letter-spacing: 10px; background: transparent;"
-        )
+        brand.setStyleSheet("color: #f5f7fa; letter-spacing: 10px; background: transparent;")
         lay.addWidget(brand)
 
         cue = QLabel("IGNITION")

@@ -182,16 +182,14 @@ def build_adapter(
 
     # Phase 4: per-function SOURCE/TARGET/TRANSLATION/TIMING/INTEGRITY/CLUSTER RX/VALIDATION
     try:
-        from opendashcan.cluster.gaps import build_gap_report
         from opendashcan.cluster.environment_loader import CLUSTER_ALIASES
+        from opendashcan.cluster.gaps import build_gap_report
 
         gap_key = CLUSTER_ALIASES.get(target) or CLUSTER_ALIASES.get(adaptation.cluster_id)
         if gap_key:
             gap = build_gap_report(
                 gap_key,
-                source_confidence_map={
-                    r.signal: r.source_confidence for r in adaptation.rows
-                },
+                source_confidence_map={r.signal: r.source_confidence for r in adaptation.rows},
             )
             functions = []
             for row in gap["rows"]:
@@ -202,9 +200,7 @@ def build_adapter(
                         "signal": row["signal"],
                         "SOURCE": axes["A"],
                         "TARGET": axes["B"],
-                        "TRANSLATION": (
-                            plan_row.translation if plan_row else "UNKNOWN"
-                        ),
+                        "TRANSLATION": (plan_row.translation if plan_row else "UNKNOWN"),
                         "PRODUCER": axes["C"],
                         "BUS": axes["D"],
                         "CLUSTER_RX": axes["E"],
