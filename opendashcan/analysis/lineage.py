@@ -95,12 +95,7 @@ def compare_encodings(a: dict[str, Any], b: dict[str, Any]) -> dict[str, Any]:
                 }
             )
     identical = (
-        same_id
-        and same_dlc
-        and same_name
-        and not only_a
-        and not only_b
-        and not encoding_mismatches
+        same_id and same_dlc and same_name and not only_a and not only_b and not encoding_mismatches
     )
     return {
         "identical_encoding": identical,
@@ -169,7 +164,7 @@ def build_lineage(*, messages: list[dict[str, Any]] | None = None) -> dict[str, 
     # Name collisions across different IDs
     name_collisions = []
     for name, group in sorted(by_name.items()):
-        ids = sorted({g.get("id_dec") for g in group if g.get("id_dec") is not None})
+        ids = sorted(int(i) for i in {g.get("id_dec") for g in group} if isinstance(i, int))
         if len(ids) > 1:
             name_collisions.append(
                 {
@@ -195,9 +190,7 @@ def build_lineage(*, messages: list[dict[str, Any]] | None = None) -> dict[str, 
             for g in id_groups
             if g["identical_across_all"] and g["vehicle_count"] >= 2
         ],
-        "divergent_ids": [
-            g["arbitration_id"] for g in id_groups if not g["identical_across_all"]
-        ],
+        "divergent_ids": [g["arbitration_id"] for g in id_groups if not g["identical_across_all"]],
     }
 
 
@@ -246,8 +239,9 @@ def write_lineage_artifacts(
             f"vehicles={g['vehicle_count']} variants={g['encoding_variant_count']}"
         )
         for d in g["encoding_differences"][:3]:
+            n_mismatch = len(d.get("encoding_mismatches") or [])
             lines.append(
-                f"  - vs `{d.get('vehicle_id')}`: mismatches={len(d.get('encoding_mismatches') or [])} "
+                f"  - vs `{d.get('vehicle_id')}`: mismatches={n_mismatch} "
                 f"only_a={d.get('signals_only_in_a')} only_b={d.get('signals_only_in_b')}"
             )
     lines += ["", "## Name collisions (different IDs)", ""]

@@ -116,11 +116,10 @@ def open_listen_bus(
     bustype_l = bustype.lower().strip()
     if bustype_l not in SUPPORTED_BUSTYPES:
         raise HardwareUnavailableError(
-            f"Unsupported interface type {bustype!r}. "
-            f"Supported: {', '.join(SUPPORTED_BUSTYPES)}"
+            f"Unsupported interface type {bustype!r}. Supported: {', '.join(SUPPORTED_BUSTYPES)}"
         )
     try:
-        import can  # type: ignore[import-untyped]
+        import can
     except ImportError as exc:
         raise HardwareUnavailableError(
             "python-can is not installed. "
@@ -148,9 +147,11 @@ def open_listen_bus(
         raise HardwareUnavailableError(
             f"Could not open {bustype_l}:{channel} - {exc}\n"
             "Hints:\n"
-            "  * Linux SocketCAN:  sudo ip link set can0 up type can bitrate 500000 listen-only on\n"
+            "  * Linux SocketCAN:  sudo ip link set can0 up type can "
+            "bitrate 500000 listen-only on\n"
             "  * No adapter:       opendashcan listen --virtual\n"
-            "  * Offline file:     opendashcan listen --capture captures/synthetic/idle_scenario.log\n"
+            "  * Offline file:     opendashcan listen --capture "
+            "captures/synthetic/idle_scenario.log\n"
             "  * Pi recorder:      see hardware/can_recorder_rpi/README.md"
         ) from exc
 

@@ -265,10 +265,10 @@ def parse_dbc(text: str) -> list[DbcMessage]:
             mid = int(m_val.group(1))
             sig_name = m_val.group(2)
             rest = m_val.group(3).rstrip(";").strip()
-            msg = by_id.get(mid)
-            if msg is None:
+            msg_val = by_id.get(mid)
+            if msg_val is None:
                 continue
-            sig = next((s for s in msg.signals if s.name == sig_name), None)
+            sig = next((s for s in msg_val.signals if s.name == sig_name), None)
             if sig is None:
                 continue
             # pairs: value "label"
@@ -278,17 +278,17 @@ def parse_dbc(text: str) -> list[DbcMessage]:
 
         m_cm_bo = CM_BO_RE.match(line)
         if m_cm_bo:
-            msg = by_id.get(int(m_cm_bo.group(1)))
-            if msg is not None:
-                msg.comment = m_cm_bo.group(2)
+            msg_cm = by_id.get(int(m_cm_bo.group(1)))
+            if msg_cm is not None:
+                msg_cm.comment = m_cm_bo.group(2)
             continue
 
         m_cm_sg = CM_SG_RE.match(line)
         if m_cm_sg:
-            msg = by_id.get(int(m_cm_sg.group(1)))
-            if msg is None:
+            msg_sg = by_id.get(int(m_cm_sg.group(1)))
+            if msg_sg is None:
                 continue
-            sig = next((s for s in msg.signals if s.name == m_cm_sg.group(2)), None)
+            sig = next((s for s in msg_sg.signals if s.name == m_cm_sg.group(2)), None)
             if sig is not None:
                 sig.comment = m_cm_sg.group(3)
             continue
@@ -326,7 +326,9 @@ def _load_provenance(dbc_path: Path) -> dict[str, Any]:
     }
 
 
-def _build_taxonomy_index(messages: list[DbcMessage]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def _build_taxonomy_index(
+    messages: list[DbcMessage],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     mapped: list[dict[str, Any]] = []
     unmapped: list[dict[str, Any]] = []
     seen_tax: set[str] = set()
@@ -351,7 +353,9 @@ def _build_taxonomy_index(messages: list[DbcMessage]) -> tuple[list[dict[str, An
             if tax:
                 # Prefer ENGINE_DATA RPM over POWERTRAIN_DATA duplicate for index
                 if tax in seen_tax and sig.name == "ENGINE_RPM" and msg.name != "ENGINE_DATA":
-                    unmapped.append({**entry, "taxonomy": None, "note": "duplicate_rpm_on_powertrain"})
+                    unmapped.append(
+                        {**entry, "taxonomy": None, "note": "duplicate_rpm_on_powertrain"}
+                    )
                     continue
                 if tax not in seen_tax or (sig.name == "ENGINE_RPM" and msg.name == "ENGINE_DATA"):
                     if tax in seen_tax:
@@ -496,9 +500,7 @@ def write_import_artifacts(result: DbcImportResult, output_dir: Path) -> dict[st
         "taxonomy_mapped": result.taxonomy_mapped,
         "absent_from_public_dbc": result.absent_signals,
         "notes": result.notes,
-        "warning": (
-            "Vehicle-bus documentation only — not CLUSTER_RX_CONFIRMED."
-        ),
+        "warning": ("Vehicle-bus documentation only — not CLUSTER_RX_CONFIRMED."),
     }
     yaml_path.write_text(
         yaml.safe_dump(summary, sort_keys=False, allow_unicode=True),

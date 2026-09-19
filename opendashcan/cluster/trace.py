@@ -27,9 +27,11 @@ def _state_from_scenario_step(step: Any) -> VehicleState:
     if getattr(step, "gear", None) is not None:
         g = step.gear
         if isinstance(g, GearPosition):
-            state.gear = SignalValue(g, confidence=Confidence.INFERRED, validity=Validity.VALID)
+            state.gear_position = SignalValue(
+                g.value, confidence=Confidence.INFERRED, validity=Validity.VALID
+            )
         else:
-            state.gear = SignalValue(
+            state.gear_position = SignalValue(
                 str(g), confidence=Confidence.INFERRED, validity=Validity.VALID
             )
     return state
@@ -104,9 +106,7 @@ def write_trace(
     manifest_path: Path | None = None,
 ) -> dict[str, Path]:
     result = generate_trace(cluster=cluster, scenario=scenario)
-    out = output or (
-        REPO_ROOT / "dist" / "traces" / f"{cluster}_{scenario}.candump.log"
-    )
+    out = output or (REPO_ROOT / "dist" / "traces" / f"{cluster}_{scenario}.candump.log")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(
         "\n".join(result["candump_lines"]) + ("\n" if result["candump_lines"] else ""),

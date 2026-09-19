@@ -7,9 +7,9 @@ from typing import Any
 
 from opendashcan.adaptation.environment import ClusterEnvironment
 from opendashcan.adaptation.gating import EncodeMode
+from opendashcan.cluster.environment_loader import load_cluster_env
 from opendashcan.core.frame import CANFrame
 from opendashcan.core.state import VehicleState
-from opendashcan.cluster.environment_loader import load_cluster_env
 from opendashcan.registry import get_encoder, get_registry
 
 
@@ -51,7 +51,7 @@ class VirtualDonorVehicle:
                 self._encoder = get_encoder(eid)
                 # Apply mode if encoder supports it
                 if hasattr(self._encoder, "encode_mode"):
-                    self._encoder.encode_mode = self.encode_mode  # type: ignore[attr-defined]
+                    self._encoder.encode_mode = self.encode_mode
             except KeyError:
                 self.omissions.append(f"no encoder for {eid}")
 
@@ -68,7 +68,7 @@ class VirtualDonorVehicle:
             self.omissions.append("encoder unavailable")
             return []
         if hasattr(self._encoder, "encode_mode"):
-            self._encoder.encode_mode = self.encode_mode  # type: ignore[attr-defined]
+            self._encoder.encode_mode = self.encode_mode
         frames = self._encoder.encode(state, timestamp=timestamp)
         self.counter += 1
         return list(frames)
@@ -76,7 +76,9 @@ class VirtualDonorVehicle:
     def summary(self) -> dict[str, Any]:
         return {
             "cluster_key": self.cluster_key,
-            "encode_mode": self.encode_mode.value if hasattr(self.encode_mode, "value") else str(self.encode_mode),
+            "encode_mode": self.encode_mode.value
+            if hasattr(self.encode_mode, "value")
+            else str(self.encode_mode),
             "environment": self.environment.gap_report() if self.environment else None,
             "omissions": list(self.omissions),
             "label": "SOFTWARE VALIDATION ONLY — virtual donor, no hardware",
