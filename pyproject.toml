@@ -1,13 +1,13 @@
-[build-system]
+﻿[build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "opendashcan"
 version = "0.1.0"
-description = "OpenDashCAN Desktop — installable PC program for listen-only OBD/CAN sniff, decode, and Honda cluster research (CLI + Qt; not a website; not an ECU flash tool)."
+description = "OpenDashCAN Desktop â€” installable PC program for listen-only OBD/CAN sniff, decode, and Honda cluster research (CLI + Qt; not a website; not an ECU flash tool)."
 readme = "README.md"
-license = { text = "MIT" }
+license = { text = "Proprietary" }
 requires-python = ">=3.10"
 authors = [
   { name = "OpenDashCAN contributors" }
