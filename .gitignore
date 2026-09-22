@@ -59,6 +59,7 @@ captures/community/*
 *.log
 !captures/synthetic/*.log
 !captures/synthetic/*.asc
+!tests/fixtures/*.log
 
 # Regenerable opendbc fetch cache
 research/_opendbc_fetch/

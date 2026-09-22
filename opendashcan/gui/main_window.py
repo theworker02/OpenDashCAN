@@ -149,9 +149,7 @@ class MainWindow(QMainWindow):
         self._listen_status = QLabel("Idle — LISTEN_ONLY")
         self._listen_status.setObjectName("StatusIdle")
         self.statusBar().addWidget(self._listen_status, stretch=1)
-        self.statusBar().showMessage(
-            "LISTEN_ONLY — no CAN TX · decode documented layouts only"
-        )
+        self.statusBar().showMessage("LISTEN_ONLY — no CAN TX · decode documented layouts only")
 
         deps = services.gui_missing_deps_message()
         if deps:
@@ -373,9 +371,7 @@ class MainWindow(QMainWindow):
         self.browser.addTopLevelItem(clusters)
         for row in services.list_browser_rows():
             if row.kind == "platform":
-                item = QTreeWidgetItem(
-                    [row.platform_id, row.roles, row.years, row.display]
-                )
+                item = QTreeWidgetItem([row.platform_id, row.roles, row.years, row.display])
                 item.setData(
                     0,
                     Qt.ItemDataRole.UserRole,
@@ -439,9 +435,7 @@ class MainWindow(QMainWindow):
             "BUSES",
         ]
         for b in detail["buses"]:
-            lines.append(
-                f"  {b['name']}: bitrate={b['bitrate']}  confidence={b['confidence']}"
-            )
+            lines.append(f"  {b['name']}: bitrate={b['bitrate']}  confidence={b['confidence']}")
         if "cluster" in detail:
             c = detail["cluster"]
             lines += [
@@ -490,17 +484,11 @@ class MainWindow(QMainWindow):
         dbc = services.lookup_dbc_index(q)
         self._fill_table(
             self.signal_table,
-            [
-                [s.platform_id, s.signal, s.arbitration_id, s.confidence, s.notes]
-                for s in sigs
-            ],
+            [[s.platform_id, s.signal, s.arbitration_id, s.confidence, s.notes] for s in sigs],
         )
         self._fill_table(
             self.message_table,
-            [
-                [m.platform_id, m.name, m.arbitration_id, m.confidence, m.period_ms]
-                for m in msgs
-            ],
+            [[m.platform_id, m.name, m.arbitration_id, m.confidence, m.period_ms] for m in msgs],
         )
         self._fill_table(
             self.dbc_table,

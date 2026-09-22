@@ -90,4 +90,6 @@ def list_cluster_envs(*, root: Path | None = None) -> list[str]:
     base = root or CLUSTERS_ROOT
     if not base.is_dir():
         return []
-    return sorted(p.name for p in base.iterdir() if p.is_dir() and (p / "environment.yaml").is_file())
+    return sorted(
+        p.name for p in base.iterdir() if p.is_dir() and (p / "environment.yaml").is_file()
+    )

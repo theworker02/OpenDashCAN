@@ -41,6 +41,7 @@ class SourceType(str, Enum):
     COMMERCIAL_DATASHEET = "COMMERCIAL_DATASHEET"
     PHYSICAL_TEST = "PHYSICAL_TEST"
     INFERENCE = "INFERENCE"
+    RESEARCH_NOTE = "RESEARCH_NOTE"
 
 
 # Normalize Phase-1 labels onto the Phase-2 ladder for policy checks.
@@ -59,6 +60,7 @@ REQUIRED_SOURCE_TYPES: dict[Confidence, frozenset[SourceType]] = {
             SourceType.DBC,
             SourceType.ACADEMIC_RESEARCH,
             SourceType.COMMERCIAL_DATASHEET,
+            SourceType.RESEARCH_NOTE,
         }
     ),
     Confidence.COMMUNITY_REPORTED: frozenset({SourceType.COMMUNITY_RESEARCH}),

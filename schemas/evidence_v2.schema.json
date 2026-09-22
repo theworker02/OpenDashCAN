@@ -22,8 +22,10 @@
               "CAN_CAPTURE",
               "ACADEMIC_RESEARCH",
               "COMMUNITY_RESEARCH",
+              "COMMERCIAL_DATASHEET",
               "PHYSICAL_TEST",
-              "INFERENCE"
+              "INFERENCE",
+              "RESEARCH_NOTE"
             ]
           },
           "claim": { "type": "string" },

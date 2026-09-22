@@ -27,7 +27,7 @@ def test_dbc_parse_and_conflict_detection(tmp_path: Path) -> None:
     dbc = tmp_path / "sample.dbc"
     dbc.write_text(
         "BO_ 344 ENGINE_DATA: 8 PCM\n"
-        " SG_ ENGINE_RPM : 23|16@0+ (1,0) [0|15000] \"rpm\" EON\n"
+        ' SG_ ENGINE_RPM : 23|16@0+ (1,0) [0|15000] "rpm" EON\n'
         "BO_ 999 FAKE_MSG: 8 XXX\n",
         encoding="utf-8",
     )

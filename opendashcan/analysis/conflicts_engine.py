@@ -96,9 +96,7 @@ def format_conflicts_text(data: dict[str, Any] | None = None) -> str:
     lines += ["", "## Lineage encoding"]
     for c in data["lineage_encoding_conflicts"][:50]:
         aid = c.get("arbitration_id") or c.get("name")
-        lines.append(
-            f"- {aid}: {c.get('detail')} vehicles={c.get('vehicles')}"
-        )
+        lines.append(f"- {aid}: {c.get('detail')} vehicles={c.get('vehicles')}")
     lines.append("")
     return "\n".join(lines)
 

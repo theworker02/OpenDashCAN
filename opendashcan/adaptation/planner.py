@@ -76,8 +76,7 @@ class AdaptationPlan:
         lines += ["", "TARGET CLUSTER"]
         if tgt:
             lines.append(
-                f"  {tgt.cluster_id} display={tgt.display_type} "
-                f"status={tgt.compatibility_status}"
+                f"  {tgt.cluster_id} display={tgt.display_type} status={tgt.compatibility_status}"
             )
         else:
             lines.append(f"  {self.cluster_id} (no cluster.yaml)")

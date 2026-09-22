@@ -11,7 +11,9 @@ from opendashcan.dbc import import_dbc, write_conflict_report, write_import_arti
 
 
 def main() -> int:
-    p = argparse.ArgumentParser(description="Import DBC with full signal provenance (no auto-merge)")
+    p = argparse.ArgumentParser(
+        description="Import DBC with full signal provenance (no auto-merge)"
+    )
     p.add_argument("dbc", type=Path)
     p.add_argument("-o", "--output", type=Path, help="Single JSON output")
     p.add_argument("--output-dir", type=Path, help="Write JSON+YAML index pair")

@@ -48,5 +48,12 @@ jobs:
 
       - name: Validate JSON schemas
         run: |
-          python -c "from pathlib import Path; import json; from jsonschema import Draft202012Validator; root=Path('schemas');
-[Draft202012Validator.check_schema(json.loads(p.read_text(encoding='utf-8'))) for p in root.glob('*.json')]; print('schemas ok')"
+          python -c "
+          from pathlib import Path
+          import json
+          from jsonschema import Draft202012Validator
+          root = Path('schemas')
+          for p in root.glob('*.json'):
+              Draft202012Validator.check_schema(json.loads(p.read_text(encoding='utf-8')))
+          print('schemas ok')
+          "

@@ -1,0 +1,4 @@
+# SYNTHETIC fixture — NOT real vehicle traffic; payloads are opaque test bytes
+(0.000000) vcan0 194#0000000000000000
+(0.100000) vcan0 494#0011223344556677
+(0.200000) vcan0 694#AABBCCDDEEFF0011

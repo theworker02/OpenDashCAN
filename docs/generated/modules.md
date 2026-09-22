@@ -26,6 +26,9 @@
 | `honda.civic.gen11.us` | `eps` | vehicle_can | chassis | DOCUMENTED |
 | `honda.civic.gen11.us` | `adas` | vehicle_can | adas | DOCUMENTED |
 | `honda.civic.gen11.us` | `cluster` | vehicle_can | cluster | INFERRED |
+| `honda.civic.gen7.us` | `pcm` | obd_kline | powertrain | DOCUMENTED |
+| `honda.civic.gen7.us` | `micu` | b_can | body | COMMUNITY_REPORTED |
+| `honda.civic.gen7.us` | `gauge` | UNKNOWN | cluster | UNKNOWN |
 | `honda.civic.gen8.us` | `pcm` | f_can | powertrain | DOCUMENTED |
 | `honda.civic.gen8.us` | `abs_vsa` | f_can | chassis | DOCUMENTED |
 | `honda.civic.gen8.us` | `bcm` | b_can | body | DOCUMENTED |

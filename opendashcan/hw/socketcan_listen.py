@@ -9,7 +9,12 @@ from __future__ import annotations
 from collections.abc import Iterator
 
 from opendashcan.core.frame import CANFrame
-from opendashcan.hw.listen import DEFAULT_BITRATE, HardwareUnavailableError, iter_bus_frames, open_listen_bus
+from opendashcan.hw.listen import (
+    DEFAULT_BITRATE,
+    HardwareUnavailableError,
+    iter_bus_frames,
+    open_listen_bus,
+)
 
 
 def listen_socketcan(

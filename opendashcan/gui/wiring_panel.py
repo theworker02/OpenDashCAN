@@ -90,16 +90,12 @@ class WiringPanel(QWidget):
         right_l.addWidget(scroll, stretch=2)
 
         right_l.addWidget(self._section("What you may need to switch"))
-        hint = QLabel(
-            "Civic8→Civic10-style interfaces — confidence labels are authoritative."
-        )
+        hint = QLabel("Civic8→Civic10-style interfaces — confidence labels are authoritative.")
         hint.setObjectName("Subtitle")
         hint.setWordWrap(True)
         right_l.addWidget(hint)
         self.check_table = QTableWidget(0, 4)
-        self.check_table.setHorizontalHeaderLabels(
-            ["Interface", "Meaning", "Notes", "Confidence"]
-        )
+        self.check_table.setHorizontalHeaderLabels(["Interface", "Meaning", "Notes", "Confidence"])
         self.check_table.setAlternatingRowColors(True)
         self.check_table.horizontalHeader().setStretchLastSection(True)
         right_l.addWidget(self.check_table, stretch=3)
@@ -167,8 +163,7 @@ class WiringPanel(QWidget):
         self.diagram_title.setText(item.text() if item else path.name)
         if not path.is_file():
             self.diagram_label.setText(
-                f"Missing diagram:\n{path}\n\n"
-                "Run: python tools/generate_wiring_diagrams.py"
+                f"Missing diagram:\n{path}\n\nRun: python tools/generate_wiring_diagrams.py"
             )
             self.diagram_label.setPixmap(QPixmap())
             return

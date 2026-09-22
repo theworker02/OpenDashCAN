@@ -66,7 +66,11 @@ def read_asc(path: Path | str) -> Iterator[CANFrame]:
             if not raw or raw.startswith("//") or raw.startswith(";"):
                 continue
             lower = raw.lower()
-            if lower.startswith("date ") or lower.startswith("base ") or lower.startswith("internal"):
+            if (
+                lower.startswith("date ")
+                or lower.startswith("base ")
+                or lower.startswith("internal")
+            ):
                 continue
             if lower.startswith("begintriggerblock") or lower.startswith("endtriggerblock"):
                 continue
@@ -87,9 +91,7 @@ def read_asc(path: Path | str) -> Iterator[CANFrame]:
                 data = data + bytes(dlc - len(data))
             elif len(data) > dlc:
                 data = data[:dlc]
-            direction = (
-                FrameDirection.TX if m.group("dir").lower() == "tx" else FrameDirection.RX
-            )
+            direction = FrameDirection.TX if m.group("dir").lower() == "tx" else FrameDirection.RX
             yield CANFrame(
                 arbitration_id=arb,
                 data=data,

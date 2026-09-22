@@ -74,10 +74,8 @@ class ListenSession:
         for name in self.state.known_signals():
             sig = self.state.get(name)
             val = sig.value
-            if hasattr(val, "value"):  # Enum
-                val_s = str(getattr(val, "value", val))
-            else:
-                val_s = repr(val)
+            # Enum → .value; otherwise repr
+            val_s = str(getattr(val, "value", val)) if hasattr(val, "value") else repr(val)
             conf = sig.confidence.value if hasattr(sig.confidence, "value") else str(sig.confidence)
             ts = f"{sig.timestamp:.3f}" if sig.timestamp is not None else "-"
             rows.append((name, val_s, conf, ts))

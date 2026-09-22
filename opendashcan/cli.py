@@ -110,7 +110,7 @@ def cmd_listen(args: argparse.Namespace) -> int:
     session = ListenSession(decoder=decoder)
     print_every = max(1, int(args.print_every))
     try:
-        for frame in frame_iter:  # type: ignore[attr-defined]
+        for frame in frame_iter:
             session.ingest(frame)
             if args.raw:
                 print(
@@ -140,7 +140,6 @@ def _print_listen_snapshot(session: object) -> None:
         print(f"  {row.arbitration_id:#05x}  count={row.count}  ~{rate}")
     for name, val, conf, ts in session.signal_rows()[:16]:
         print(f"  {name}={val}  confidence={conf}  t={ts}")
-
 
 
 def cmd_vehicles(_: argparse.Namespace) -> int:
@@ -209,7 +208,7 @@ def _print_decoded_state(state: object) -> None:
     known = state.known_signals()  # type: ignore[attr-defined]
     print(f"known_signals={known}")
     for name in known:
-        sig = state.get(name) if hasattr(state, "get") else getattr(state, name, None)  # type: ignore[union-attr]
+        sig = state.get(name) if hasattr(state, "get") else getattr(state, name, None)
         if sig is None:
             continue
         val = getattr(sig, "value", sig)
@@ -403,9 +402,7 @@ def cmd_registry(args: argparse.Namespace) -> int:
             print(f"no implementations for {name}")
             return 0
         for pkg, enc in hits:
-            print(
-                f"{pkg.platform_id}\t{enc.signal}\t{enc.arbitration_id}\t{enc.confidence.value}"
-            )
+            print(f"{pkg.platform_id}\t{enc.signal}\t{enc.arbitration_id}\t{enc.confidence.value}")
         return 0
 
     packages = [reg.get(target)] if target else reg.list_platforms()
@@ -472,8 +469,10 @@ def cmd_dbc(args: argparse.Namespace) -> int:
             out = args.output or Path("dist") / "dbc_import.json"
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(json.dumps(result.to_dict(), indent=2) + "\n", encoding="utf-8")
-            print(f"wrote {out} ({len(result.messages)} messages, "
-                  f"{sum(len(m.signals) for m in result.messages)} signals)")
+            print(
+                f"wrote {out} ({len(result.messages)} messages, "
+                f"{sum(len(m.signals) for m in result.messages)} signals)"
+            )
         if result.conflicts:
             report = Path("DBC_CONFLICT_REPORT.md")
             write_conflict_report(result, report)
@@ -496,8 +495,9 @@ def cmd_dbc(args: argparse.Namespace) -> int:
         if signal:
             rows = cross.get(signal, [])
             if not rows:
-                print(f"{signal}: not found in imported DBC indexes "
-                      f"(may be absent from public DBC)")
+                print(
+                    f"{signal}: not found in imported DBC indexes (may be absent from public DBC)"
+                )
                 return 1
             for row in rows:
                 print(
@@ -547,7 +547,10 @@ def cmd_cluster(args: argparse.Namespace) -> int:
         return 0
 
     if not args.cluster_name:
-        print("cluster command requires a cluster name (civic10|civic11|accord10|crv5)", file=sys.stderr)
+        print(
+            "cluster command requires a cluster name (civic10|civic11|accord10|crv5)",
+            file=sys.stderr,
+        )
         return 1
     try:
         env = load_cluster_env(args.cluster_name)
@@ -927,7 +930,9 @@ def build_parser() -> argparse.ArgumentParser:
         cp.set_defaults(func=cmd_cluster)
 
     sp = sub.add_parser("correlate", help="Cross-platform signal/message similarity leads")
-    sp.add_argument("--target", required=True, help="Target vehicle id substring e.g. honda.civic.gen10")
+    sp.add_argument(
+        "--target", required=True, help="Target vehicle id substring e.g. honda.civic.gen10"
+    )
     sp.add_argument("--signal", help="Taxonomy signal e.g. powertrain.engine_rpm")
     sp.add_argument("--id", help="CAN ID (hex or int) for message-level correlate")
     sp.set_defaults(func=cmd_correlate)

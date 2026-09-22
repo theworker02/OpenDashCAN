@@ -19,7 +19,12 @@ from opendashcan.hw.listen import (
     resolve_virtual_fixture,
 )
 from opendashcan.hw.session import ListenSession
-from opendashcan.hw.tx_guard import TX_ENV_FLAG, assert_tx_permitted, refuse_send_message, tx_env_enabled
+from opendashcan.hw.tx_guard import (
+    TX_ENV_FLAG,
+    assert_tx_permitted,
+    refuse_send_message,
+    tx_env_enabled,
+)
 from opendashcan.protocols.honda.civic10.decoder import Civic10VehicleDecoder
 from opendashcan.protocols.honda.civic10.encoder import Civic10Encoder
 from opendashcan.registry import get_decoder

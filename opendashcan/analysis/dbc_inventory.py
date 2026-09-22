@@ -67,7 +67,7 @@ def build_dbc_inventory(*, out_dir: Path | None = None) -> dict[str, Any]:
             bus=entry.get("bus", "vehicle_can"),
         )
         platform_hint = entry.get("platform") or entry.get("vehicle")
-        vehicle_summary = {
+        vehicle_summary: dict[str, Any] = {
             "file": entry["file"],
             "vehicle_id": result.vehicle_id,
             "bus": entry.get("bus", "vehicle_can"),

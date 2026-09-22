@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 
+from opendashcan.adaptation.gating import EncodeMode
 from opendashcan.analysis.lineage import build_lineage, compare_encodings
 from opendashcan.analysis.similarity import correlate_signal
 from opendashcan.cli import build_parser
@@ -14,7 +15,6 @@ from opendashcan.cluster.classify import ClusterCandidateClass, classify_message
 from opendashcan.cluster.environment_loader import list_cluster_envs, load_cluster_env
 from opendashcan.cluster.gaps import build_gap_report
 from opendashcan.cluster.trace import generate_trace
-from opendashcan.adaptation.gating import EncodeMode
 
 
 def test_cluster_envs_present() -> None:
@@ -56,13 +56,33 @@ def test_lineage_builds() -> None:
         "id_hex": "0x158",
         "name": "ENGINE_DATA",
         "dlc": 8,
-        "signals": [{"name": "ENGINE_RPM", "start_bit": 23, "length": 16, "byte_order": "motorola", "signed": False, "scale": 1.0, "offset": 0.0}],
+        "signals": [
+            {
+                "name": "ENGINE_RPM",
+                "start_bit": 23,
+                "length": 16,
+                "byte_order": "motorola",
+                "signed": False,
+                "scale": 1.0,
+                "offset": 0.0,
+            }
+        ],
     }
     b = dict(a)
     assert compare_encodings(a, b)["identical_encoding"] is True
     b2 = {
         **a,
-        "signals": [{"name": "ENGINE_RPM", "start_bit": 22, "length": 16, "byte_order": "motorola", "signed": False, "scale": 1.0, "offset": 0.0}],
+        "signals": [
+            {
+                "name": "ENGINE_RPM",
+                "start_bit": 22,
+                "length": 16,
+                "byte_order": "motorola",
+                "signed": False,
+                "scale": 1.0,
+                "offset": 0.0,
+            }
+        ],
     }
     assert compare_encodings(a, b2)["identical_encoding"] is False
 

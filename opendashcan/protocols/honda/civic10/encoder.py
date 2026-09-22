@@ -8,12 +8,16 @@ compatibility.
 
 from __future__ import annotations
 
+from typing import TypeVar
+
 from opendashcan.core.encoder import ClusterEncoder, EncodeMode, OutputKind, PeriodicFrameSpec
 from opendashcan.core.frame import BusRole, CANFrame, FrameDirection
 from opendashcan.core.state import Confidence, GearPosition, SignalValue, VehicleState
 from opendashcan.protocols.honda.bitpack import pack_be_unsigned
 from opendashcan.protocols.honda.checksum import honda_set_checksum, honda_set_counter
 from opendashcan.protocols.honda.civic10.signals import documented_signal_confidence
+
+_T = TypeVar("_T")
 
 ENGINE_DATA = 0x158
 POWERTRAIN_DATA = 0x17C
@@ -42,7 +46,7 @@ _GEAR_TO_BITS = {
 }
 
 
-def _known(sig: SignalValue[object]) -> bool:
+def _known(sig: SignalValue[_T]) -> bool:
     return sig.value is not None and sig.confidence != Confidence.UNKNOWN
 
 
@@ -266,9 +270,9 @@ class Civic10ClusterEncoder(ClusterEncoder):
                 _meta_frame(
                     POWERTRAIN_DATA,
                     _pack_powertrain(
-                        float(pedal.value) if _known(pedal) else None,
-                        bool(brake.value) if _known(brake) else None,
-                        bool(acc.value) if _known(acc) else None,
+                        float(pedal.value) if _known(pedal) and pedal.value is not None else None,
+                        bool(brake.value) if _known(brake) and brake.value is not None else None,
+                        bool(acc.value) if _known(acc) and acc.value is not None else None,
                         rpm,
                         counter,
                     ),
@@ -324,7 +328,14 @@ class Civic10ClusterEncoder(ClusterEncoder):
             frames.append(
                 _meta_frame(
                     DOORS_STATUS,
-                    _pack_doors(*door_vals, counter),
+                    _pack_doors(
+                        door_vals[0],
+                        door_vals[1],
+                        door_vals[2],
+                        door_vals[3],
+                        door_vals[4],
+                        counter,
+                    ),
                     ts,
                     "DOORS_STATUS",
                     tag,
@@ -372,7 +383,7 @@ class Civic10ClusterEncoder(ClusterEncoder):
             )
 
         odo = state.get("vehicle.odometer")
-        if _known(odo):
+        if _known(odo) and odo.value is not None:
             frames.append(
                 _meta_frame(
                     ODOMETER,
@@ -438,7 +449,9 @@ class Civic10ClusterEncoder(ClusterEncoder):
                 arbitration_id=GEARBOX,
                 period_ms=100.0,
                 name="GEARBOX classic packing (opendbc research)",
-                notes="Classic GEAR_SHIFTER @5|6; CONFLICT with _gearbox_common — see conflicts.yaml.",
+                notes=(
+                    "Classic GEAR_SHIFTER @5|6; CONFLICT with _gearbox_common — see conflicts.yaml."
+                ),
                 synthetic=True,
             ),
             PeriodicFrameSpec(

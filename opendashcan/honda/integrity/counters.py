@@ -46,13 +46,9 @@ COUNTER_2BIT_V1 = CounterSpec(
 )
 
 
-def apply_2bit_counter(
-    data: bytes, counter: int, *, platform_id: str | None = None
-) -> bytes:
+def apply_2bit_counter(data: bytes, counter: int, *, platform_id: str | None = None) -> bytes:
     if platform_id is not None and platform_id not in COUNTER_2BIT_PLATFORMS:
-        raise ValueError(
-            f"honda_2bit_v1 not documented for platform {platform_id!r}"
-        )
+        raise ValueError(f"honda_2bit_v1 not documented for platform {platform_id!r}")
     return honda_set_counter(data, counter)
 
 

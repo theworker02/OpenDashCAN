@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import contextlib
 from pathlib import Path
 
 from PySide6.QtCore import QObject, Qt, QThread, QTimer, Signal, Slot
@@ -78,10 +79,8 @@ class _BusWorker(QObject):
                 self.error.emit(str(exc))
         finally:
             if self._bus is not None:
-                try:
+                with contextlib.suppress(Exception):
                     self._bus.shutdown()
-                except Exception:  # noqa: BLE001
-                    pass
             self.finished.emit()
 
     def request_stop(self) -> None:
@@ -191,9 +190,7 @@ class LivePanel(QWidget):
         right_l = QVBoxLayout(right)
         right_l.addWidget(QLabel("Decoded signals (documented layouts only)"))
         self.sig_table = QTableWidget(0, 4)
-        self.sig_table.setHorizontalHeaderLabels(
-            ["Signal", "Value", "Confidence", "Last update"]
-        )
+        self.sig_table.setHorizontalHeaderLabels(["Signal", "Value", "Confidence", "Last update"])
         self.sig_table.setAlternatingRowColors(True)
         self.sig_table.horizontalHeader().setStretchLastSection(True)
         self.sig_table.setFont(QFont("Consolas", 10))

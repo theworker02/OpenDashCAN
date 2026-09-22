@@ -128,11 +128,7 @@ def classify_message(
 
 
 def classify_from_dbc_message(msg: dict[str, Any], *, platform_hint: str | None = None) -> str:
-    taxes = [
-        s.get("taxonomy")
-        for s in (msg.get("signals") or [])
-        if s.get("taxonomy")
-    ]
+    taxes = [s.get("taxonomy") for s in (msg.get("signals") or []) if s.get("taxonomy")]
     aid = msg.get("id_dec")
     if aid is None and msg.get("id_hex"):
         try:

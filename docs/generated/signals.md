@@ -73,6 +73,14 @@
 | `honda.civic.gen11.us` | `safety.seatbelt_passenger` | `0x305` | DOCUMENTED | False |
 | `honda.civic.gen11.us` | `adas.acc_state` | `0x17C` | DOCUMENTED | False |
 | `honda.civic.gen11.us` | `vehicle.ignition_state` | `UNKNOWN` | UNKNOWN | False |
+| `honda.civic.gen7.us` | `powertrain.engine_rpm` | `UNKNOWN` | UNKNOWN | False |
+| `honda.civic.gen7.us` | `vehicle.speed` | `UNKNOWN` | UNKNOWN | False |
+| `honda.civic.gen7.us` | `powertrain.coolant_temperature` | `UNKNOWN` | UNKNOWN | False |
+| `honda.civic.gen7.us` | `fuel.level` | `UNKNOWN` | UNKNOWN | False |
+| `honda.civic.gen7.us` | `transmission.gear` | `UNKNOWN` | UNKNOWN | False |
+| `honda.civic.gen7.us` | `lighting.left_indicator` | `UNKNOWN` | UNKNOWN | False |
+| `honda.civic.gen7.us` | `lighting.right_indicator` | `UNKNOWN` | UNKNOWN | False |
+| `honda.civic.gen7.us` | `vehicle.ignition_state` | `UNKNOWN` | UNKNOWN | False |
 | `honda.civic.gen8.us` | `powertrain.engine_rpm` | `UNKNOWN` | UNKNOWN | False |
 | `honda.civic.gen8.us` | `vehicle.speed` | `UNKNOWN` | UNKNOWN | False |
 | `honda.civic.gen8.us` | `powertrain.coolant_temperature` | `UNKNOWN` | UNKNOWN | False |

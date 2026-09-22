@@ -7,8 +7,8 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-from opendashcan.cluster.classify import classify_from_dbc_message
 from opendashcan.analysis.lineage import _load_indexed_messages
+from opendashcan.cluster.classify import classify_from_dbc_message
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -49,9 +49,7 @@ def build_network_graph(
     msgs = messages if messages is not None else _load_indexed_messages()
     if cluster_platform_filter:
         msgs = [
-            m
-            for m in msgs
-            if cluster_platform_filter in str(m.get("vehicle_id") or "")
+            m for m in msgs if cluster_platform_filter in str(m.get("vehicle_id") or "")
         ] or msgs  # fall back to all if filter empty
 
     nodes: dict[str, dict[str, Any]] = {}

@@ -143,8 +143,7 @@ def normalize_platform_id(raw: str, *, default_market: str = "us") -> str:
         )
 
     raise KeyError(
-        f"invalid platform id: {raw!r} "
-        f"(expected honda.model.genN.market or legacy honda:model:N)"
+        f"invalid platform id: {raw!r} (expected honda.model.genN.market or legacy honda:model:N)"
     )
 
 

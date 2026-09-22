@@ -77,9 +77,9 @@ def capture(with_splash: bool) -> int:
     from PySide6.QtGui import QFont
     from PySide6.QtWidgets import QApplication
 
+    from opendashcan.gui import services
     from opendashcan.gui.main_window import MainWindow
     from opendashcan.gui.splash import BootSplash
-    from opendashcan.gui import services
 
     _ensure_dirs()
     gen = ROOT / "tools" / "generate_wiring_diagrams.py"
@@ -111,7 +111,7 @@ def capture(with_splash: bool) -> int:
         splash._emblem.glow = g
         splash._opacity.setOpacity(0.4 + 0.6 * g)
         app.processEvents()
-        fp = DEMOS / f"_splash_frame_{int(g*10)}.png"
+        fp = DEMOS / f"_splash_frame_{int(g * 10)}.png"
         _save_widget(splash, fp)
         splash_frames.append(fp)
     splash.skip()

@@ -98,7 +98,10 @@ def test_splash_importable() -> None:
 
     assert splash.DISCLAIMER.startswith("Not affiliated")
     assert "Honda Motor Co" in splash.TRADEMARK_NOTICE
-    assert "copyright" in splash.TRADEMARK_NOTICE.lower() or "trademark" in splash.TRADEMARK_NOTICE.lower()
+    assert (
+        "copyright" in splash.TRADEMARK_NOTICE.lower()
+        or "trademark" in splash.TRADEMARK_NOTICE.lower()
+    )
     assert callable(splash.splash_disabled)
     assert callable(splash.honda_splash_logo_path)
     assert callable(splash.rounded_logo_pixmap)
@@ -111,7 +114,7 @@ def test_rounded_logo_pixmap_optional() -> None:
     os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
     from PySide6.QtWidgets import QApplication
 
-    from opendashcan.gui.splash import rounded_logo_pixmap, repo_logo_path
+    from opendashcan.gui.splash import repo_logo_path, rounded_logo_pixmap
 
     _ = QApplication.instance() or QApplication([])
     path = repo_logo_path()
